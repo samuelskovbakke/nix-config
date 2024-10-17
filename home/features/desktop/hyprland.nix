@@ -9,6 +9,15 @@ in {
   options.features.desktop.hyprland.enable = mkEnableOption "hyprland config";
 
   config = mkIf cfg.enable {
+    home.packages = with pkgs; [
+      waybar
+      hyprpaper
+      hypridle
+      hyprlock
+      dunst
+      pulseaudio
+    ];
+
     wayland.windowManager.hyprland = {
       enable = true;
       settings = {

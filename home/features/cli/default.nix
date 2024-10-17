@@ -2,7 +2,6 @@
   imports = [
     ./zsh.nix
     ./fzf.nix
-    ./fastfetch.nix
   ];
 
   programs.zoxide = {
@@ -28,5 +27,9 @@
     ripgrep
     tldr
     zip
+    fastfetch
+    thefuck
+    tmux
+    zsh-powerlevel10k
   ];
 }
