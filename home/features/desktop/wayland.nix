@@ -1,12 +1,12 @@
-{
-  config,
-  lib,
-  pkgs,
-  ...
+{ config
+, lib
+, pkgs
+, ...
 }:
 with lib; let
   cfg = config.features.desktop.wayland;
-in {
+in
+{
   options.features.desktop.wayland.enable = mkEnableOption "wayland extra tools and config";
 
   config = mkIf cfg.enable {
@@ -182,13 +182,13 @@ in {
           passthrough = false;
           gtk-layer-shell = true;
           height = 0;
-          modules-left = ["clock" "custom/weather" "hyprland/workspaces"];
-          modules-center = ["hyprland/window"];
+          modules-left = [ "clock" "custom/weather" "hyprland/workspaces" ];
+          modules-center = [ "hyprland/window" ];
           modules-right = [
             "tray"
-	    "pulseaudio"
-	    "battery"
-	    "network"
+            "pulseaudio"
+            "battery"
+            "network"
           ];
 
           "hyprland/window" = {
@@ -203,19 +203,15 @@ in {
             on-scroll-up = "hyprctl dispatch workspace e+1";
             on-scroll-down = "hyprctl dispatch workspace e-1";
             format-icons = {
-              "1" = "";
-              "2" = "";
-              "3" = "";
-              "4" = "";
-              "5" = "";
-              "6" = "";
-              "7" = "";
+              "1" = "";
+              "2" = "";
+              "3" = "";
             };
             persistent_workspaces = {
-              "1" = [];
-              "2" = [];
-              "3" = [];
-              "4" = [];
+              "1" = [ ];
+              "2" = [ ];
+              "3" = [ ];
+              # "4" = [ ];
             };
           };
           "custom/weather" = {
@@ -233,41 +229,41 @@ in {
             format = " {:%R   %d/%m}";
             tooltip-format = "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>";
           };
-	  battery = {
+          battery = {
             states = {
               warning = 30;
               critical = 15;
             };
-            format = "{icon}  {capacity}%";
-            format-charging = "  {capacity}%";
-            format-plugged = "🔌 {capacity}%";
+            format = "{icon} {capacity}%";
+            format-charging = " {capacity}%";
+            format-plugged = " {capacity}%";
             format-alt = "{time} {icon}";
             format-full = "  {capacity}%";
-            format-icons = ["" "" "" "" ""];
-	  };
-	  network = {
-            format-wifi = "  {essid}";
-            format-ethernet = "{ifname}: {ipaddr}/{cidr} ";
-            format-linked = "{ifname} (No IP) ";
-            format-disconnected = " Disconnected";
-            format-alt = "{ifname}: {ipaddr}/{cidr}";
-	  };
-	  pulseaudio = {
-	    format = "{icon} {volume}%";
-            format-muted = " Muted";
-          format-icons = {
-            headphone = "";
-            hands-free = "";
-            headset = "";
-            phone = "";
-            portable = "";
-            car = "";
-            default = ["" "" ""];
+            format-icons = [ "" "" "" "" "" ];
           };
-          on-click = "pavucontrol";
+          network = {
+            format-wifi = "  {essid}";
+            format-ethernet = "{ifname}: {ipaddr}/{cidr}  ";
+            format-linked = "{ifname} (No IP) ";
+            format-disconnected = "  Disconnected";
+            format-alt = "{ifname}: {ipaddr}/{cidr}";
+          };
+          pulseaudio = {
+            format = "{icon} {volume}%";
+            format-muted = " Muted";
+            format-icons = {
+              headphone = "";
+              hands-free = "";
+              headset = "";
+              phone = "";
+              portable = "";
+              car = "";
+              default = [ "" "" "" ];
+            };
+            on-click = "pavucontrol";
+          };
         };
       };
-    };
     };
 
     home.packages = with pkgs; [

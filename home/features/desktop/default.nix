@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{ pkgs, ... }: {
   imports = [
     ./fonts.nix
     ./hyprland.nix
@@ -10,6 +10,7 @@
 
   home.packages = with pkgs; [
     vscode
+    jetbrains.idea-ultimate
     neovide
     vesktop # Discord
     kdePackages.okular # PDF viewer
@@ -22,7 +23,7 @@
     zip
     celluloid # Video player
 
-    kdePackages.dolphin
+    # kdePackages.dolphin
     kdePackages.qtwayland
     kdePackages.qtsvg
 
@@ -42,8 +43,11 @@
     shellIntegration = {
       enableZshIntegration = true;
     };
-    font = {name = "Fira Code";};
-    theme = "Dracula";
-    settings = {copy_on_select = "yes";};
+    font = { name = "Fira Code"; };
+    themeFile = "tokyo_night_night";
+    settings = {
+      copy_on_select = "yes";
+      enable_audio_bell = false;
+    };
   };
 }
