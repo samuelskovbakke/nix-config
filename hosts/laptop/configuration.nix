@@ -140,12 +140,6 @@
   # Make zsh the default shell for samuel
   programs.zsh.enable = true;
 
-
-  environment.etc."myfile" = {
-    source = "/nix/store/m5db887cmx6nk99gm5q8hm9dhg7dm0gw-vscode-1.94.2/lib/vscode/resources/app/out/vs/workbench"; 
-    mode = "0440";
-  };
-
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ... ];

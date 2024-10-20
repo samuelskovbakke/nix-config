@@ -104,7 +104,7 @@ in {
         master = {};
 
         gestures = {
-          workspace_swipe = false;
+          workspace_swipe = true;
         };
 
         windowrule = [
@@ -205,6 +205,7 @@ in {
           "workspace 1,opacity 1.0, class:(firefox)"
           "workspace 2,class:(kitty)"
           "workspace 3,class:(code)"
+          "workspace 3,class:(idea)"
         ];
       };
     };

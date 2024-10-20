@@ -34,6 +34,7 @@
     NIXOS_OZONE_WL = "1";
     TERMINAL = "kitty";
     QT_QPA_PLATFORM = "wayland";
+    EDITOR = "neovide";
   };
 
   fonts.fontconfig.enable = true;
