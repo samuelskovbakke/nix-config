@@ -78,4 +78,19 @@
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
+
+
+  # GTK stuff
+  gtk = {
+    enable = true;
+    iconTheme = {
+      package = (pkgs.catppuccin-papirus-folders.override { flavor = "mocha"; accent = "peach"; });
+      name  = "Papirus-Dark";
+    };
+    theme = {
+      package = (pkgs.catppuccin-gtk.override { accents = [ "peach" ]; size = "standard"; variant = "mocha"; });
+      name = "Catppuccin-Mocha-Standard-Peach-Dark";
+    };
+  };
+
 }

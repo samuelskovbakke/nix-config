@@ -12,7 +12,6 @@
   programs.eza = {
     enable = true;
     enableZshIntegration = true;
-    extraOptions = ["-l" "--icons" "--git" "-a"];
   };
 
   programs.bat.enable = true;

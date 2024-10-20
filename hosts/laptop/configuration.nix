@@ -9,8 +9,14 @@
   ];
 
   # Bootloader.
-  boot.loader.grub.enable = true;
-  boot.loader.grub.devices = [ "/dev/sda" ];
+  boot.loader.systemd-boot.enable = true;
+  boot.loader.efi.canTouchEfiVariables = true;
+
+  # Login Screen
+  services.xserver.enable = true;
+  services.xserver.displayManager.sddm.enable = true;
+  services.xserver.desktopManager.plasma6.enable = true;
+
 
   networking.hostName = "laptop"; # Define your hostname.
   # networking.wireless.enable = true; # Enables wireless support via wpa_supplicant.
@@ -29,15 +35,15 @@
   i18n.defaultLocale = "en_DK.UTF-8";
 
   i18n.extraLocaleSettings = {
-    LC_ADDRESS = "en_DK.UTF-8";
-    LC_IDENTIFICATION = "en_DK.UTF-8";
-    LC_MEASUREMENT = "en_DK.UTF-8";
-    LC_MONETARY = "en_DK.UTF-8";
-    LC_NAME = "en_DK.UTF-8";
-    LC_NUMERIC = "en_DK.UTF-8";
-    LC_PAPER = "en_DK.UTF-8";
-    LC_TELEPHONE = "en_DK.UTF-8";
-    LC_TIME = "en_DK.UTF-8";
+    LC_ADDRESS = "da_DK.UTF-8";
+    LC_IDENTIFICATION = "da_DK.UTF-8";
+    LC_MEASUREMENT = "da_DK.UTF-8";
+    LC_MONETARY = "da_DK.UTF-8";
+    LC_NAME = "da_DK.UTF-8";
+    LC_NUMERIC = "da_DK.UTF-8";
+    LC_PAPER = "da_DK.UTF-8";
+    LC_TELEPHONE = "da_DK.UTF-8";
+    LC_TIME = "da_DK.UTF-8";
   };
 
   # Configure keymap in X11
@@ -56,6 +62,7 @@
     wget
     neovim
     git
+    lshw
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -75,10 +82,57 @@
   #   allowSFTP = true;
   # };
 
+  hardware.opengl.enable = true;
+
+  services.xserver.videoDrivers = ["nvidia"];
+
+  hardware.nvidia = {
+    modesetting.enable = true;
+    powerManagement = {
+      enable = true;
+      finegrained = true;
+    };
+    prime = {
+      offload.enable = true;
+      intelBusId = "PCI:0:2:0";
+      nvidiaBusId = "PCI:1:0:0";
+    };
+    nvidiaSettings = true;
+    open = false;
+  };
+
+  
+  # Audio stuff
+  hardware = {
+    pulseaudio = {
+      enable = false;
+      extraModules = [ pkgs.pulseaudio-modules-bt ];
+    };
+    bluetooth.enable = true;
+  };
+
+  #sound = {
+  #  enable = true;
+  #  mediaKeys.enable = true;
+  #};
+
+  services.pipewire = {
+    enable = true;
+    alsa.enable = true;
+    alsa.support32Bit = true;
+    pulse.enable = true;
+  };
+
   programs.hyprland = {
     enable = true;
     xwayland.enable = true;
   };
+
+  programs.thunar = {
+    enable = true;
+    plugins = with pkgs.xfce; [ thunar-archive-plugin thunar-volman ];
+  };
+
 
   # Make zsh the default shell for samuel
   programs.zsh.enable = true;

@@ -11,13 +11,17 @@ in {
     mkEnableOption "install additional fonts for desktop apps";
 
   config = mkIf cfg.enable {
+    fonts.fontconfig.enable = true;
     home.packages = with pkgs; [
       fira-code
       fira-code-symbols
       fira-code-nerdfont
       font-manager
-      font-awesome_5
+      font-awesome
       noto-fonts
+      noto-fonts-emoji
+      noto-fonts-cjk
+      wqy_zenhei
     ];
   };
 }

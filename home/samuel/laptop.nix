@@ -8,9 +8,8 @@
 
   features = {
     cli = {
-      fish.enable = true;
+      zsh.enable = true;
       fzf.enable = true;
-      neofetch.enable = true;
     };
     desktop = {
       fonts.enable = true;
@@ -32,7 +31,8 @@
         # }
       ];
       monitor = [
-        ",1920x1080@144,0x0,1"
+        #",1920x1080@144,0x0,1.10"
+        ",1920x1080@144,auto,1.20"
       ];
       # workspace = [
       #   "1, monitor:DP-1, default:true"

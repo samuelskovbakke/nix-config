@@ -6,8 +6,9 @@
     ./wofi.nix
   ];
 
+  programs.firefox.enable = true;
+
   home.packages = with pkgs; [
-    firefox
     vscode
     neovide
     vesktop # Discord
@@ -21,6 +22,9 @@
     zip
     celluloid # Video player
 
+    kdePackages.dolphin
+    kdePackages.qtwayland
+    kdePackages.qtsvg
 
   ];
 

@@ -14,7 +14,6 @@
   outputs = {
     self,
     # disko,
-    dotfiles,
     home-manager,
     nixpkgs,
     ...

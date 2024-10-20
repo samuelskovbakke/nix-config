@@ -1,6 +1,7 @@
-{
+	{
   config,
   lib,
+  pkgs,
   ...
 }:
 with lib; let
@@ -35,7 +36,8 @@ in {
         env = [
           "XCURSOR_SIZE,32"
           "WLR_NO_HARDWARE_CURSORS,1"
-          "GTK_THEME,Dracula"
+          "GTK_THEME,YARU-BLUE-V21.04"
+	  "MOZ_ENABLE_WAYLAND,1"
         ];
 
         input = {
@@ -139,16 +141,17 @@ in {
 
         bind = [
           "$mainMod, return, exec, kitty"
-          "$mainMod, e, exec, thunar"
+          "$mainMod, X, exec, kitty"
+          "$mainMod, E, exec, thunar"
+          "$mainMod, B, exec, firefox"
           "$mainMod, Escape, exec, wlogout -p layer-shell"
-          "$mainMod, Space, togglefloating"
-          "$mainMod, q, killactive"
+          "$mainMod, T, togglefloating"
+          "$mainMod, Q, killactive"
           "$mainMod, M, exit"
           "$mainMod, F, fullscreen"
           "$mainMod, V, togglefloating"
-          "$mainMod, D, exec, wofi --show drun --allow-images"
+          "$mainMod, SPACE, exec, wofi --show drun --allow-images"
           "$mainMod SHIFT, S, exec, bemoji"
-          "$mainMod, P, exec, wofi-pass"
           "$mainMod SHIFT, P, pseudo"
           "$mainMod, J, togglesplit"
           "$mainMod, left, movefocus, l"
@@ -177,6 +180,18 @@ in {
           "$mainMod SHIFT, 0, movetoworkspace, 10"
           "$mainMod, mouse_down, workspace, e+1"
           "$mainMod, mouse_up, workspace, e-1"
+
+	  # Volume and Brightness
+          ",XF86MonBrightnessUp, exec, brightnessctl set +4%"
+          ",XF86MonBrightnessDown, exec, brightnessctl set 4%-"
+          "SHIFT, XF86MonBrightnessUp, exec, brightnessctl set 100%"
+          "SHIFT, XF86MonBrightnessDown, exec, brightnessctl set 10%"
+
+          ",XF86AudioRaiseVolume, exec, wpctl set-volume -l 1.4 @DEFAULT_AUDIO_SINK@ 5%+"
+          ",XF86AudioLowerVolume, exec, wpctl set-volume -l 1.4 @DEFAULT_AUDIO_SINK@ 5%-"
+          "SHIFT, XF86AudioRaiseVolume, exec, wpctl set-volume -l 1.4 @DEFAULT_AUDIO_SINK@ 100%"
+          "SHIFT, XF86AudioLowerVolume, exec, wpctl set-volume -l 1.4 @DEFAULT_AUDIO_SINK@ 10%"
+          ",XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
         ];
 
         bindm = [
@@ -186,7 +201,7 @@ in {
 
         windowrulev2 = [
           "workspace 1,opacity 1.0, class:(firefox)"
-          "workspace 2,class:(tmux)"
+          "workspace 2,class:(kitty)"
         ];
       };
     };

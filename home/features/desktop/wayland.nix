@@ -186,10 +186,13 @@ in {
           modules-center = ["hyprland/window"];
           modules-right = [
             "tray"
+	    "pulseaudio"
+	    "battery"
+	    "network"
           ];
 
           "hyprland/window" = {
-            format = "👉 {}";
+            format = "{}";
             seperate-outputs = true;
           };
           "hyprland/workspaces" = {
@@ -219,7 +222,7 @@ in {
             format = "{}°C";
             tooltip = true;
             interval = 3600;
-            exec = "wttrbar --location Pockau-Lengefeld";
+            exec = "wttrbar --location Aarhus";
             return-type = "json";
           };
           tray = {
@@ -230,8 +233,41 @@ in {
             format = " {:%R   %d/%m}";
             tooltip-format = "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>";
           };
+	  battery = {
+            states = {
+              warning = 30;
+              critical = 15;
+            };
+            format = "{icon}  {capacity}%";
+            format-charging = "  {capacity}%";
+            format-plugged = "🔌 {capacity}%";
+            format-alt = "{time} {icon}";
+            format-full = "  {capacity}%";
+            format-icons = ["" "" "" "" ""];
+	  };
+	  network = {
+            format-wifi = "  {essid}";
+            format-ethernet = "{ifname}: {ipaddr}/{cidr} ";
+            format-linked = "{ifname} (No IP) ";
+            format-disconnected = " Disconnected";
+            format-alt = "{ifname}: {ipaddr}/{cidr}";
+	  };
+	  pulseaudio = {
+	    format = "{icon} {volume}%";
+            format-muted = " Muted";
+          format-icons = {
+            headphone = "";
+            hands-free = "";
+            headset = "";
+            phone = "";
+            portable = "";
+            car = "";
+            default = ["" "" ""];
+          };
+          on-click = "pavucontrol";
         };
       };
+    };
     };
 
     home.packages = with pkgs; [
@@ -244,6 +280,7 @@ in {
       wl-clipboard
       wlogout
       wtype
+      wttrbar
     ];
   };
 }
