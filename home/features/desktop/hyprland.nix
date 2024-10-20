@@ -204,7 +204,7 @@ in {
         windowrulev2 = [
           "workspace 1,opacity 1.0, class:(firefox)"
           "workspace 2,class:(kitty)"
-          "workspace 3,class:(vscode)"
+          "workspace 3,class:(code)"
         ];
       };
     };

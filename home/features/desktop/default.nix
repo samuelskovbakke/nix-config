@@ -44,7 +44,7 @@
       enableZshIntegration = true;
     };
     font = { name = "Fira Code"; };
-    themeFile = "tokyo_night_night";
+    themeFile = "spaceduck";
     settings = {
       copy_on_select = "yes";
       enable_audio_bell = false;
