@@ -34,10 +34,10 @@ in {
         ];
 
         env = [
-          "XCURSOR_SIZE,32"
+          "XCURSOR_SIZE,24"
           "WLR_NO_HARDWARE_CURSORS,1"
           "GTK_THEME,YARU-BLUE-V21.04"
-	  "MOZ_ENABLE_WAYLAND,1"
+	        "MOZ_ENABLE_WAYLAND,1"
         ];
 
         input = {

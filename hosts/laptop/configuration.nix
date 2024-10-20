@@ -13,9 +13,9 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
   # Login Screen
-  services.xserver.enable = true;
-  services.xserver.displayManager.sddm.enable = true;
-  services.xserver.desktopManager.plasma6.enable = true;
+  services.displayManager.sddm.wayland.enable = true;
+  services.displayManager.sddm.enable = true;
+  services.desktopManager.plasma6.enable = true;
 
 
   networking.hostName = "laptop"; # Define your hostname.
@@ -82,7 +82,10 @@
   #   allowSFTP = true;
   # };
 
-  hardware.opengl.enable = true;
+  # To fix VSCode on Wayland 
+  environment.sessionVariables.NIXOS_OZONE_WL = "1";
+
+  hardware.graphics.enable = true;
 
   services.xserver.videoDrivers = ["nvidia"];
 
@@ -136,6 +139,12 @@
 
   # Make zsh the default shell for samuel
   programs.zsh.enable = true;
+
+
+  environment.etc."myfile" = {
+    source = "/nix/store/m5db887cmx6nk99gm5q8hm9dhg7dm0gw-vscode-1.94.2/lib/vscode/resources/app/out/vs/workbench"; 
+    mode = "0440";
+  };
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];

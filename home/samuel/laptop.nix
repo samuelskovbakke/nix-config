@@ -3,6 +3,7 @@
     ../common
     ../features/cli
     ../features/desktop
+    ../features/coding
     ./home.nix
   ];
 

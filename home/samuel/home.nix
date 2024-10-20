@@ -91,6 +91,7 @@
       package = (pkgs.catppuccin-gtk.override { accents = [ "peach" ]; size = "standard"; variant = "mocha"; });
       name = "Catppuccin-Mocha-Standard-Peach-Dark";
     };
+    # cursorTheme.size = 24;
   };
 
 }
