@@ -182,7 +182,11 @@ in
           passthrough = false;
           gtk-layer-shell = true;
           height = 0;
-          modules-left = [ "clock" "custom/weather" "hyprland/workspaces" ];
+          modules-left = [
+            "clock"
+            "custom/weather"
+            "hyprland/workspaces"
+          ];
           modules-center = [ "hyprland/window" ];
           modules-right = [
             "tray"
@@ -278,7 +282,7 @@ in
       wl-clipboard
       wlogout
       wtype
-      wttrbar
+      wttrbar # for some reason doesn't seem to work
       pavucontrol
       networkmanagerapplet
     ];

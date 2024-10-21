@@ -66,6 +66,7 @@
     
     # To handle the touchpad and keyboard 
     xorg.xinput
+    xorg.xf86inputsynaptics # synclient for toggling touchpad
     xbindkeys
     libinput
   ];

@@ -172,6 +172,9 @@ in
           ", XF86KbdBrightnessDown, exec, brightnessctl --device='rgb:kbd_backlight' set 20%-"
           ", XF86KbdLightOnOff, exec, ~/nix-config/home/features/desktop/scripts/toggle-kbd-backlight.sh"
 
+          # Toggle touchpad
+          ", XF86TouchpadToggle, exec, ~/nix-config/home/features/desktop/scripts/toggle-touchpad.sh"
+
           "$mainMod, J, togglesplit"
           "$mainMod, left, movefocus, l"
           "$mainMod, right, movefocus, r"

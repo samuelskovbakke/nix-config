@@ -46,7 +46,7 @@
         "samuel@laptop" = home-manager.lib.homeManagerConfiguration {
           pkgs = nixpkgs.legacyPackages."x86_64-linux";
           extraSpecialArgs = { inherit inputs outputs; };
-          modules = [ ./home/samuel/samuel.nix ];
+          modules = [ ./home/samuel/laptop.nix ];
         };
       };
     };

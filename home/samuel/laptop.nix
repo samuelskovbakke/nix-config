@@ -26,10 +26,10 @@
           name = "keyboard";
           kb_layout = "dk";
         }
-        # {
-        #   name = "mouse";
-        #   sensitivity = -0.5;
-        # }
+        {
+          name = "elan0412:00-04f3:3162-touchpad";
+          enabled = true;
+        }
       ];
       monitor = [
         #",1920x1080@144,0x0,1.10"

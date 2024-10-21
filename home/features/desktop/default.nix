@@ -35,6 +35,7 @@
     TERMINAL = "kitty";
     QT_QPA_PLATFORM = "wayland";
     EDITOR = "neovide";
+    BROWSER = "firefox";
   };
 
   fonts.fontconfig.enable = true;
