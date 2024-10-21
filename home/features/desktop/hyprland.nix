@@ -1,12 +1,12 @@
-	{
-  config,
-  lib,
-  pkgs,
-  ...
+{ config
+, lib
+, pkgs
+, ...
 }:
 with lib; let
   cfg = config.features.desktop.hyprland;
-in {
+in
+{
   options.features.desktop.hyprland.enable = mkEnableOption "hyprland config";
 
   config = mkIf cfg.enable {
@@ -17,6 +17,8 @@ in {
       hyprlock
       dunst
       pulseaudio
+      libva
+      swappy
     ];
 
     wayland.windowManager.hyprland = {
@@ -37,9 +39,14 @@ in {
 
         env = [
           "XCURSOR_SIZE,24"
-          "WLR_NO_HARDWARE_CURSORS,1"
           "GTK_THEME,YARU-BLUE-V21.04"
-	        "MOZ_ENABLE_WAYLAND,1"
+          "MOZ_ENABLE_WAYLAND,1"
+
+          "LIBVA_DRIVER_NAME,nvidia"
+          "XDG_SESSION_TYPE,wayland"
+          "GBM_BACKEND,nvidia-drm"
+          "__GLX_VENDOR_LIBRARY_NAME,nvidia"
+          "WLR_NO_HARDWARE_CURSORS,1"
         ];
 
         input = {
@@ -101,7 +108,7 @@ in {
           preserve_split = true;
         };
 
-        master = {};
+        master = { };
 
         gestures = {
           workspace_swipe = true;
@@ -153,8 +160,18 @@ in {
           "$mainMod, F, fullscreen"
           "$mainMod, V, togglefloating"
           "$mainMod, SPACE, exec, wofi --show drun --allow-images"
-          "$mainMod SHIFT, S, exec, bemoji"
+          "$mainMod SHIFT, E, exec, bemoji"
           "$mainMod SHIFT, P, pseudo"
+
+          # take a screenshot
+          ", Print, exec, grim -g \"$(slurp)\" - | wl-copy"
+          "$mainMod SHIFT, S, exec, grim -g \"$(slurp)\" - | swappy -f -"
+
+          # Keyboard backlight
+          ", XF86KbdBrightnessUp, exec, brightnessctl --device='rgb:kbd_backlight' set +20%"
+          ", XF86KbdBrightnessDown, exec, brightnessctl --device='rgb:kbd_backlight' set 20%-"
+          ", XF86KbdLightOnOff, exec, ~/nix-config/home/features/desktop/scripts/toggle-kbd-backlight.sh"
+
           "$mainMod, J, togglesplit"
           "$mainMod, left, movefocus, l"
           "$mainMod, right, movefocus, r"
@@ -183,7 +200,7 @@ in {
           "$mainMod, mouse_down, workspace, e+1"
           "$mainMod, mouse_up, workspace, e-1"
 
-	  # Volume and Brightness
+          # Volume and Brightness
           ",XF86MonBrightnessUp, exec, brightnessctl set +4%"
           ",XF86MonBrightnessDown, exec, brightnessctl set 4%-"
           "SHIFT, XF86MonBrightnessUp, exec, brightnessctl set 100%"
@@ -202,10 +219,11 @@ in {
         ];
 
         windowrulev2 = [
-          "workspace 1,opacity 1.0, class:(firefox)"
+          "workspace 1,opacity 1.0,class:(firefox)"
           "workspace 2,class:(kitty)"
           "workspace 3,class:(code)"
           "workspace 3,class:(idea)"
+          "workspace 4,class:(vesktop)"
         ];
       };
     };

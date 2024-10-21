@@ -29,7 +29,7 @@ in
         * {
             border: none;
             border-radius: 0;
-            font-family: FiraCode Nerd Font;
+            font-family: FontAwesome-Free, FiraCode Nerd Font;
             font-weight: bold;
             font-size: 14px;
             min-height: 0;
@@ -144,13 +144,13 @@ in
 
         #network {
             color: #f9e2af;
-            border-left: 0px;
+            border-left: 10px;
             border-right: 0px;
         }
 
         #pulseaudio {
             color: #89b4fa;
-            border-left: 0px;
+            border-left: 10px;
             border-right: 0px;
         }
 
@@ -203,15 +203,16 @@ in
             on-scroll-up = "hyprctl dispatch workspace e+1";
             on-scroll-down = "hyprctl dispatch workspace e-1";
             format-icons = {
-              "1" = "";
+              "1" = "";
               "2" = "";
               "3" = "";
+              "4" = "";
             };
             persistent_workspaces = {
               "1" = [ ];
               "2" = [ ];
               "3" = [ ];
-              # "4" = [ ];
+              "4" = [ ];
             };
           };
           "custom/weather" = {
@@ -247,6 +248,7 @@ in
             format-linked = "{ifname} (No IP) ";
             format-disconnected = "  Disconnected";
             format-alt = "{ifname}: {ipaddr}/{cidr}";
+            on-click = "nm-applet --indicator";
           };
           pulseaudio = {
             format = "{icon} {volume}%";
@@ -277,6 +279,8 @@ in
       wlogout
       wtype
       wttrbar
+      pavucontrol
+      networkmanagerapplet
     ];
   };
 }

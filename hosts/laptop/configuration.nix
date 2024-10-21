@@ -1,7 +1,7 @@
 # Edit this configuration file to define what should be installed on
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
-{pkgs, ...}: {
+{ pkgs, ... }: {
   imports = [
     # Include the results of the hardware scan.
     # ./disko-config.nix
@@ -19,7 +19,7 @@
 
 
   networking.hostName = "laptop"; # Define your hostname.
-  # networking.wireless.enable = true; # Enables wireless support via wpa_supplicant.
+  #networking.wireless.enable = true; # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
@@ -63,6 +63,11 @@
     neovim
     git
     lshw
+    
+    # To handle the touchpad and keyboard 
+    xorg.xinput
+    xbindkeys
+    libinput
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -85,9 +90,14 @@
   # To fix VSCode on Wayland 
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
+  hardware.tuxedo-rs = {
+    enable = true;
+    tailor-gui.enable = true;
+  };
+
   hardware.graphics.enable = true;
 
-  services.xserver.videoDrivers = ["nvidia"];
+  services.xserver.videoDrivers = [ "nvidia" ];
 
   hardware.nvidia = {
     modesetting.enable = true;
@@ -104,7 +114,7 @@
     open = false;
   };
 
-  
+
   # Audio stuff
   hardware = {
     pulseaudio = {
