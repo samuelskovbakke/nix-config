@@ -14,6 +14,8 @@
     neovide
     vesktop # Discord
     kdePackages.okular # PDF viewer
+    filezilla
+    heroic # Epic Games Launcher ish
 
     brightnessctl # For managing screen brightness from the command line
 

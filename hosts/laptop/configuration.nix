@@ -63,7 +63,7 @@
     neovim
     git
     lshw
-    
+
     # To handle the touchpad and keyboard 
     xorg.xinput
     xorg.xf86inputsynaptics # synclient for toggling touchpad
@@ -108,6 +108,7 @@
     };
     prime = {
       offload.enable = true;
+      offload.enableOffloadCmd = true;
       intelBusId = "PCI:0:2:0";
       nvidiaBusId = "PCI:1:0:0";
     };
@@ -150,6 +151,15 @@
 
   # Make zsh the default shell for samuel
   programs.zsh.enable = true;
+
+  # Enable steam
+  programs.steam = {
+    enable = true;
+    remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
+    dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
+    localNetworkGameTransfers.openFirewall = true; # Open ports in the firewall for Steam Local Network Game Transfers
+  };
+  programs.gamemode.enable = true;
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
