@@ -227,6 +227,8 @@ in
           "workspace 3,class:(code)"
           "workspace 3,class:(idea)"
           "workspace 4,class:(vesktop)"
+          "workspace 5,opacity 1.0,class:(heroic)"
+          "workspace 5,opacity 1.0,class:(steam)"
         ];
       };
     };
