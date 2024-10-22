@@ -162,6 +162,14 @@
   };
   programs.gamemode.enable = true;
 
+  # Disable git tree is dirty check
+  nix = {
+    extraOptions = ''
+      experimental-features = nix-command flakes
+      warn-dirty = false
+    '';
+  };
+
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ... ];
