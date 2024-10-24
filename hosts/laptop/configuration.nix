@@ -13,10 +13,14 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
   # Login Screen
-  services.displayManager.sddm.wayland.enable = true;
-  services.displayManager.sddm.enable = true;
-  services.desktopManager.plasma6.enable = true;
-
+  services.displayManager.sddm = {
+    enable = true;
+    wayland.enable = true;
+    package = pkgs.kdePackages.sddm;
+  };
+  services.displayManager.defaultSession = "hyprland";
+  # services.desktopManager.plasma6.enable = true;
+  catppuccin.enable = true;
 
   networking.hostName = "laptop"; # Define your hostname.
   #networking.wireless.enable = true; # Enables wireless support via wpa_supplicant.

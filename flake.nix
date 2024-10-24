@@ -9,6 +9,8 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    catppuccin.url = "github:catppuccin/nix";
   };
 
   outputs =
@@ -16,6 +18,7 @@
     , # disko,
       home-manager
     , nixpkgs
+    , catppuccin
     , ...
     } @ inputs:
     let
@@ -38,6 +41,7 @@
           specialArgs = { inherit inputs outputs; };
           modules = [
             ./hosts/laptop
+            catppuccin.nixosModules.catppuccin
             # inputs.disko.nixosModules.disko
           ];
         };
@@ -46,7 +50,10 @@
         "samuel@laptop" = home-manager.lib.homeManagerConfiguration {
           pkgs = nixpkgs.legacyPackages."x86_64-linux";
           extraSpecialArgs = { inherit inputs outputs; };
-          modules = [ ./home/samuel/laptop.nix ];
+          modules = [
+            ./home/samuel/laptop.nix
+            catppuccin.homeManagerModules.catppuccin
+          ];
         };
       };
     };

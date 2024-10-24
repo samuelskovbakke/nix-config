@@ -4,6 +4,10 @@
     ./hyprland.nix
     ./wayland.nix
     ./wofi.nix
+    ./hypridle.nix
+    ./hyprlock.nix
+    ./hyprpaper.nix
+    ./mochacss.nix
   ];
 
   programs.firefox.enable = true;

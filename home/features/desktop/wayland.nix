@@ -13,165 +13,132 @@ in
     programs.waybar = {
       enable = true;
       style = ''
-        @define-color background-darker rgba(30, 31, 41, 230);
-        @define-color background #282a36;
-        @define-color selection #44475a;
-        @define-color foreground #f8f8f2;
-        @define-color comment #6272a4;
-        @define-color cyan #8be9fd;
-        @define-color green #50fa7b;
-        @define-color orange #ffb86c;
-        @define-color pink #ff79c6;
-        @define-color purple #bd93f9;
-        @define-color red #ff5555;
-        @define-color yellow #f1fa8c;
+        @import "mocha.css";
 
         * {
-            border: none;
-            border-radius: 0;
-            font-family: FontAwesome-Free, FiraCode Nerd Font;
-            font-weight: bold;
-            font-size: 14px;
-            min-height: 0;
+          font-family: FontAwesome-Free, FiraCode Nerd Font;
+          font-weight: bold;
+          font-size: 14px;
+          min-height: 0;
         }
 
         window#waybar {
-            background: rgba(21, 18, 27, 0);
-            color: #cdd6f4;
-        }
-
-        tooltip {
-            background: #1e1e2e;
-            border-radius: 10px;
-            border-width: 2px;
-            border-style: solid;
-            border-color: #11111b;
-        }
-
-        #workspaces button {
-            padding: 5px;
-            color: #313244;
-            margin-right: 5px;
-        }
-
-        #workspaces button.active {
-            color: #11111b;
-            background: #a6e3a1;
-            border-radius: 10px;
-        }
-
-        #workspaces button.focused {
-            color: #a6adc8;
-            background: #eba0ac;
-            border-radius: 10px;
-        }
-
-        #workspaces button.urgent {
-            color: #11111b;
-            background: #a6e3a1;
-            border-radius: 10px;
-        }
-
-        #workspaces button:hover {
-            background: #11111b;
-            color: #cdd6f4;
-            border-radius: 10px;
-        }
-
-        #custom-language,
-        #custom-updates,
-        #custom-caffeine,
-        #custom-weather,
-        #window,
-        #clock,
-        #battery,
-        #pulseaudio,
-        #network,
-        #workspaces,
-        #tray,
-        #backlight {
-            background: #1e1e2e;
-            padding: 0px 10px;
-            margin: 3px 0px;
-            margin-top: 10px;
-            border: 1px solid #181825;
-        }
-
-        #tray {
-            border-radius: 10px;
-            margin-right: 10px;
-        }
-
-        #workspaces {
-            background: #1e1e2e;
-            border-radius: 10px;
-            margin-left: 10px;
-            padding-right: 0px;
-            padding-left: 5px;
-        }
-
-        #custom-caffeine {
-            color: #89dceb;
-            border-radius: 10px 0px 0px 10px;
-            border-right: 0px;
-            margin-left: 10px;
-        }
-
-        #custom-language {
-            color: #f38ba8;
-            border-left: 0px;
-            border-right: 0px;
-        }
-
-        #custom-updates {
-            color: #f5c2e7;
-            border-left: 0px;
-            border-right: 0px;
+          background: transparent;
+          /*background-color: @crust;*/
+          background-color: transparent;
+          color: @text;
+          transition-property: background-color;
+          transition-duration: 0.1s;
+          /*border-bottom: 1px solid @overlay1;*/
         }
 
         #window {
-            border-radius: 10px;
-            margin-left: 60px;
-            margin-right: 60px;
+          margin: 8px;
+          margin-top: 12px;
+          padding-left: 8px;
+          padding-right: 8px;
+        }
+
+        button {
+          box-shadow: inset 0 -3px transparent;
+          border: none;
+          border-radius: 0;
+        }
+
+        button:hover {
+          background: inherit;
+          color: @mauve;
+          border-top: 2px solid @mauve;
+        }
+
+        #workspaces button {
+          padding: 0 4px;
+          margin-top: 4px
+        }
+
+        #workspaces button.focused {
+          background-color: rgba(0, 0, 0, 0.2);
+          color: @rosewater;
+          border-top: 2px solid @rosewater;
+        }
+
+        #workspaces button.active {
+          background-color: rgba(0, 0, 0, 0.2);
+          color: @mauve;
+          border-top: 2px solid @mauve;
+        }
+
+        #workspaces button.urgent {
+          background-color: #eb4d4b;
+        }
+
+        #pulseaudio,
+        #clock,
+        #battery,
+        #cpu,
+        #memory,
+        #disk,
+        #temperature,
+        #backlight,
+        #wireplumber,
+        #tray,
+        #network,
+        #mode,
+        #scratchpad
+        #custom-weather {
+          margin-top: 6px;
+          margin-bottom: 2px;
+          margin-left: 4px;
+          margin-right: 4px;
+          padding-left: 4px;
+          padding-right: 4px;
         }
 
         #clock {
-            color: #fab387;
-            border-radius: 10px 0px 0px 10px;
-            margin-left: 0px;
-            border-right: 0px;
+          color: @maroon;
+          border-bottom: 2px solid @maroon;
         }
 
-        #network {
-            color: #f9e2af;
-            border-left: 10px;
-            border-right: 0px;
+        #clock.date {
+          color: @mauve;
+          border-bottom: 2px solid @mauve;
         }
 
         #pulseaudio {
-            color: #89b4fa;
-            border-left: 10px;
-            border-right: 0px;
+          color: @blue;
+          border-bottom: 2px solid @blue;
         }
 
-        #pulseaudio.microphone {
-            color: #cba6f7;
-            border-left: 0px;
-            border-right: 0px;
+        #network {
+          color: @yellow;
+          border-bottom: 2px solid @yellow;
+        }
+
+        #tray {
+          margin-right: 10px;
         }
 
         #battery {
-            color: #a6e3a1;
-            border-radius: 0 10px 10px 0;
-            margin-right: 10px;
-            border-left: 0px;
+          color: @green;
+          border-bottom: 2px solid @green;
+        }
+
+        /* If workspaces is the leftmost module, omit left margin */
+        .modules-left>widget:first-child>#workspaces {
+          margin-left: 0;
+        }
+
+        /* If workspaces is the rightmost module, omit right margin */
+        .modules-right>widget:last-child>#workspaces {
+          margin-right: 0;
         }
 
         #custom-weather {
-            border-radius: 0px 10px 10px 0px;
-            border-right: 0px;
-            margin-left: 0px;
+          margin-top: 6px;
+          margin-right: 10px;
+          margin-left: 10px;
         }
+
       '';
       settings = {
         mainbar = {
@@ -183,16 +150,16 @@ in
           gtk-layer-shell = true;
           height = 0;
           modules-left = [
-            "clock"
             "custom/weather"
             "hyprland/workspaces"
           ];
           modules-center = [ "hyprland/window" ];
           modules-right = [
             "tray"
+            "network"
             "pulseaudio"
             "battery"
-            "network"
+            "clock"
           ];
 
           "hyprland/window" = {
@@ -283,7 +250,7 @@ in
       wl-clipboard
       wlogout
       wtype
-      wttrbar # for some reason doesn't seem to work
+      wttrbar
       pavucontrol
       networkmanagerapplet
     ];

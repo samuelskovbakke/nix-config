@@ -15,7 +15,7 @@ in
       hyprpaper
       hypridle
       hyprlock
-      dunst
+      swaynotificationcenter
       pulseaudio
       libva
       swappy
@@ -32,9 +32,10 @@ in
           "waybar"
           "hyprpaper"
           "hypridle"
-          "wl-paste -p -t text --watch clipman store -P --histpath=\"~/.local/share/clipman-primary.json\""
+          "vesktop"
           "firefox"
           "kitty"
+          "wl-paste -p -t text --watch clipman store -P --histpath=\"~/.local/share/clipman-primary.json\""
           "./scripts/check-touchpad-state.sh"
         ];
 
@@ -163,8 +164,9 @@ in
           "$mainMod, SPACE, exec, wofi --show drun --allow-images"
           "$mainMod SHIFT, E, exec, bemoji"
           "$mainMod SHIFT, P, pseudo"
+          "$mainMod, L, exec, hyprlock"
 
-          # take a screenshot
+          # Take a screenshot
           ", Print, exec, grim -g \"$(slurp)\" - | wl-copy"
           "$mainMod SHIFT, S, exec, grim -g \"$(slurp)\" - | swappy -f -"
 
