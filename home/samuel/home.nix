@@ -81,16 +81,17 @@
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 
-  # Cursor setup
-  home.pointerCursor = {
-    # name = "breeze_cursors";
-    # package = pkgs.kdePackages.breeze;
-    name = "catppuccin-mocha-dark-cursors";
-    package = pkgs.catppuccin-cursors.mochaDark;
 
-    gtk.enable = true;
-    size = 24;
-  };
+  # Cursor setup
+  # home.pointerCursor = {
+  #   # name = "breeze_cursors";
+  #   # package = pkgs.kdePackages.breeze;
+  #   name = "catppuccin-mocha-dark-cursors";
+  #   package = pkgs.catppuccin-cursors.mochaDark;
+
+  #   gtk.enable = true;
+  #   size = 24;
+  # };
 
 
   # GTK stuff
@@ -100,18 +101,37 @@
       package = (pkgs.catppuccin-papirus-folders.override { flavor = "mocha"; accent = "peach"; });
       name = "Papirus-Dark";
     };
-    theme = {
-      package = (pkgs.catppuccin-gtk.override { accents = [ "peach" ]; size = "standard"; variant = "mocha"; });
-      name = "Catppuccin-Mocha-Standard-Peach-Dark";
-    };
+    # theme = {
+    #   # package = (pkgs.catppuccin-gtk.override { accents = [ "peach" ]; size = "standard"; variant = "mocha"; });
+    #   package = pkgs.catppuccin-gtk;
+    #   name = "Catppuccin-Mocha-Standard-Peach-Dark";
+    #   # name = "Adwaita-dark";
+    # };
     cursorTheme = {
       # name = "breeze_cursors";
       package = pkgs.catppuccin-cursors.mochaDark;
       name = "catppuccin-mocha-dark-cursors";
       size = 24;
     };
+    # gtk2.extraConfig = "gtk-application-prefer-dark-theme = 1";
+    # gtk3.extraConfig.gtk-application-prefer-dark-theme = "1";
+    # gtk4.extraConfig.color-scheme = "prefer-dark";
   };
 
-
+  xdg.portal = {
+    enable = true;
+    extraPortals = [
+      pkgs.xdg-desktop-portal-gtk
+      pkgs.xdg-desktop-portal-hyprland
+    ];
+    config = {
+      common = {
+        default = [
+          "gtk"
+        ];
+      };
+    };
+    xdgOpenUsePortal = true;
+  };
 
 }

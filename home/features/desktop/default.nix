@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{ config, pkgs, ... }: {
   imports = [
     ./fonts.nix
     ./hyprland.nix
@@ -33,6 +33,10 @@
     kdePackages.qtwayland
     kdePackages.qtsvg
 
+    xdg-desktop-portal
+    xdg-desktop-portal-gtk
+    xdg-desktop-portal-hyprland
+
   ];
 
   home.sessionVariables = {
@@ -42,6 +46,11 @@
     QT_QPA_PLATFORM = "wayland";
     EDITOR = "neovide";
     BROWSER = "firefox";
+    GTK_THEME = config.gtk.theme.name;
+    GTK_USE_PORTAL = "1";
+    XDG_CURRENT_DEKSTOP = "Hyprland";
+    XDG_SESSION_DEKSTOP = "Hyprland";
+    GDK_BACKEND = "wayland";
   };
 
   fonts.fontconfig.enable = true;

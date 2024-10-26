@@ -10,6 +10,7 @@ in
   options.features.desktop.wayland.enable = mkEnableOption "wayland extra tools and config";
 
   config = mkIf cfg.enable {
+    stylix.targets.waybar.enable = false;
     programs.waybar = {
       enable = true;
       style = ''

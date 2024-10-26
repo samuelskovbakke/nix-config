@@ -6,6 +6,8 @@
     bemoji
   ];
 
+  stylix.targets.wofi.enable = false;
+
   programs.wofi = {
     enable = true;
     package = pkgs.wofi;

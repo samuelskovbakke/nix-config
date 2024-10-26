@@ -41,7 +41,6 @@ in
 
         env = [
           "XCURSOR_SIZE,24"
-          "GTK_THEME,YARU-BLUE-V21.04"
           "MOZ_ENABLE_WAYLAND,1"
 
           "LIBVA_DRIVER_NAME,nvidia"
@@ -70,13 +69,13 @@ in
           gaps_in = 5;
           gaps_out = 5;
           border_size = 1;
-          "col.active_border" = "rgba(9742b5ee) rgba(9742b5ee) 45deg";
-          "col.inactive_border" = "rgba(595959aa)";
+          # "col.active_border" = "rgba(9742b5ee) rgba(9742b5ee) 45deg";
+          # "col.inactive_border" = "rgba(595959aa)";
           layout = "dwindle";
         };
 
         decoration = {
-          "col.shadow" = "rgba(1E202966)";
+          # "col.shadow" = "rgba(1E202966)";
           drop_shadow = true;
           shadow_range = 60;
           shadow_offset = "1 2";

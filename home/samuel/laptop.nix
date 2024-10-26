@@ -1,3 +1,4 @@
+{ pkgs, ... }:
 {
   imports = [
     ../common
@@ -32,18 +33,21 @@
         }
       ];
       monitor = [
-        #",1920x1080@144,0x0,1.10"
-        ",1920x1080@144,auto,1.20"
+        "eDP-1,1920x1080@144,auto,1.2"
+        ",preferred,auto-up,1"
       ];
-      # workspace = [
-      #   "1, monitor:DP-1, default:true"
-      #   "2, monitor:DP-1"
-      #   "3, monitor:DP-1"
-      #   "4, monitor:DP-2"
-      #   "5, monitor:DP-1"
-      #   "6, monitor:DP-2"
-      #   "7, monitor:DP-2"
-      # ];
+      workspace = [
+        "1, monitor:eDP-1, default:true"
+        "2, monitor:eDP-1"
+        "3, monitor:eDP-1"
+        "4, monitor:eDP-1"
+        "5, monitor:eDP-1"
+        "6, monitor:HDMI-A-4"
+        "7, monitor:HDMI-A-4"
+        "8, monitor:HDMI-A-4"
+        "9, monitor:HDMI-A-4"
+        "10, monitor:HDMI-A-4"
+      ];
     };
   };
 }

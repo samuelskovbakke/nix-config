@@ -19,8 +19,43 @@
     package = pkgs.kdePackages.sddm;
   };
   services.displayManager.defaultSession = "hyprland";
+
   # services.desktopManager.plasma6.enable = true;
   catppuccin.enable = true;
+
+  stylix = {
+    enable = true;
+    image = ../../home/samuel/backgrounds/shaded.png;
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
+    polarity = "dark";
+    cursor = {
+      package = pkgs.catppuccin-cursors.mochaDark;
+      name = "catppuccin-mocha-dark-cursors";
+      size = 24;
+    };
+    fonts = {
+      sizes = {
+        desktop = 14;
+        applications = 10;
+      };
+      serif = {
+        package = pkgs.noto-fonts;
+        name = "Noto Serif";
+      };
+      sansSerif = {
+        package = pkgs.noto-fonts;
+        name = "Noto Sans";
+      };
+      monospace = {
+        package = pkgs.fira-code;
+        name = "Fira Code";
+      };
+      emoji = {
+        package = pkgs.noto-fonts-emoji;
+        name = "Noto Color Emoji";
+      };
+    };
+  };
 
   networking.hostName = "laptop"; # Define your hostname.
   #networking.wireless.enable = true; # Enables wireless support via wpa_supplicant.
@@ -173,6 +208,8 @@
       warn-dirty = false
     '';
   };
+
+  programs.dconf.enable = true;
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];

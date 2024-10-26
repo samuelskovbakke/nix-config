@@ -11,6 +11,9 @@
     };
 
     catppuccin.url = "github:catppuccin/nix";
+
+    stylix.url = "github:danth/stylix";
+
   };
 
   outputs =
@@ -19,6 +22,7 @@
       home-manager
     , nixpkgs
     , catppuccin
+    , stylix
     , ...
     } @ inputs:
     let
@@ -42,17 +46,20 @@
           modules = [
             ./hosts/laptop
             catppuccin.nixosModules.catppuccin
+            stylix.nixosModules.stylix
             # inputs.disko.nixosModules.disko
           ];
         };
       };
       homeConfigurations = {
+        home-manager.backupFileExtension = "hm-bak";
         "samuel@laptop" = home-manager.lib.homeManagerConfiguration {
           pkgs = nixpkgs.legacyPackages."x86_64-linux";
           extraSpecialArgs = { inherit inputs outputs; };
           modules = [
             ./home/samuel/laptop.nix
             catppuccin.homeManagerModules.catppuccin
+            stylix.homeManagerModules.stylix
           ];
         };
       };
