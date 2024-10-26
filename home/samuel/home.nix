@@ -107,12 +107,12 @@
     #   name = "Catppuccin-Mocha-Standard-Peach-Dark";
     #   # name = "Adwaita-dark";
     # };
-    cursorTheme = {
-      # name = "breeze_cursors";
-      package = pkgs.catppuccin-cursors.mochaDark;
-      name = "catppuccin-mocha-dark-cursors";
-      size = 24;
-    };
+    # cursorTheme = {
+    #   # name = "breeze_cursors";
+    #   package = pkgs.catppuccin-cursors.mochaDark;
+    #   name = "catppuccin-mocha-dark-cursors";
+    #   size = 24;
+    # };
     # gtk2.extraConfig = "gtk-application-prefer-dark-theme = 1";
     # gtk3.extraConfig.gtk-application-prefer-dark-theme = "1";
     # gtk4.extraConfig.color-scheme = "prefer-dark";
