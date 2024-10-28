@@ -88,7 +88,7 @@ in
             passes = 3;
           };
           active_opacity = 0.9;
-          inactive_opacity = 0.5;
+          inactive_opacity = 0.6;
         };
 
         animations = {
@@ -145,6 +145,7 @@ in
           "float, title:^(Picture-in-Picture)$"
           "size 800 600, title:^(Volume Control)$"
           "move 75 44%, title:^(Volume Control)$"
+          "opacity 1.0 override 0.6 override, ^(firefox)$"
         ];
 
         "$mainMod" = "SUPER";
@@ -224,13 +225,13 @@ in
         ];
 
         windowrulev2 = [
-          "workspace 1,opacity 1.0,class:(firefox)"
+          "workspace 1, class:(firefox)"
           "workspace 2,class:(kitty)"
           "workspace 3,class:(code)"
           "workspace 3,class:(idea)"
           "workspace 4,class:(vesktop)"
-          "workspace 5,opacity 1.0,class:(heroic)"
-          "workspace 5,opacity 1.0,class:(steam)"
+          "workspace 5,class:(heroic)"
+          "workspace 5,class:(steam)"
         ];
       };
     };

@@ -1,7 +1,7 @@
 # Edit this configuration file to define what should be installed on
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
-{ pkgs, ... }: {
+{ pkgs, inputs, ... }: {
   imports = [
     # Include the results of the hardware scan.
     # ./disko-config.nix
@@ -18,6 +18,10 @@
     wayland.enable = true;
     package = pkgs.kdePackages.sddm;
   };
+  services.displayManager.autoLogin = {
+      enable = true;
+      user = "samuel";
+  };
   services.displayManager.defaultSession = "hyprland";
 
   # services.desktopManager.plasma6.enable = true;
@@ -25,14 +29,17 @@
 
   stylix = {
     enable = true;
+
     image = ../../home/samuel/backgrounds/shaded.png;
     base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
     polarity = "dark";
+    
     cursor = {
       package = pkgs.catppuccin-cursors.mochaDark;
       name = "catppuccin-mocha-dark-cursors";
       size = 24;
     };
+
     fonts = {
       sizes = {
         desktop = 14;
@@ -197,7 +204,7 @@
     remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
     dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
     localNetworkGameTransfers.openFirewall = true; # Open ports in the firewall for Steam Local Network Game Transfers
-    gamescopeSession.enable = true; # Enable GameScope session
+    # gamescopeSession.enable = true; # Enable GameScope session
   };
   programs.gamemode.enable = true;
 
@@ -207,6 +214,7 @@
       experimental-features = nix-command flakes
       warn-dirty = false
     '';
+    nixPath = ["nixpkgs=${inputs.nixpkgs}"];
   };
 
   programs.dconf.enable = true;
