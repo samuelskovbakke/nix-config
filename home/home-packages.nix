@@ -29,9 +29,9 @@
     git
     jq
     oh-my-zsh
+    pay-respects
     playerctl
     ripgrep
-    thefuck
     tldr
     unzip
     wget
