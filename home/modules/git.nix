@@ -4,7 +4,8 @@
     userName = "samuelskovbakke";
     userEmail = "samuel@skovbakke.dk";
     extraConfig = {
-      credential.helper = "oauth";
+      init.defaultBranch = "main";
+      credential.helper = "store";
     };
   };
 }
