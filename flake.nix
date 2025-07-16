@@ -1,68 +1,80 @@
 {
-  description = "Samuel's NixOS Flake";
+  description = "My system configuration";
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-24.05";
+    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-24.11";
 
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    catppuccin.url = "github:catppuccin/nix";
-
-    stylix.url = "github:danth/stylix";
-
-  };
-
-  outputs =
-    { self
-    , # disko,
-      home-manager
-    , nixpkgs
-    , catppuccin
-    , stylix
-    , ...
-    } @ inputs:
-    let
-      inherit (self) outputs;
-      systems = [
-        "aarch64-linux"
-        "i686-linux"
-        "x86_64-linux"
-        "aarch64-darwin"
-        "x86_64-darwin"
-      ];
-      forAllSystems = nixpkgs.lib.genAttrs systems;
-    in
-    {
-      packages =
-        forAllSystems (system: import ./pkgs nixpkgs.legacyPackages.${system});
-      overlays = import ./overlays { inherit inputs; };
-      nixosConfigurations = {
-        laptop = nixpkgs.lib.nixosSystem {
-          specialArgs = { inherit inputs outputs; };
-          modules = [
-            ./hosts/laptop
-            catppuccin.nixosModules.catppuccin
-            stylix.nixosModules.stylix
-            # inputs.disko.nixosModules.disko
-          ];
-        };
-      };
-      homeConfigurations = {
-        home-manager.backupFileExtension = "hm-bak";
-        "samuel@laptop" = home-manager.lib.homeManagerConfiguration {
-          pkgs = nixpkgs.legacyPackages."x86_64-linux";
-          extraSpecialArgs = { inherit inputs outputs; };
-          modules = [
-            ./home/samuel/laptop.nix
-            catppuccin.homeManagerModules.catppuccin
-            stylix.homeManagerModules.stylix
-          ];
-        };
-      };
+    stylix = {
+      url = "github:danth/stylix";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    nvf = {
+      url = "github:notashelf/nvf";
+      # You can override the input nixpkgs to follow your system's
+      # instance of nixpkgs. This is safe to do as nvf does not depend
+      # on a binary cache.
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+  };
+
+  outputs = {
+    self,
+    nixpkgs,
+    home-manager,
+    ...
+  } @ inputs: let
+    system = "x86_64-linux";
+    homeStateVersion = "24.11";
+    user = "samuel";
+    hosts = [
+      {
+        hostname = "desktop";
+        stateVersion = "24.11";
+      }
+      # { hostname = "laptop"; stateVersion = "24.11"; }
+    ];
+
+    makeSystem = {
+      hostname,
+      stateVersion,
+    }:
+      nixpkgs.lib.nixosSystem {
+        system = system;
+        specialArgs = {
+          inherit inputs stateVersion hostname user;
+        };
+
+        modules = [
+          ./hosts/${hostname}/configuration.nix
+        ];
+      };
+  in {
+    nixosConfigurations = nixpkgs.lib.foldl' (configs: host:
+      configs
+      // {
+        "${host.hostname}" = makeSystem {
+          inherit (host) hostname stateVersion;
+        };
+      }) {}
+    hosts;
+
+    homeConfigurations.${user} = home-manager.lib.homeManagerConfiguration {
+      pkgs = nixpkgs.legacyPackages.${system};
+      extraSpecialArgs = {
+        inherit inputs homeStateVersion user;
+      };
+
+      modules = [
+        inputs.nvf.homeManagerModules.default
+        ./home/home.nix
+      ];
+    };
+  };
 }

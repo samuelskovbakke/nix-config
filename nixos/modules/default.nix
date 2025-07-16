@@ -1,0 +1,25 @@
+{
+  imports = [
+    ./audio.nix
+    ./bluetooth.nix
+    ./boot.nix
+    ./display-manager.nix
+    ./env.nix
+    ./extra-programs.nix
+    ./flatpak.nix
+    ./fonts.nix
+    ./home-manager.nix
+    ./hyprland.nix
+    ./kernel.nix
+    ./locale.nix
+    ./net.nix
+    ./nh.nix
+    ./nix.nix
+    ./nvidia.nix
+    ./openrgb.nix
+    ./services.nix
+    ./steam.nix
+    ./timezone.nix
+    ./user.nix
+  ];
+}
