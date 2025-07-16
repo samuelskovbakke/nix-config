@@ -29,7 +29,7 @@
     git
     jq
     oh-my-zsh
-    pay-respects
+    pay-respects # thefuck alternative
     playerctl
     ripgrep
     tldr
