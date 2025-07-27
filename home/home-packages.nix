@@ -7,9 +7,12 @@
     # Desktop apps
     pavucontrol
     vesktop
+
     xfce.thunar
     xfce.thunar-archive-plugin
     xfce.thunar-volman
+    ffmpegthumbnailer
+
     xarchiver
     neovide
     font-manager
