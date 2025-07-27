@@ -13,6 +13,7 @@
     xarchiver
     neovide
     font-manager
+    loupe
 
     # Minecraft
     ftb-app
