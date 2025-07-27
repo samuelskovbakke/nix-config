@@ -6,7 +6,7 @@
 
 {
   imports = [ # Include the results of the hardware scan.
-    ./hardware-configuration.nix
+    /etc/hardware-configuration.nix
     ./local-packages.nix
     ../../nixos/modules
   ];
