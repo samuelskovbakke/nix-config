@@ -14,6 +14,7 @@
       };
 
       lsp = {
+        formatOnSave = true;
         enable = true;
       };
 
@@ -31,6 +32,8 @@
         python.enable = true;
         markdown.enable = true;
         haskell.enable = true;
+        java.enable = true;
+        rust.enable = true;
       };
 
       utility.snacks-nvim = {
