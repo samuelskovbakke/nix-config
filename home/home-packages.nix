@@ -18,6 +18,8 @@
     font-manager
     loupe
 
+    samrewritten
+
     # Minecraft
     ftb-app
     zerotierone
