@@ -1,4 +1,8 @@
-{ homeStateVersion, user, ... }: {
+{
+  homeStateVersion,
+  user,
+  ...
+}: {
   imports = [
     ./modules
     ./home-packages.nix
@@ -9,4 +13,5 @@
     homeDirectory = "/home/${user}";
     stateVersion = homeStateVersion;
   };
+  news.display = "silent";
 }

@@ -17,6 +17,7 @@
     ./nix.nix
     ./nvidia.nix
     ./openrgb.nix
+    ./security.nix
     ./services.nix
     ./steam.nix
     ./timezone.nix
