@@ -67,6 +67,21 @@
 
     homeConfigurations.${user} = home-manager.lib.homeManagerConfiguration {
       pkgs = nixpkgs.legacyPackages.${system};
+      # below is a fix for the failing python tests
+      # pkgs = import nixpkgs {
+      #   system = system;
+      #   overlays = [
+      #     (final: prev: {
+      #       python3Packages =
+      #         prev.python3Packages
+      #         // {
+      #           i3ipc = prev.python3Packages.i3ipc.overridePythonAttrs (old: {
+      #             doCheck = false; # disable broken tests
+      #           });
+      #         };
+      #     })
+      #   ];
+      # };
       extraSpecialArgs = {
         inherit inputs homeStateVersion user;
       };

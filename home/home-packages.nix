@@ -52,7 +52,7 @@
 
     # WM stuff
     libnotify
-    libsForQt5.xwaylandvideobridge
+    kdePackages.xwaylandvideobridge
     xdg-desktop-portal-gtk
     xdg-desktop-portal-hyprland
 
