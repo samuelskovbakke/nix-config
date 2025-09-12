@@ -5,24 +5,22 @@
     # Packages in each category are sorted alphabetically
 
     # Desktop apps
+    ffmpegthumbnailer
+    font-manager
+    ghostty
+    kitty
+    loupe
+    neovide
+    neovim
+    networkmanagerapplet
     pavucontrol
+    stow
     vesktop
-
+    waybar
+    xarchiver
     xfce.thunar
     xfce.thunar-archive-plugin
     xfce.thunar-volman
-    ffmpegthumbnailer
-
-    xarchiver
-    neovide
-    font-manager
-    loupe
-
-    samrewritten
-
-    # Minecraft
-    ftb-app
-    zerotierone
 
     # CLI utils
     bat
@@ -51,23 +49,23 @@
     python313
 
     # WM stuff
-    libnotify
     kdePackages.xwaylandvideobridge
+    libnotify
+    rose-pine-hyprcursor
     xdg-desktop-portal-gtk
     xdg-desktop-portal-hyprland
 
-    rose-pine-hyprcursor
-
     # Other
     bemoji
-
-    # Desktop specific
-    openrgb-with-all-plugins
 
     # Hyprland related
     grim
     hypridle
     libqalculate
+    libsForQt5.qt5.qtbase
+    libsForQt5.qt5.qtgraphicaleffects
+    libsForQt5.qt5.qtquickcontrols2
+    libsForQt5.qt5.qtsvg
     libsForQt5.qtstyleplugin-kvantum
     networkmanagerapplet
     nwg-displays

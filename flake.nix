@@ -38,7 +38,10 @@
         hostname = "desktop";
         stateVersion = "24.11";
       }
-      # { hostname = "laptop"; stateVersion = "24.11"; }
+      {
+        hostname = "laptop";
+        stateVersion = "25.05";
+      }
     ];
 
     makeSystem = {

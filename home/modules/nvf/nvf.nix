@@ -6,7 +6,11 @@
       viAlias = false;
       vimAlias = true;
 
-      clipboard.enable = true;
+      clipboard = {
+        enable = true;
+        providers.wl-copy.enable = true;
+        registers = "unnamedplus";
+      };
 
       options = {
         tabstop = 2;
@@ -34,6 +38,7 @@
         haskell.enable = true;
         java.enable = true;
         rust.enable = true;
+        css.enable = true;
       };
 
       utility.snacks-nvim = {
