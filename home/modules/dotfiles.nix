@@ -1,37 +1,58 @@
-{config, ...}: let
-  dotfiles = "${config.home.homeDirectory}/dotfiles/.config";
-  create_symlink = path: config.lib.file.mkOutOfStoreSymlink path;
-  configs = {
-    fastfetch = "fastfetch";
-    ghostty = "ghostty";
-    "gtk-2.0" = "gtk-2.0";
-    "gtk-3.0" = "gtk-3.0";
-    "gtk-4.0" = "gtk-4.0";
-    hypr = "hypr";
-    kitty = "kitty";
-    Kvantum = "Kvantum";
-    OpenRGB = "OpenRGB";
-    qt6ct = "qt6ct";
-    rofi = "rofi";
-    swaync = "swaync";
-    wallust = "wallust";
-    waybar = "waybar";
-    wlogout = "wlogout";
-  };
+{
+  config,
+  lib,
+  ...
+}: let
+  dotfiles = "${config.home.homeDirectory}/dotfiles";
+
+  # Everything inside ~/.config
+  configsc = [
+    "fastfetch"
+    "ghostty"
+    "gtk-2.0"
+    "gtk-3.0"
+    "gtk-4.0"
+    "hypr"
+    "kitty"
+    "Kvantum"
+    "OpenRGB"
+    "qt6ct"
+    "rofi"
+    "swaync"
+    "wallust"
+    "waybar"
+    "wlogout"
+  ];
+
+  # Everything at $HOME level
+  configs = [
+    ".icons"
+    ".my-aliases.zsh"
+    ".oh-my-zsh"
+    ".p10k.zsh"
+    "Pictures"
+    ".themes"
+    ".tmux.conf"
+    ".zsh_plugins.txt"
+    ".zshrc"
+  ];
+
+  # build ln -s commands
+  mkLinks = files: targetDir:
+    builtins.concatStringsSep "\n" (map (
+        f: ''ln -sfnT "${dotfiles}/${targetDir}${f}" "$HOME/${targetDir}${f}"''
+      )
+      files);
 in {
-  xdg.configFile =
-    builtins.mapAttrs (name: subpath: {
-      source = create_symlink "${dotfiles}/${subpath}";
-      recursive = true;
-    })
-    configs;
-  home.file.".icons".source = ~/dotfiles/.icons;
-  home.file.".my-aliases.zsh".source = ~/dotfiles/.my-aliases.zsh;
-  home.file.".oh-my-zsh".source = ~/dotfiles/.oh-my-zsh;
-  home.file.".p10k.zsh".source = ~/dotfiles/.p10k.zsh;
-  home.file."Pictures".source = ~/dotfiles/Pictures;
-  home.file.".themes".source = ~/dotfiles/.themes;
-  home.file.".tmux.conf".source = ~/dotfiles/.tmux.conf;
-  home.file.".zsh_plugins.txt".source = ~/dotfiles/.zsh_plugins.txt;
-  home.file.".zshrc".source = ~/dotfiles/.zshrc;
+  # Activation script: runs after Home-Manager has created $HOME
+  home.activation.linkDotfiles = lib.hm.dag.entryAfter ["writeBoundary"] ''
+    # Ensure .config exists
+    mkdir -p "$HOME/.config"
+
+    # Link home-level files
+    ${mkLinks configs ""}
+
+    # Link .config files
+    ${mkLinks configsc ".config/"}
+  '';
 }
