@@ -68,6 +68,7 @@
       }) {}
     hosts;
 
+    home-manager.backupFileExtension = "backup";
     homeConfigurations.${user} = home-manager.lib.homeManagerConfiguration {
       pkgs = nixpkgs.legacyPackages.${system};
       # below is a fix for the failing python tests
