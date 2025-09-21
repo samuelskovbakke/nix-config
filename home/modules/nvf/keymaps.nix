@@ -63,6 +63,22 @@
 
     {
       mode = ["n"];
+      key = "<C-d>";
+      action = "<C-d>zz";
+      desc = "Go page down and center";
+      noremap = false;
+    }
+
+    {
+      mode = ["n"];
+      key = "<C-u>";
+      action = "<C-u>zz";
+      desc = "Go page up and center";
+      noremap = false;
+    }
+
+    {
+      mode = ["n"];
       key = "<C-j>";
       action = "<C-w>j";
       desc = "Go to Lower Window";
@@ -342,19 +358,19 @@
       action = ">gv";
     }
 
-    {
-      mode = ["n"];
-      key = "gco";
-      action = "o<esc>Vcx<esc><cmd>normal gcc<cr>fxa<bs>";
-      desc = "Add Comment Below";
-    }
-
-    {
-      mode = ["n"];
-      key = "gcO";
-      action = "O<esc>Vcx<esc><cmd>normal gcc<cr>fxa<bs>";
-      desc = "Add Comment Above";
-    }
+    # {
+    #   mode = ["n"];
+    #   key = "gco";
+    #   action = "o<esc>Vcx<esc><cmd>normal gcc<cr>fxa<bs>";
+    #   desc = "Add Comment Below";
+    # }
+    #
+    # {
+    #   mode = ["n"];
+    #   key = "gcO";
+    #   action = "O<esc>Vcx<esc><cmd>normal gcc<cr>fxa<bs>";
+    #   desc = "Add Comment Above";
+    # }
 
     {
       mode = ["n"];

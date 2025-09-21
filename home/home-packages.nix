@@ -72,7 +72,7 @@
     nwg-look
     pamixer
     pyprland
-    rofi-wayland
+    rofi
     slurp
     swaynotificationcenter
     swww
