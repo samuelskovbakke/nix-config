@@ -1,6 +1,6 @@
 {
   programs.nvf.settings.vim.utility = {
-    motion.leap.enable = true;
+    motion.flash-nvim.enable = true;
 
     snacks-nvim = {
       enable = true;
