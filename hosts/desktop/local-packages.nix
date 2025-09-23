@@ -1,6 +1,8 @@
 {pkgs, ...}: {
   environment.systemPackages = with pkgs; [
     samrewritten
+    heroic
+    lutris
 
     # Desktop specific
     openrgb-with-all-plugins
