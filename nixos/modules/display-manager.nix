@@ -3,19 +3,6 @@
   #   enable = true;
   #   theme = "${import ./sddm-tokyonight-theme.nix {inherit pkgs;}}";
   # };
-  environment.systemPackages = [
-    (pkgs.callPackage ./sddm-astronaut-theme.nix {
-      # theme = "renzu";
-      theme = "neon_jinx";
-      # themeConfig = {
-      #   General = {
-      #     HeaderText = "Hi";
-      #     Background = "/home/user/Desktop/wp.png";
-      #     FontSize = "10.0";
-      #   };
-      # };
-    })
-  ];
 
   services.displayManager.sddm = {
     enable = true;
