@@ -10,16 +10,15 @@
   overwriteConfig = (formats.ini {}).generate "${theme}.conf.user" themeConfig;
 in
   stdenvNoCC.mkDerivation {
-    pname = "sddm-astronaut-theme";
+    pname = "hyprddm";
     version = "1.0";
 
     src = fetchFromGitHub {
-      owner = "theawesomeyopro1";
+      owner = "samuelskovbakke";
       repo = "hyprddm";
-      rev = "cabcb450d4a7401737d62c133dd686d937f710dc";
-      hash = "sha256-sENYr8M7ZHqq2WAoS6vbqdtexftcLTxVa5jop5emyXY=";
+      rev = "3181f78b41b1fe831a6754b9624ef7805f409e00";
+      hash = "sha256-375hceCWPaYGpYgixt2reBgls0U45pz1rMzXWG+EUbk=";
     };
-    # https://github.com/theawesomeyopro1/hyprddm
     # Avoid wrapping Qt binaries
     dontWrapQtApps = true;
 
@@ -40,15 +39,15 @@ in
       runHook preInstall
 
       # Install theme to a single directory
-      install -dm755 "$out/share/sddm/themes/sddm-astronaut-theme"
-      cp -r ./* "$out/share/sddm/themes/sddm-astronaut-theme"
+      install -dm755 "$out/share/sddm/themes/hyprddm"
+      cp -r ./* "$out/share/sddm/themes/hyprddm"
 
       # Copy fonts system-wide
       install -dm755 "$out/share/fonts"
-      cp -r "$out/share/sddm/themes/sddm-astronaut-theme/Fonts/." "$out/share/fonts"
+      cp -r "$out/share/sddm/themes/hyprddm/Fonts/." "$out/share/fonts"
 
       # Update metadata.desktop to load the chosen subtheme
-      metaFile="$out/share/sddm/themes/sddm-astronaut-theme/metadata.desktop"
+      metaFile="$out/share/sddm/themes/hyprddm/metadata.desktop"
       if [ -f "$metaFile" ]; then
         substituteInPlace "$metaFile" \
           --replace "ConfigFile=Themes/astronaut.conf" "ConfigFile=Themes/${theme}.conf"
@@ -72,7 +71,7 @@ in
 
     meta = with lib; {
       description = "Series of modern looking themes for SDDM.";
-      homepage = "https://github.com/Keyitdev/sddm-astronaut-theme";
+      homepage = "https://github.com/samuelskovbakke/hyprddm";
       license = licenses.gpl3;
       platforms = platforms.linux;
     };
