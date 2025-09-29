@@ -20,6 +20,7 @@
     ./security.nix
     ./services.nix
     ./steam.nix
+    ./thunar.nix
     ./timezone.nix
     ./user.nix
   ];

@@ -1,6 +1,4 @@
-{ pkgs, ... }:
-{
-  programs.file-roller.enable = true;
+{pkgs, ...}: {
   environment.systemPackages = with pkgs; [
     nix-prefetch-git
   ];

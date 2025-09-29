@@ -8,7 +8,14 @@
     enable = true;
     package = pkgs.kdePackages.sddm;
 
+    wayland.compositor = "kwin";
     wayland.enable = true;
+
+    settings = {
+      General = {
+        GreeterEnvironment = "QT_WAYLAND_FORCE_OUTPUT=DP-3";
+      };
+    };
 
     theme = "hyprddm";
     extraPackages = with pkgs; [

@@ -13,7 +13,7 @@
     options = "--delete-older-than 7d";
   };
 
-  environment.systemPackages = with pkgs; [
-    # nix-index
-  ];
+  # environment.systemPackages = with pkgs; [
+  #   nix-index
+  # ];
 }

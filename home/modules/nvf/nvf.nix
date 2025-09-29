@@ -34,7 +34,7 @@
           };
         };
         cheatsheet.enable = true; # allow quickly opening a categorized list of your shortcuts
-        hardtime-nvim.enable = true; # discourage inefficient navigation (e.g., overusing arrow keys)
+        # hardtime-nvim.enable = true; # discourage inefficient navigation (e.g., overusing arrow keys)
       };
 
       filetree.neo-tree = {

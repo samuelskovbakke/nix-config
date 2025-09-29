@@ -48,6 +48,9 @@
         stateVersion = "25.05";
       }
     ];
+    stable-pkgs = import inputs.nixpkgs-stable {
+      inherit system;
+    };
 
     makeSystem = {
       hostname,
@@ -56,7 +59,7 @@
       nixpkgs.lib.nixosSystem {
         system = system;
         specialArgs = {
-          inherit inputs stateVersion hostname user;
+          inherit inputs stateVersion hostname user stable-pkgs;
         };
 
         modules = [

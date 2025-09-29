@@ -17,10 +17,6 @@
     stow
     vesktop
     waybar
-    xarchiver
-    xfce.thunar
-    xfce.thunar-archive-plugin
-    xfce.thunar-volman
 
     # CLI utils
     bat
