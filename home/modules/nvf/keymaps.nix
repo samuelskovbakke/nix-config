@@ -1,9 +1,15 @@
-{...}: {
+{
   programs.nvf.settings.vim.keymaps = [
     {
       key = "jj";
       mode = ["i"];
       silent = true;
+      action = "<Esc>";
+    }
+
+    {
+      mode = ["i" "x" "n" "s"];
+      key = "<F1>";
       action = "<Esc>";
     }
 
