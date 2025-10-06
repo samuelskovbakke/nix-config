@@ -23,6 +23,7 @@
         enable = true;
         lsp.server = "pyright"; # Default: basedpyright
       };
+      typst.enable = true;
       lua.enable = true;
       markdown.enable = true;
       haskell.enable = true;
