@@ -1,10 +1,10 @@
-{pkgs, ...}: {
+{
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
-  nix.settings.experimental-features = ["nix-command" "flakes"];
   nix.settings = {
     auto-optimise-store = true;
     download-buffer-size = 524288000;
+    experimental-features = ["nix-command" "flakes"];
   };
 
   nix.gc = {
@@ -13,7 +13,15 @@
     options = "--delete-older-than 7d";
   };
 
-  # environment.systemPackages = with pkgs; [
-  #   nix-index
-  # ];
+  # system.autoUpgrade = {
+  #   enable = true;
+  #   allowReboot = false;
+  #   flake = "git+file:///home/samuel/nix-config";
+  #   flags = [
+  #     "--no-write-lock-file"
+  #     "--update-input"
+  #     "nixpkgs"
+  #   ];
+  #   dates = "daily";
+  # };
 }
