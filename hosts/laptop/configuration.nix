@@ -10,6 +10,7 @@
     ./local-packages.nix
     ../../nixos/modules
     ./sddm-theme.nix
+    ./niri.nix
   ];
 
   hardware = {
