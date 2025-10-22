@@ -1,9 +1,11 @@
-{ ... }:{
+{...}: {
   programs.git = {
     enable = true;
-    userName = "samuelskovbakke";
-    userEmail = "samuel@skovbakke.dk";
-    extraConfig = {
+    settings = {
+      user = {
+        name = "samuelskovbakke";
+        email = "samuel@skovbakke.dk";
+      };
       init.defaultBranch = "main";
       credential.helper = "store";
     };

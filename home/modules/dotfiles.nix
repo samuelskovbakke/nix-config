@@ -7,6 +7,8 @@
 
   # Everything inside ~/.config
   configsc = [
+    "Kvantum"
+    "OpenRGB"
     "fastfetch"
     "ghostty"
     "gtk-2.0"
@@ -14,8 +16,7 @@
     "gtk-4.0"
     "hypr"
     "kitty"
-    "Kvantum"
-    "OpenRGB"
+    "niri"
     "qt6ct"
     "rofi"
     "swaync"
