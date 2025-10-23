@@ -17,5 +17,8 @@
     p7zip
     protontricks
     zenity
+
+    gnome-disk-utility
+    hyprpolkitagent
   ];
 }
