@@ -49,12 +49,13 @@
     libnotify
     rose-pine-hyprcursor
     xdg-desktop-portal-gtk
+    xdg-desktop-portal-gnome
     xdg-desktop-portal-hyprland
 
     # Other
     bemoji
 
-    # Hyprland related
+    # Hyprland / Niri related
     grim
     hypridle
     libqalculate

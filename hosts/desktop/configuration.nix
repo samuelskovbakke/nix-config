@@ -18,4 +18,7 @@
   system.stateVersion = stateVersion;
 
   boot.kernelParams = ["pcie_port_pm=off" "pcie_aspm.policy=performance"];
+
+  desktop.niri.enable = true;
+  # desktop.hyprland.enable = true;
 }

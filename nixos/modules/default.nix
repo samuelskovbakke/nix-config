@@ -3,13 +3,13 @@
     ./audio.nix
     ./bluetooth.nix
     ./boot.nix
+    ./desktop-environments.nix
     ./display-manager.nix
     ./env.nix
     ./extra-programs.nix
     ./flatpak.nix
     ./fonts.nix
     ./home-manager.nix
-    ./hyprland.nix
     ./kernel.nix
     ./locale.nix
     ./net.nix

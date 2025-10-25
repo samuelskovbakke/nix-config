@@ -10,7 +10,6 @@
     ./local-packages.nix
     ../../nixos/modules
     ./sddm-theme.nix
-    ./niri.nix
   ];
 
   hardware = {
@@ -36,4 +35,6 @@
   system.stateVersion = stateVersion;
 
   # boot.kernelParams = [ "pcie_port_pm=off" "pcie_aspm.policy=performance" ];
+
+  desktop.niri.enable = true;
 }
