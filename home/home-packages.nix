@@ -45,7 +45,6 @@
     python313
 
     # WM stuff
-    kdePackages.xwaylandvideobridge
     libnotify
     rose-pine-hyprcursor
     xdg-desktop-portal-gtk

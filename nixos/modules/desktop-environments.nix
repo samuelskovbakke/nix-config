@@ -40,11 +40,12 @@ with lib; {
 
     # Niri config
     (mkIf config.desktop.niri.enable {
-      programs.niri.enable = true;
       nixpkgs.overlays = [inputs.niri.overlays.niri];
-      programs.niri.package = pkgs.niri-unstable;
+      programs.niri = {
+        enable = true;
+        package = pkgs.niri-unstable;
+      };
       environment.systemPackages = with pkgs; [xwayland-satellite];
-      # services.xserver.enable = true;
     })
 
     # Hyprland config
