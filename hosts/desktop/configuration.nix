@@ -21,4 +21,6 @@
 
   desktop.niri.enable = true;
   # desktop.hyprland.enable = true;
+
+  boot.kernelPackages = pkgs.linuxPackages_zen;
 }
