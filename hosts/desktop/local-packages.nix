@@ -19,6 +19,6 @@
     zenity
 
     gnome-disk-utility
-    hyprpolkitagent
+    kdePackages.polkit-kde-agent-1
   ];
 }
