@@ -9,6 +9,7 @@
     font-manager
     ghostty
     kitty
+    localsend
     loupe
     neovide
     neovim
