@@ -6,7 +6,7 @@
     };
     firewall = {
       enable = true;
-      allowedTCPPorts = [22 80 443 5900];
+      allowedTCPPorts = [22 80 443 3000 5900 5500];
     };
     # nameservers = ["1.1.1.1" "1.0.0.1"]; # Cloudflare DNS
   };
