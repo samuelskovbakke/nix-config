@@ -2,7 +2,7 @@
   environment.systemPackages = with pkgs; [
     vscode
     hyprlock
-    prusa-slicer
-    inkscape
+    # prusa-slicer
+    # inkscape
   ];
 }
