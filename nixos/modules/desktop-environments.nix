@@ -2,7 +2,6 @@
   config,
   lib,
   pkgs,
-  inputs,
   ...
 }:
 with lib; {
@@ -40,11 +39,7 @@ with lib; {
 
     # Niri config
     (mkIf config.desktop.niri.enable {
-      nixpkgs.overlays = [inputs.niri.overlays.niri];
-      programs.niri = {
-        enable = true;
-        package = pkgs.niri-unstable;
-      };
+      programs.niri.enable = true;
       environment.systemPackages = with pkgs; [xwayland-satellite];
     })
 

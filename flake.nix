@@ -27,16 +27,10 @@
       # on a binary cache.
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    niri-unstable.url = "github:YaLTeR/niri";
-    niri = {
-      url = "github:sodiboo/niri-flake";
-      inputs.niri-unstable.follows = "niri-unstable";
-    };
   };
 
   outputs = {
-    self,
+    # self,
     nixpkgs,
     home-manager,
     ...
@@ -63,7 +57,7 @@
       stateVersion,
     }:
       nixpkgs.lib.nixosSystem {
-        system = system;
+        inherit system;
         specialArgs = {
           inherit inputs stateVersion hostname user stable-pkgs;
         };
