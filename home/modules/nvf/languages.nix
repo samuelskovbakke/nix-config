@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{
   programs.nvf.settings.vim = {
     lsp = {
       enable = true;
@@ -16,12 +16,11 @@
 
       nix = {
         enable = true;
-        lsp.server = "nixd";
-        lsp.package = pkgs.nixd;
+        lsp.servers = ["nixd"];
       };
       python = {
         enable = true;
-        lsp.server = "pyright"; # Default: basedpyright
+        lsp.servers = ["pyright"]; # Default: basedpyright
       };
       typst.enable = true;
       lua.enable = true;
