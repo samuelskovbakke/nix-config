@@ -6,5 +6,6 @@
     PATH = [
       "${XDG_BIN_HOME}"
     ];
+    GTK_IM_MODULE = "simple";
   };
 }
