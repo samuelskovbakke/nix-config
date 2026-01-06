@@ -24,7 +24,12 @@
       };
       typst.enable = true;
       lua.enable = true;
-      markdown.enable = true;
+      markdown = {
+        enable = true;
+        extensions = {
+          render-markdown-nvim.enable = true;
+        };
+      };
       haskell.enable = true;
       java.enable = true;
       rust.enable = true;

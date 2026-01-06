@@ -16,8 +16,10 @@
     networkmanagerapplet
     pavucontrol
     stow
+    thunderbird
     vesktop
     waybar
+    xarchiver
 
     # CLI utils
     bat
