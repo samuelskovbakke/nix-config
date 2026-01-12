@@ -28,6 +28,7 @@
       intelBusId = "PCI:0:2:0";
     };
   };
+
   environment.systemPackages = [pkgs.home-manager];
 
   networking.hostName = hostname;
@@ -35,6 +36,9 @@
   system.stateVersion = stateVersion;
 
   # boot.kernelParams = [ "pcie_port_pm=off" "pcie_aspm.policy=performance" ];
+
+  gpu.nvidia.enable = true;
+  # gpu.amd.enable = true;
 
   desktop.niri.enable = true;
 }

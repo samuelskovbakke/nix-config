@@ -9,13 +9,13 @@
     ./extra-programs.nix
     ./flatpak.nix
     ./fonts.nix
+    ./gpu.nix
     ./home-manager.nix
     ./kernel.nix
     ./locale.nix
     ./net.nix
     ./nh.nix
     ./nix.nix
-    ./nvidia.nix
     ./openrgb.nix
     ./security.nix
     ./services.nix
