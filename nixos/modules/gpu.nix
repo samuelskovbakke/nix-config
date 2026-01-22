@@ -1,7 +1,6 @@
 {
   config,
   lib,
-  pkgs,
   ...
 }: let
   cfg = config.gpu;
@@ -22,7 +21,10 @@ in {
     }
     # Common graphics settings
     {
-      hardware.graphics.enable = true;
+      hardware.graphics = {
+        enable = true;
+        enable32Bit = true;
+      };
     }
 
     # NVIDIA configuration
@@ -65,6 +67,8 @@ in {
     (lib.mkIf cfg.amd.enable {
       services.xserver.videoDrivers = ["amdgpu"];
       hardware.amdgpu.initrd.enable = true; # Starts gpu drivers before anything else to avoid mishaps
+
+      services.lact.enable = true; # enables LACT an app for controlling GPUs
 
       # Optional OpenCL / Vulkan support
       # hardware.opengl.extraPackages = with pkgs; [
