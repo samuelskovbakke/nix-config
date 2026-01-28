@@ -36,6 +36,7 @@
   system.stateVersion = stateVersion;
 
   # boot.kernelParams = [ "pcie_port_pm=off" "pcie_aspm.policy=performance" ];
+  boot.kernelModules = ["it87"];
 
   gpu.nvidia.enable = true;
   # gpu.amd.enable = true;

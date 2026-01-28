@@ -4,5 +4,7 @@
     hyprlock
     # prusa-slicer
     # inkscape
+    jetbrains.idea
+    lm_sensors
   ];
 }
