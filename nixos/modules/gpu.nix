@@ -70,13 +70,6 @@ in {
 
       services.lact.enable = true; # enables LACT an app for controlling GPUs
 
-      # Optional OpenCL / Vulkan support
-      # hardware.opengl.extraPackages = with pkgs; [
-      #   amdvlk
-      #   rocm-opencl-icd
-      #   rocm-opencl-runtime
-      # ];
-
       nixpkgs.config.cudaSupport = false;
     })
   ];
