@@ -32,6 +32,18 @@ with lib; {
 
     # Common packages for any Wayland DE
     (mkIf (config.desktop.niri.enable || config.desktop.hyprland.enable) {
+      xdg.portal = {
+        enable = true;
+
+        # This is the important part
+        extraPortals = with pkgs; [
+          xdg-desktop-portal-wlr
+          xdg-desktop-portal-gtk
+        ];
+
+        # Optional but recommended
+        config.common.default = "wlr";
+      };
       environment.systemPackages = with pkgs; [
         alacritty
       ];
