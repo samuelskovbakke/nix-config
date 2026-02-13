@@ -1,8 +1,12 @@
 {pkgs, ...}: {
   environment.systemPackages = with pkgs; [
+    android-tools
+
     samrewritten
     heroic
     lutris
+
+    jetbrains.idea
 
     # Desktop specific
     openrgb-with-all-plugins
