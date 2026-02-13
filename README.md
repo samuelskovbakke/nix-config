@@ -98,5 +98,4 @@ nix flake update
 ---
 
 ## 📄 License
-
-This configuration is personal and provided as-is, but feel free to use it as inspiration for your own setup.
+This project is licensed under the [GNU General Public License v3.0](LICENSE). You are free to use, modify, and distribute this configuration, but any derivative work must also be distributed under the same GPL v3.0 license.
