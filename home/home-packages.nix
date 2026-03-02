@@ -45,8 +45,16 @@
     zip
     zoxide
 
+    # CLI anime stuff
+    /*
+    ani-cli
+    ani-skip
+    trackma-gtk
+    */
+
     # Coding stuff
     python313
+    jdk25
 
     # WM stuff
     libnotify
