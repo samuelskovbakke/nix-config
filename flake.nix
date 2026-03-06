@@ -63,6 +63,26 @@
         };
 
         modules = [
+          # Fix for failing picosvg test
+          /*
+             {
+            nixpkgs.overlays = [
+              (final: prev: {
+                pythonPackagesExtensions =
+                  prev.pythonPackagesExtensions
+                  ++ [
+                    (python-final: python-prev: {
+                      picosvg = python-prev.picosvg.overridePythonAttrs (oldAttrs: {
+                        doCheck = false;
+                      });
+                    })
+                  ];
+              })
+            ];
+          }
+          */
+          # End of fix
+
           ./hosts/${hostname}/configuration.nix
         ];
       };

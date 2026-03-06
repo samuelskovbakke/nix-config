@@ -5,7 +5,7 @@
     # Packages in each category are sorted alphabetically
 
     # Desktop apps
-    anki
+    anki-bin
     ffmpegthumbnailer
     font-manager
     ghostty
