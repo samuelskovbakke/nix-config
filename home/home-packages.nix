@@ -54,7 +54,7 @@
 
     # Coding stuff
     python313
-    jdk25
+    jdk21
 
     # WM stuff
     libnotify
