@@ -32,6 +32,7 @@
     fzf
     git
     jq
+    lazygit
     oh-my-zsh
     pay-respects # thefuck alternative
     playerctl
@@ -52,7 +53,7 @@
     trackma-gtk
     */
 
-    # Coding stuff
+    # Programming stuff
     python313
     jdk21
 
