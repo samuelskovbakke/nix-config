@@ -50,6 +50,10 @@
       visuals.nvim-web-devicons.enable = true;
 
       git.enable = true;
+      terminal.toggleterm = {
+        enable = true;
+        lazygit.enable = true;
+      };
     };
   };
 }
