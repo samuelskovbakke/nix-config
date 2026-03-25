@@ -15,6 +15,7 @@
       mappings = {
         codeAction = null;
         hover = null;
+        openDiagnosticFloat = null;
       };
     };
 

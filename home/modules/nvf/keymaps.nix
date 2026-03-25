@@ -527,11 +527,30 @@
       desc = "Previous Tab";
     }
 
+    # Code utility via Lspsaga
+    {
+      mode = ["n"];
+      key = "K";
+      action = "<cmd>Lspsaga hover_doc<cr>";
+      desc = "Hover Doc";
+    }
+    {
+      mode = ["n"];
+      key = "<leader>lh";
+      action = "<cmd>Lspsaga hover_doc<cr>";
+      desc = "Hover Doc";
+    }
     {
       mode = ["n"];
       key = "<leader>la";
       action = "<cmd>Lspsaga code_action<cr>";
       desc = "Code Action";
+    }
+    {
+      mode = ["n"];
+      key = "<leader>le";
+      action = "<cmd>Lspsaga show_line_diagnostics<cr>";
+      desc = "Open Diagnostic Float";
     }
   ];
 }
