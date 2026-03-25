@@ -45,6 +45,12 @@
               key = "r";
             }
             {
+              action = ":lua Snacks.picker.projects()";
+              desc = " Projects";
+              icon = " ";
+              key = "p";
+            }
+            {
               action = ":qa";
               desc = " Quit";
               icon = " ";

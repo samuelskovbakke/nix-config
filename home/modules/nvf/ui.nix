@@ -28,6 +28,7 @@
             "cmp.entry.get_documentation" = true;
           };
         };
+
         routes = [
           {
             filter = {
@@ -52,11 +53,30 @@
             };
             view = "mini";
           }
+          {
+            filter = {
+              event = "lsp";
+              kind = "progress";
+            };
+            opts = {skip = true;};
+          }
         ];
+
         presets = {
-          bottom_search = false;
-          command_palette = true;
+          bottom_search = true; # Search in the bottom
+          command_palette = false;
           long_message_to_split = true;
+        };
+
+        # Sets commandline in the bottom
+        /*
+           cmdline = {
+          view = "cmdline";
+        };
+        */
+
+        messages = {
+          enabled = false;
         };
       };
     };

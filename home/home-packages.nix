@@ -29,6 +29,7 @@
     btop
     eza
     fastfetch
+    fd
     fzf
     git
     jq

@@ -526,5 +526,12 @@
       action = "<cmd>tabprevious<cr>";
       desc = "Previous Tab";
     }
+
+    {
+      mode = ["n"];
+      key = "<leader>la";
+      action = "<cmd>Lspsaga code_action<cr>";
+      desc = "Code Action";
+    }
   ];
 }

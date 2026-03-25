@@ -4,9 +4,18 @@
       enable = true;
       formatOnSave = true;
       lspkind.enable = true; # Shows that a complete option might be a function or a module...
-      lspsaga.enable = true; # Code action, hover doc, signature help, preview definition, ...
+      lspsaga = {
+        enable = true; # Code action, hover doc, signature help, preview definition, ...
+        setupOpts = {
+          lightbulb.enable = false; # Remove the lightbulb icon
+        };
+      };
       trouble.enable = true; # Window to search through errors and warnings.
       lspSignature.enable = false; # Shows a method signature, i.e. which arguments it takes etc.
+      mappings = {
+        codeAction = null;
+        hover = null;
+      };
     };
 
     languages = {
@@ -34,6 +43,7 @@
       java.enable = true;
       rust.enable = true;
       css.enable = true;
+      scala.enable = true;
     };
   };
 }
