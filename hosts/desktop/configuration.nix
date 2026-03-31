@@ -25,7 +25,6 @@
   ];
 
   hardware.i2c.enable = true;
-  hardware.ckb-next.enable = true;
 
   # gpu.nvidia.enable = true;
   gpu.amd.enable = true;
