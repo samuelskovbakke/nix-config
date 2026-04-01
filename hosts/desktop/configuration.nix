@@ -27,6 +27,8 @@
   hardware.i2c.enable = true;
   hardware.ckb-next.enable = true;
 
+  virtualisation.virtualbox.host.enable = true;
+
   # gpu.nvidia.enable = true;
   gpu.amd.enable = true;
 

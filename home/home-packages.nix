@@ -18,6 +18,7 @@
     pavucontrol
     stow
     thunderbird
+    ungoogled-chromium
     vesktop
     waybar
     xarchiver
@@ -32,6 +33,7 @@
     fd
     fzf
     git
+    gum
     jq
     lazygit
     oh-my-zsh
@@ -40,6 +42,8 @@
     ripgrep
     tldr
     unzip
+    usbutils
+    uwsm
     wget
     wl-clipboard
     wttrbar
