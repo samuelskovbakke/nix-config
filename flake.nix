@@ -50,6 +50,7 @@
     ];
     stable-pkgs = import inputs.nixpkgs-stable {
       inherit system;
+      config.allowUnfree = true;
     };
 
     makeSystem = {
@@ -115,7 +116,7 @@
       #   ];
       # };
       extraSpecialArgs = {
-        inherit inputs homeStateVersion user;
+        inherit inputs homeStateVersion user stable-pkgs;
       };
 
       modules = [
