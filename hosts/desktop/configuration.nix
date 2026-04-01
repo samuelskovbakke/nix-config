@@ -25,7 +25,6 @@
   ];
 
   hardware.i2c.enable = true;
-  hardware.ckb-next.enable = true;
 
   virtualisation.virtualbox.host.enable = true;
 

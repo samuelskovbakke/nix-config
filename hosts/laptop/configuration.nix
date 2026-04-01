@@ -32,6 +32,7 @@
   environment.systemPackages = [pkgs.home-manager];
 
   networking.hostName = hostname;
+  hardware.ckb-next.enable = true;
 
   system.stateVersion = stateVersion;
 
