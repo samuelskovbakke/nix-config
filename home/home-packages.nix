@@ -32,6 +32,7 @@
       bc
       brightnessctl
       btop
+      claude-code
       eza
       fastfetch
       fd
@@ -41,6 +42,7 @@
       jq
       lazygit
       oh-my-zsh
+      ollama # consider switching to ollama-cuda or ollama-vulkan for gpu acceleration
       pay-respects # thefuck alternative
       playerctl
       quickshell
@@ -57,11 +59,8 @@
       zoxide
 
       # CLI anime stuff
-      /*
       ani-cli
       ani-skip
-      trackma-gtk
-      */
 
       # Programming stuff
       python313
