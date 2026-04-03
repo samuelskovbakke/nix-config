@@ -13,8 +13,6 @@
       heroic
       lutris
 
-      jetbrains.idea
-
       # Desktop specific
       openrgb-with-all-plugins
 
