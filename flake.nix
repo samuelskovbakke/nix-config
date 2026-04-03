@@ -15,11 +15,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # stylix = {
-    #   url = "github:danth/stylix";
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    # };
-
     nvf = {
       url = "github:notashelf/nvf";
       # You can override the input nixpkgs to follow your system's
@@ -30,7 +25,6 @@
   };
 
   outputs = {
-    # self,
     nixpkgs,
     home-manager,
     ...
@@ -64,26 +58,6 @@
         };
 
         modules = [
-          # Fix for failing picosvg test
-          /*
-             {
-            nixpkgs.overlays = [
-              (final: prev: {
-                pythonPackagesExtensions =
-                  prev.pythonPackagesExtensions
-                  ++ [
-                    (python-final: python-prev: {
-                      picosvg = python-prev.picosvg.overridePythonAttrs (oldAttrs: {
-                        doCheck = false;
-                      });
-                    })
-                  ];
-              })
-            ];
-          }
-          */
-          # End of fix
-
           ./hosts/${hostname}/configuration.nix
         ];
       };
@@ -100,21 +74,6 @@
     home-manager.backupFileExtension = "backup";
     homeConfigurations.${user} = home-manager.lib.homeManagerConfiguration {
       pkgs = nixpkgs.legacyPackages.${system};
-      # below is a fix for the failing python tests
-      # pkgs = import nixpkgs {
-      #   system = system;
-      #   overlays = [
-      #     (final: prev: {
-      #       python3Packages =
-      #         prev.python3Packages
-      #         // {
-      #           i3ipc = prev.python3Packages.i3ipc.overridePythonAttrs (old: {
-      #             doCheck = false; # disable broken tests
-      #           });
-      #         };
-      #     })
-      #   ];
-      # };
       extraSpecialArgs = {
         inherit inputs homeStateVersion user stable-pkgs;
       };
