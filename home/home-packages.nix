@@ -78,6 +78,7 @@
       libsForQt5.qt5.qtsvg
       libsForQt5.qtstyleplugin-kvantum
       pamixer
+      rofi
       slurp
       sunsetr
     ])

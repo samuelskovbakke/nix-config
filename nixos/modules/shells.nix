@@ -17,7 +17,6 @@
           nwg-displays
           nwg-look
           pyprland
-          rofi
           swaynotificationcenter
           swww
           wlogout
