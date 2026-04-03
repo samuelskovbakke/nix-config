@@ -11,7 +11,6 @@
       env = "waybar";
       config = {
         programs.waybar.enable = true;
-        environment.systemPackages = with pkgs; [waybar];
       };
     };
 
@@ -45,7 +44,7 @@ in {
     ++ [
       {
         environment.sessionVariables = {
-          NIRI_SHELL = "noctalia-shell";
+          NIRI_SHELL = shells.${cfg}.env;
         };
       }
     ]
