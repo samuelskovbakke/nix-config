@@ -19,9 +19,7 @@
       loupe
       neovide
       neovim
-      networkmanagerapplet
       pavucontrol
-      stow
       thunderbird
       ungoogled-chromium
       vesktop
@@ -53,7 +51,6 @@
       uwsm
       wget
       wl-clipboard
-      wttrbar
       yad
       zip
       zoxide
@@ -74,24 +71,15 @@
 
       # Hyprland / Niri related
       grim
-      hypridle
       libqalculate
       libsForQt5.qt5.qtbase
       libsForQt5.qt5.qtgraphicaleffects
       libsForQt5.qt5.qtquickcontrols2
       libsForQt5.qt5.qtsvg
       libsForQt5.qtstyleplugin-kvantum
-      networkmanagerapplet
-      nwg-displays
-      nwg-look
       pamixer
-      pyprland
-      rofi
       slurp
       sunsetr
-      swaynotificationcenter
-      swww
-      wlogout
     ])
     ++ (with stable-pkgs; [
       jdk21

@@ -11,6 +11,18 @@
       env = "waybar";
       config = {
         programs.waybar.enable = true;
+        environment.systemPackages = with pkgs; [
+          hypridle
+          networkmanagerapplet
+          nwg-displays
+          nwg-look
+          pyprland
+          rofi
+          swaynotificationcenter
+          swww
+          wlogout
+          wttrbar
+        ];
       };
     };
 
