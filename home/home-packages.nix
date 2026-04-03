@@ -25,7 +25,6 @@
       thunderbird
       ungoogled-chromium
       vesktop
-      waybar
       xarchiver
 
       # CLI utils
@@ -44,6 +43,7 @@
       oh-my-zsh
       pay-respects # thefuck alternative
       playerctl
+      quickshell
       ripgrep
       tldr
       unzip
@@ -92,7 +92,6 @@
       sunsetr
       swaynotificationcenter
       swww
-      waybar
       wlogout
     ])
     ++ (with stable-pkgs; [

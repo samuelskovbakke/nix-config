@@ -26,11 +26,11 @@
 
   hardware.i2c.enable = true;
 
-
   # gpu.nvidia.enable = true;
   gpu.amd.enable = true;
 
   desktop.niri.enable = true;
+  my.desktop.shell = "noctalia";
   # desktop.hyprland.enable = true;
 
   boot.kernelPackages = pkgs.linuxPackages_zen;

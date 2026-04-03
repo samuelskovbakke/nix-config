@@ -19,6 +19,7 @@
     ./openrgb.nix
     ./security.nix
     ./services.nix
+    ./shells.nix
     ./steam.nix
     ./thunar.nix
     ./timezone.nix

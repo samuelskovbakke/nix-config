@@ -17,6 +17,7 @@
     "hypr"
     "kitty"
     "niri"
+    "noctalia"
     "qt6ct"
     "rofi"
     "swaync"
