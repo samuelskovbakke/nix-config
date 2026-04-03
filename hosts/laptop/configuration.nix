@@ -43,4 +43,5 @@
   # gpu.amd.enable = true;
 
   desktop.niri.enable = true;
+  desktop.shell = "noctalia";
 }

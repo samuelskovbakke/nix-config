@@ -30,7 +30,7 @@
   gpu.amd.enable = true;
 
   desktop.niri.enable = true;
-  my.desktop.shell = "noctalia";
+  desktop.shell = "noctalia";
   # desktop.hyprland.enable = true;
 
   boot.kernelPackages = pkgs.linuxPackages_zen;

@@ -4,7 +4,7 @@
   pkgs,
   ...
 }: let
-  cfg = config.my.desktop.shell;
+  cfg = config.desktop.shell;
 
   shells = {
     waybar = {
@@ -29,7 +29,7 @@
     };
   };
 in {
-  options.my.desktop.shell = lib.mkOption {
+  options.desktop.shell = lib.mkOption {
     type = lib.types.enum (builtins.attrNames shells);
     default = "waybar";
   };
