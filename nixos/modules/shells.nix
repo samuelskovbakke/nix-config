@@ -21,6 +21,7 @@
           swww
           wlogout
           wttrbar
+          rofi
         ];
       };
     };
