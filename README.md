@@ -1,6 +1,6 @@
 # ❄️ nix-config
 
-My personal NixOS configuration, managed with [Nix Flakes](https://nixos.wiki/wiki/Flakes) and [Home Manager](https://github.com/nix-community/home-manager).
+A highly modular NixOS configuration, managed with [Nix Flakes](https://nixos.wiki/wiki/Flakes) and [Home Manager](https://github.com/nix-community/home-manager).
 
 ---
 
