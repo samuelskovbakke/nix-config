@@ -4,7 +4,9 @@
   ...
 }: {
   programs.nix-ld.enable = true;
-  nixpkgs.config.allowUnfree = true;
+  nixpkgs.config = {
+    allowUnfree = true;
+  };
   environment.systemPackages =
     (with pkgs; [
       android-tools
@@ -12,6 +14,7 @@
       samrewritten
       heroic
       lutris
+      lmstudio
 
       # Desktop specific
       openrgb-with-all-plugins
@@ -32,7 +35,6 @@
       kdePackages.polkit-kde-agent-1
 
       openvpn
-
     ])
     ++ (with stable-pkgs; [
       jetbrains.idea

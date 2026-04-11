@@ -17,6 +17,7 @@
       kitty
       localsend
       loupe
+      mission-center
       neovide
       neovim
       pavucontrol

@@ -7,5 +7,6 @@
       "${XDG_BIN_HOME}"
     ];
     GTK_IM_MODULE = "simple";
+    NIXPKGS_ALLOW_UNFREE=1
   };
 }
