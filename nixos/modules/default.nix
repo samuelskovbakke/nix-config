@@ -13,6 +13,7 @@
     ./home-manager.nix
     ./kernel.nix
     ./locale.nix
+    ./nautilus.nix
     ./net.nix
     ./nh.nix
     ./nix.nix
@@ -21,7 +22,7 @@
     ./services.nix
     ./shells.nix
     ./steam.nix
-    ./thunar.nix
+    # ./thunar.nix
     ./timezone.nix
     ./udev.nix
     ./user.nix

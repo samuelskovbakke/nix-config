@@ -53,6 +53,7 @@
       wget
       wl-clipboard
       yad
+      yazi # terminal file manager
       zip
       zoxide
 
@@ -69,6 +70,7 @@
 
       # Other
       bemoji
+      exiftool
 
       # Hyprland / Niri related
       grim
