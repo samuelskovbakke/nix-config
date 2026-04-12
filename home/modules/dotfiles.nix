@@ -24,6 +24,7 @@
     "wallust"
     "waybar"
     "wlogout"
+    "yazi"
   ];
 
   # Everything at $HOME level

@@ -1,9 +1,20 @@
 {
+  inputs,
   pkgs,
   stable-pkgs,
   ...
 }: {
   nixpkgs.config.allowUnfree = true;
+
+  imports = [
+    inputs.zen-browser.homeModules.beta
+    # or inputs.zen-browser.homeModules.twilight
+    # or inputs.zen-browser.homeModules.twilight-official
+  ];
+  programs.zen-browser = {
+    enable = true;
+    setAsDefaultBrowser = true;
+  };
 
   home.packages =
     (with pkgs; [
@@ -41,7 +52,7 @@
       jq
       lazygit
       oh-my-zsh
-      ollama # consider switching to ollama-cuda or ollama-vulkan for gpu acceleration
+      ollama-vulkan # consider switching to ollama-cuda or ollama-vulkan for gpu acceleration
       pay-respects # thefuck alternative
       playerctl
       quickshell
