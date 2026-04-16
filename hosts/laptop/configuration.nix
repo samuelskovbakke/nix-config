@@ -30,6 +30,7 @@
   };
 
   environment.systemPackages = [pkgs.home-manager];
+  services.upower.enable = true;
 
   networking.hostName = hostname;
   hardware.ckb-next.enable = true;
