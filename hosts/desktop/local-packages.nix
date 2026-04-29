@@ -13,8 +13,6 @@
 
       samrewritten
       heroic
-      lutris
-      lmstudio
 
       # Desktop specific
       openrgb-with-all-plugins
@@ -37,6 +35,7 @@
       openvpn
     ])
     ++ (with stable-pkgs; [
+      lutris
       jetbrains.idea
     ]);
 }
