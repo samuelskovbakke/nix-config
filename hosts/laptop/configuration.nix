@@ -39,6 +39,7 @@
 
   # boot.kernelParams = [ "pcie_port_pm=off" "pcie_aspm.policy=performance" ];
   boot.kernelModules = ["it87"];
+  boot.kernelPackages = pkgs.linuxPackages_zen;
 
   gpu.nvidia.enable = true;
   # gpu.amd.enable = true;

@@ -7,5 +7,6 @@
     # inkscape
     jetbrains.idea
     lm_sensors
+    nodejs_latest
   ];
 }
