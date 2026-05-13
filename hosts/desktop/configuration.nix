@@ -32,6 +32,7 @@
   desktop.niri.enable = true;
   desktop.shell = "noctalia";
   # desktop.hyprland.enable = true;
+  # desktop.kde.enable = true;
 
   boot.kernelPackages = pkgs.linuxPackages_zen;
   # boot.kernelPackages = pkgs.linuxPackages_latest;

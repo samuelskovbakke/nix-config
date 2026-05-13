@@ -17,6 +17,12 @@ with lib; {
       default = false;
       description = "Enable the Hyprland desktop environment.";
     };
+
+    kde.enable = mkOption {
+      type = types.bool;
+      default = false;
+      description = "Enable the KDE Plasma desktop environment.";
+    };
   };
 
   config = mkMerge [
@@ -65,6 +71,23 @@ with lib; {
         xwayland.enable = true;
       };
       security.pam.services.hyprlock = {};
+    })
+
+    # KDE Plasma config
+    (mkIf config.desktop.kde.enable {
+      # Enable Plasma
+      services.desktopManager.plasma6.enable = true;
+
+      # Default display manager for Plasma
+      services.displayManager.sddm = {
+        enable = true;
+
+        # To use Wayland (Experimental for SDDM)
+        wayland.enable = true;
+      };
+
+      # Optionally enable xserver
+      services.xserver.enable = true;
     })
   ];
 }
