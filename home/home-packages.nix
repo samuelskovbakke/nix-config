@@ -22,6 +22,9 @@
 
       # Desktop apps
       anki-bin
+      (discord.override {
+        withVencord = true;
+      })
       ffmpegthumbnailer
       font-manager
       ghostty
@@ -34,7 +37,7 @@
       pavucontrol
       thunderbird
       ungoogled-chromium
-      vesktop
+      # vesktop
       xarchiver
 
       # CLI utils
