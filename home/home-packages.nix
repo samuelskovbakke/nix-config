@@ -28,11 +28,11 @@
       ffmpegthumbnailer
       font-manager
       ghostty
-      kitty
+      # kitty
       localsend
       loupe
       mission-center
-      neovide
+      # neovide
       neovim
       pavucontrol
       thunderbird
