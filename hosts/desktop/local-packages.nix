@@ -16,6 +16,7 @@
 
       # Desktop specific
       openrgb-with-all-plugins
+      easyeffects
 
       # Minecraft
       ftb-app
