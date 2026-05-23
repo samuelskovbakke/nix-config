@@ -54,7 +54,7 @@
       gum
       jq
       lazygit
-      oh-my-zsh
+      # oh-my-zsh
       # ollama-vulkan # consider switching to ollama-cuda or ollama-vulkan for gpu acceleration
       pay-respects # thefuck alternative
       playerctl
