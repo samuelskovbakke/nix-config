@@ -10,6 +10,7 @@
     "Kvantum"
     "OpenRGB"
     "fastfetch"
+    "fish"
     "ghostty"
     "gtk-2.0"
     "gtk-3.0"
