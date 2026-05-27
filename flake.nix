@@ -31,6 +31,8 @@
         home-manager.follows = "home-manager";
       };
     };
+
+    millennium.url = "github:SteamClientHomebrew/Millennium/next?dir=packages/nix";
   };
 
   outputs = {
@@ -67,6 +69,7 @@
         };
 
         modules = [
+          {nixpkgs.overlays = [inputs.millennium.overlays.default];}
           ./hosts/${hostname}/configuration.nix
         ];
       };
