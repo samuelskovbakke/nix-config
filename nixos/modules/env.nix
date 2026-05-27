@@ -9,4 +9,12 @@
     GTK_IM_MODULE = "simple";
     NIXPKGS_ALLOW_UNFREE = 1;
   };
+  xdg.terminal-exec = {
+    enable = true;
+    settings = {
+      default = [
+        "kitty.desktop"
+      ];
+    };
+  };
 }
