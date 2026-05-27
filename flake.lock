@@ -57,6 +57,63 @@
         "type": "github"
       }
     },
+    "luajit-src": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1763177035,
+        "narHash": "sha256-oYD86MqmlJpiCuEs4LwVtxvarPtz1RPWm8nJqNE0sBs=",
+        "owner": "SteamClientHomebrew",
+        "repo": "LuaJIT",
+        "rev": "89550023569c3e195e75e12951c067fe5591e0d2",
+        "type": "github"
+      },
+      "original": {
+        "owner": "SteamClientHomebrew",
+        "ref": "v2.1",
+        "repo": "LuaJIT",
+        "type": "github"
+      }
+    },
+    "millennium": {
+      "inputs": {
+        "luajit-src": "luajit-src",
+        "millennium-src": "millennium-src",
+        "nixpkgs": "nixpkgs"
+      },
+      "locked": {
+        "dir": "packages/nix",
+        "lastModified": 1779816674,
+        "narHash": "sha256-04DBE+muBCIyq54U2RZ7JOiBn1x3ZY0TSQ2X0AVwedc=",
+        "owner": "SteamClientHomebrew",
+        "repo": "Millennium",
+        "rev": "c6f02b711a8c2e06a9b4aebddf3e281df4fe5639",
+        "type": "github"
+      },
+      "original": {
+        "dir": "packages/nix",
+        "owner": "SteamClientHomebrew",
+        "ref": "next",
+        "repo": "Millennium",
+        "type": "github"
+      }
+    },
+    "millennium-src": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1778867291,
+        "narHash": "sha256-NAnUiDGX+dHSj6OgmJgTEnNHyL8WkOGxxt3T3NDoI/Q=",
+        "owner": "SteamClientHomebrew",
+        "repo": "Millennium",
+        "rev": "233f417dd99b3ece34d15b75e7cf5fd9d4487f15",
+        "type": "github"
+      },
+      "original": {
+        "owner": "SteamClientHomebrew",
+        "repo": "Millennium",
+        "rev": "233f417dd99b3ece34d15b75e7cf5fd9d4487f15",
+        "type": "github"
+      }
+    },
     "mnw": {
       "locked": {
         "lastModified": 1777828893,
@@ -116,11 +173,11 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1778869304,
-        "narHash": "sha256-30sZNZoA1cqF5JNO9fVX+wgiQYjB7HJqqJ4ztCDeBZE=",
+        "lastModified": 1770115704,
+        "narHash": "sha256-KHFT9UWOF2yRPlAnSXQJh6uVcgNcWlFqqiAZ7OVlHNc=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "d233902339c02a9c334e7e593de68855ad26c4cb",
+        "rev": "e6eae2ee2110f3d31110d5c222cd395303343b08",
         "type": "github"
       },
       "original": {
@@ -142,6 +199,22 @@
       "original": {
         "owner": "nixos",
         "ref": "nixos-25.11",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs_2": {
+      "locked": {
+        "lastModified": 1778869304,
+        "narHash": "sha256-30sZNZoA1cqF5JNO9fVX+wgiQYjB7HJqqJ4ztCDeBZE=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "d233902339c02a9c334e7e593de68855ad26c4cb",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "ref": "nixos-unstable",
         "repo": "nixpkgs",
         "type": "github"
       }
@@ -174,8 +247,9 @@
     "root": {
       "inputs": {
         "home-manager": "home-manager",
+        "millennium": "millennium",
         "nix-index-database": "nix-index-database",
-        "nixpkgs": "nixpkgs",
+        "nixpkgs": "nixpkgs_2",
         "nixpkgs-stable": "nixpkgs-stable",
         "nvf": "nvf",
         "zen-browser": "zen-browser"
