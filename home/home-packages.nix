@@ -37,7 +37,7 @@
       pavucontrol
       thunderbird
       ungoogled-chromium
-      # vesktop
+      vesktop
       xarchiver
 
       # CLI utils
