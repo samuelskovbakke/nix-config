@@ -38,6 +38,7 @@
       thunderbird
       ungoogled-chromium
       vesktop
+      vlc
       xarchiver
 
       # CLI utils
