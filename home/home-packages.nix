@@ -90,10 +90,10 @@
       # Hyprland / Niri related
       grim
       libqalculate
-      libsForQt5.qt5.qtbase
-      libsForQt5.qt5.qtgraphicaleffects
-      libsForQt5.qt5.qtquickcontrols2
-      libsForQt5.qt5.qtsvg
+      qt5.qtbase
+      qt5.qtgraphicaleffects
+      qt5.qtquickcontrols2
+      qt5.qtsvg
       libsForQt5.qtstyleplugin-kvantum
       pamixer
       slurp
