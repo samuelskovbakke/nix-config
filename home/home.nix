@@ -16,6 +16,7 @@
   };
   news.display = "silent";
   home.pointerCursor = {
+    enable = true;
     name = "BreezeX-RosePine-Linux";
     package = pkgs.rose-pine-cursor;
     size = 32;
