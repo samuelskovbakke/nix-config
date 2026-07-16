@@ -22,6 +22,7 @@
   boot.kernelParams = [
     "pcie_port_pm=off"
     "pcie_aspm.policy=performance"
+    "video=DP-3:2560x1440@180" # fixes tty being wrong resolution
   ];
 
   hardware.i2c.enable = true;
