@@ -6,8 +6,19 @@
 
   environment.systemPackages = [pkgs.rose-pine-cursor];
 
-  services.displayManager.sddm = {
+  services.displayManager.ly = {
     enable = true;
+    settings = {
+      animation = "matrix"; # "doom", "matrix", "colormix"
+      corner_bottom_left = null;
+      hide_version_string = true;
+      load = true;
+      save = true;
+    };
+  };
+
+  services.displayManager.sddm = {
+    enable = false;
     package = pkgs.kdePackages.sddm;
 
     wayland.compositor = "kwin";
