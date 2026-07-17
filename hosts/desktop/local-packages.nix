@@ -15,8 +15,8 @@
       heroic
 
       # Desktop specific
-      openrgb-with-all-plugins
-      easyeffects
+      # openrgb-with-all-plugins
+      # easyeffects
 
       # Minecraft
       ftb-app
