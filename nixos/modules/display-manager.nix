@@ -23,7 +23,7 @@
     enable = true;
     settings = {
       animation = "dur_file"; # "doom", "matrix", "colormix", "dur_file"
-      dur_file_path = toString ./assets/blackhole.dur;
+      dur_file_path = "./blackhole.dur";
 
       bigclock = "en";
       corner_bottom_left = null;
