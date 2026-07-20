@@ -47,10 +47,16 @@
       {
         hostname = "desktop";
         stateVersion = "24.11";
+        isMultiMonitor = true;
+        xRes = "2560";
+        yRes = "1440";
       }
       {
         hostname = "laptop";
         stateVersion = "25.05";
+        isMultiMonitor = false;
+        xRes = "2560";
+        yRes = "1440";
       }
     ];
     stable-pkgs = import inputs.nixpkgs-stable {
