@@ -15,7 +15,7 @@
       heroic
 
       # Desktop specific
-      # openrgb-with-all-plugins
+      openrgb-with-all-plugins
       # easyeffects
 
       # Minecraft
