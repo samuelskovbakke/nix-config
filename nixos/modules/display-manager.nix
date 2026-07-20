@@ -6,7 +6,7 @@
 }: {
   # services.displayManager.sddm = {
   #   enable = true;
-  #   theme = "${import ./sddm-tokyonight-theme.nix {inherit pkgs;}}";
+  #   theme = "${import ./assests/sddm/sddm-tokyonight-theme.nix {inherit pkgs;}}";
   # };
 
   environment.systemPackages = [pkgs.rose-pine-cursor];
