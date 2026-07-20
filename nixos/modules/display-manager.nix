@@ -18,12 +18,12 @@
       ${pkgs.fbset}/bin/fbset -xres ${host.xRes} -yres ${host.yRes}
     '';
   };
-
+  environment.etc."ly/blackhole.dur".source = ./blackhole.dur;
   services.displayManager.ly = {
     enable = true;
     settings = {
       animation = "dur_file"; # "doom", "matrix", "colormix", "dur_file"
-      dur_file_path = "./blackhole.dur";
+      dur_file_path = "/etc/ly/blackhole.dur";
 
       bigclock = "en";
       corner_bottom_left = null;
