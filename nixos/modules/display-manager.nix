@@ -27,6 +27,9 @@
 
       bigclock = "en";
       corner_bottom_left = null;
+      full_color = true;
+      asterisk = "0x2022";
+      box_title = "Welcome Samuel";
 
       hide_version_string = true;
 
@@ -35,7 +38,7 @@
 
       clear_password = true;
       vi_default_mode = "insert";
-      vi_mode = false;
+      vi_mode = true;
     };
   };
 
