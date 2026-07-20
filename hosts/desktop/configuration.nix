@@ -1,7 +1,6 @@
 {
   pkgs,
-  stateVersion,
-  hostname,
+  host,
   ...
 }: {
   imports = [
@@ -13,16 +12,15 @@
 
   environment.systemPackages = [pkgs.home-manager];
 
-  networking.hostName = hostname;
+  networking.hostName = host.hostname;
 
-  system.stateVersion = stateVersion;
+  system.stateVersion = host.stateVersion;
 
   #boot.kernelParams = ["pcie_port_pm=off" "pcie_aspm.policy=performance"]; # Probably not needed when switching to AMD GPU
 
   boot.kernelParams = [
     "pcie_port_pm=off"
     "pcie_aspm.policy=performance"
-    "video=DP-3:2560x1440@180" # fixes tty being wrong resolution
   ];
 
   hardware.i2c.enable = true;

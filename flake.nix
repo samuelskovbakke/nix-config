@@ -64,28 +64,22 @@
       config.allowUnfree = true;
     };
 
-    makeSystem = {
-      hostname,
-      stateVersion,
-    }:
+    makeSystem = host:
       nixpkgs.lib.nixosSystem {
         inherit system;
         specialArgs = {
-          inherit inputs stateVersion hostname user stable-pkgs;
+          inherit inputs user stable-pkgs host;
         };
-
         modules = [
           {nixpkgs.overlays = [inputs.millennium.overlays.default];}
-          ./hosts/${hostname}/configuration.nix
+          ./hosts/${host.hostname}/configuration.nix
         ];
       };
   in {
     nixosConfigurations = nixpkgs.lib.foldl' (configs: host:
       configs
       // {
-        "${host.hostname}" = makeSystem {
-          inherit (host) hostname stateVersion;
-        };
+        "${host.hostname}" = makeSystem host;
       }) {}
     hosts;
 

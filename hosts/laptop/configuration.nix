@@ -1,7 +1,6 @@
 {
   pkgs,
-  stateVersion,
-  hostname,
+  host,
   ...
 }: {
   imports = [
@@ -32,10 +31,10 @@
   environment.systemPackages = [pkgs.home-manager];
   services.upower.enable = true;
 
-  networking.hostName = hostname;
+  networking.hostName = host.hostname;
   hardware.ckb-next.enable = true;
 
-  system.stateVersion = stateVersion;
+  system.stateVersion = host.stateVersion;
 
   # boot.kernelParams = [ "pcie_port_pm=off" "pcie_aspm.policy=performance" ];
   boot.kernelModules = ["it87"];
