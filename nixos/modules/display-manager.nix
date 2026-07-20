@@ -18,7 +18,7 @@
       ${pkgs.fbset}/bin/fbset -xres ${host.xRes} -yres ${host.yRes}
     '';
   };
-  environment.etc."ly/blackhole.dur".source = ./blackhole.dur;
+  environment.etc."ly/blackhole.dur".source = ./assests/ly/blackhole.dur;
   services.displayManager.ly = {
     enable = true;
     settings = {
