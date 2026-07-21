@@ -16,12 +16,39 @@
 
   system.stateVersion = host.stateVersion;
 
-  #boot.kernelParams = ["pcie_port_pm=off" "pcie_aspm.policy=performance"]; # Probably not needed when switching to AMD GPU
+  boot = {
+    # Enable "Silent boot"
+    consoleLogLevel = 3;
+    initrd.verbose = false;
+    kernelParams = [
+      "quiet"
+      "splash" # "splash" is needed for plymouth to display the splash animation
+      "rd.udev.log_level=3"
+      "rd.systemd.show_status=auto"
+      "amdgpu.gpu_recovery=1" # Enables GPU reset/recovery when the GPU hangs
+      "amdgpu.lockup_timeout=10000" # Sets the timeout in milliseconds before the driver considers the GPU "locked up" and triggers recovery
+    ];
 
-  boot.kernelParams = [
-    "pcie_port_pm=off"
-    "pcie_aspm.policy=performance"
-  ];
+    # Plymouth adds a custom splash animaiton instead of the wall of text sequence
+    plymouth = {
+      enable = true;
+      theme = "colorful_loop";
+
+      themePackages = with pkgs; [
+        adi1090x-plymouth-themes
+      ];
+    };
+
+    initrd.kernelModules = ["amdgpu"]; # Early KMS so the console/splash renders at native resolution
+
+    # Hide the OS choice for bootloaders.
+    # It's still possible to open the bootloader list by pressing any key
+    # It will just not appear on screen unless a key is pressed
+    loader.timeout = 0;
+
+    kernelPackages = pkgs.linuxPackages_zen;
+    # kernelPackages = pkgs.linuxPackages_latest;
+  };
 
   hardware.i2c.enable = true;
 
@@ -32,7 +59,4 @@
   desktop.shell = "noctalia";
   # desktop.hyprland.enable = true;
   # desktop.kde.enable = true;
-
-  boot.kernelPackages = pkgs.linuxPackages_zen;
-  # boot.kernelPackages = pkgs.linuxPackages_latest;
 }
