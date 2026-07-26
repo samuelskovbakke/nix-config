@@ -4,7 +4,7 @@ A highly modular NixOS configuration, managed with [Nix Flakes](https://nixos.wi
 
 ---
 
-## 📁 Structure
+## Structure
 
 ```
 nix-config/
@@ -16,21 +16,21 @@ nix-config/
 └── home/              # Home Manager configuration (user environment, dotfiles, etc.)
 ```
 
-## 🖥️ Hosts
+## Hosts
 
 Hosts are defined in the `hosts/` directory. Each host has its own configuration that imports shared NixOS modules and hardware-specific settings.
 
-## 🏠 Home Manager
+## Home Manager
 
 User-level configuration lives in `home/`, including shell setup, editor config, and any other dotfiles managed declaratively through Home Manager.
 
-## 🧩 NixOS Modules
+## NixOS Modules
 
 Reusable, composable NixOS modules are stored under `nixos/modules/`. These can be shared across multiple hosts to keep configuration DRY.
 
 ---
 
-## 🚀 Usage
+## Usage
 
 ### Prerequisites
 
@@ -62,7 +62,7 @@ nix flake update
 
 ---
 
-## 🛠️ Installation (fresh NixOS)
+## Installation (fresh NixOS)
 
 1. Boot a [NixOS installer](https://nixos.org/download) and partition/format your disks.
 2. Mount the target filesystem at `/mnt`.
@@ -87,7 +87,7 @@ nix flake update
 
 ---
 
-## 📦 Key Technologies
+## Key Technologies
 
 | Tool | Purpose |
 |---|---|
@@ -97,5 +97,5 @@ nix flake update
 
 ---
 
-## 📄 License
+## License
 This project is licensed under the [GNU General Public License v3.0](LICENSE). You are free to use, modify, and distribute this configuration, but any derivative work must also be distributed under the same GPL v3.0 license.
