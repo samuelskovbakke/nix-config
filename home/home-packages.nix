@@ -49,6 +49,7 @@
       claude-code
       eza
       fastfetch
+      fetch
       fd
       fzf
       git
@@ -77,7 +78,11 @@
       ani-skip
 
       # Programming stuff
+      ## python
       python313
+      ## C
+      gcc
+      gnumake
 
       # WM stuff
       libnotify

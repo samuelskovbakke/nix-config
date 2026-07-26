@@ -28,22 +28,28 @@
         enable = true;
         lsp.servers = ["nixd"];
       };
+
       python = {
         enable = true;
         lsp.servers = ["pyright"]; # Default: basedpyright
       };
+
       typst.enable = true;
-      lua.enable = true;
+
       markdown = {
         enable = true;
         extensions = {
           render-markdown-nvim.enable = true;
         };
       };
+
+      clang.enable = true;
+      css.enable = true;
       haskell.enable = true;
       java.enable = true;
+      lua.enable = true;
+      make.enable = true;
       rust.enable = true;
-      css.enable = true;
       scala.enable = true;
     };
   };
