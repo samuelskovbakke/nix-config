@@ -13,6 +13,7 @@
 
       samrewritten
       heroic
+      qbittorrent
 
       # Desktop specific
       openrgb-with-all-plugins
@@ -37,6 +38,5 @@
     ])
     ++ (with stable-pkgs; [
       lutris
-      jetbrains.idea
     ]);
 }
