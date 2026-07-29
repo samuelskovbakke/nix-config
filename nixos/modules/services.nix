@@ -1,6 +1,26 @@
 {
   services = {
     fwupd.enable = true;
+
+    /*
+    qbittorrent = {
+      enable = true;
+      openFirewall = true;
+      webuiPort = 9999;
+      serverConfig = {
+        LegalNotice.Accepted = true;
+        Preferences = {
+          WebUI = {
+            Username = "admin";
+            Password_PBKDF2 = "ARQ77eY1NUZaQsuDHbIMCA==:0WMRkYTUWVT9wVvdDtHAjU9b3b7uB8NR1Gur2hmQCvCDpm39Q+PsJRJPaCU51dEiz+dTzh8qbPsL8WkFljQYFQ==";
+            // pass: adminadmin
+          };
+          General.Locale = "en";
+        };
+      };
+    };
+    */
+
     searx = {
       enable = true;
       environmentFile = "/home/samuel/.searxng.env";
