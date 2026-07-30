@@ -3,6 +3,7 @@
     fira-code
     fira-code-symbols
     font-awesome
+    hack-font
     jetbrains-mono
     nerd-fonts.fantasque-sans-mono
     nerd-fonts.fira-code
