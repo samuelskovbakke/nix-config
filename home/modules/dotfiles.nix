@@ -7,38 +7,38 @@
 
   # Everything inside ~/.config
   configsc = [
-    "Kvantum"
+    # "Kvantum"
     "OpenRGB"
     "fastfetch"
     "fish"
     "ghostty"
-    "gtk-2.0"
-    "gtk-3.0"
-    "gtk-4.0"
-    "hypr"
-    "kitty"
+    # "gtk-2.0"
+    # "gtk-3.0"
+    # "gtk-4.0"
+    # "hypr"
+    # "kitty"
     "niri"
     "noctalia"
     "qt6ct"
-    "rofi"
+    # "rofi"
     "swaync"
-    "wallust"
-    "waybar"
-    "wlogout"
+    # "wallust"
+    # "waybar"
+    # "wlogout"
     "yazi"
   ];
 
   # Everything at $HOME level
   configs = [
-    ".icons"
-    ".my-aliases.zsh"
-    ".oh-my-zsh"
-    ".p10k.zsh"
+    # ".icons"
+    # ".my-aliases.zsh"
+    # ".oh-my-zsh"
+    # ".p10k.zsh"
     "Pictures"
-    ".themes"
+    # ".themes"
     ".tmux.conf"
-    ".zsh_plugins.txt"
-    ".zshrc"
+    # ".zsh_plugins.txt"
+    # ".zshrc"
   ];
 
   # build ln -s commands

@@ -17,9 +17,6 @@
 
     nvf = {
       url = "github:notashelf/nvf";
-      # You can override the input nixpkgs to follow your system's
-      # instance of nixpkgs. This is safe to do as nvf does not depend
-      # on a binary cache.
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -37,11 +34,9 @@
 
   outputs = {
     nixpkgs,
-    home-manager,
     ...
   } @ inputs: let
     system = "x86_64-linux";
-    homeStateVersion = "24.11";
     user = "samuel";
     hosts = [
       {
@@ -69,6 +64,7 @@
         inherit system;
         specialArgs = {
           inherit inputs user stable-pkgs host;
+          homeStateVersion = host.stateVersion;
         };
         modules = [
           {nixpkgs.overlays = [inputs.millennium.overlays.default];}
@@ -82,19 +78,5 @@
         "${host.hostname}" = makeSystem host;
       }) {}
     hosts;
-
-    home-manager.backupFileExtension = "backup";
-    homeConfigurations.${user} = home-manager.lib.homeManagerConfiguration {
-      pkgs = nixpkgs.legacyPackages.${system};
-      extraSpecialArgs = {
-        inherit inputs homeStateVersion user stable-pkgs;
-      };
-
-      modules = [
-        inputs.nvf.homeManagerModules.default
-        inputs.nix-index-database.homeModules.nix-index
-        ./home/home.nix
-      ];
-    };
   };
 }
