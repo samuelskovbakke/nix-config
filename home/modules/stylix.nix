@@ -1,15 +1,20 @@
-{ pkgs, inputs, ... }: {
-  imports = [ inputs.stylix.homeManagerModules.stylix ];
+{
+  pkgs,
+  inputs,
+  ...
+}: {
+  imports = [inputs.stylix.homeManagerModules.stylix];
 
   home.packages = with pkgs; [
     dejavu_fonts
     fira-code
+    hack-font
     noto-fonts
     noto-fonts-lgc-plus
     noto-fonts-emoji
     font-awesome
     wqy_zenhei
-    (nerdfonts.override { fonts = [ "FiraCode" "NerdFontsSymbolsOnly" ]; })
+    (nerdfonts.override {fonts = ["FiraCode" "NerdFontsSymbolsOnly"];})
   ];
 
   stylix = {
