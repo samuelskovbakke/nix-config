@@ -13,7 +13,7 @@
     enable = true;
     settings = {
       default = [
-        "kitty.desktop"
+        "ghostty.desktop"
       ];
     };
   };
