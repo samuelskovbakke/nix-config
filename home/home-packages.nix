@@ -4,7 +4,6 @@
   stable-pkgs,
   ...
 }: {
-  nixpkgs.config.allowUnfree = true;
 
   imports = [
     inputs.zen-browser.homeModules.beta
