@@ -18,7 +18,6 @@
 
       # Minecraft
       ftb-app
-      zerotierone
 
       # RDP server access
       remmina

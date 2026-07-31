@@ -21,6 +21,10 @@
     };
     */
 
+    tailscale = {
+      enable = true;
+    };
+
     searx = {
       enable = true;
       environmentFile = "/home/samuel/.searxng.env";
