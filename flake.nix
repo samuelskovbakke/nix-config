@@ -53,6 +53,14 @@
         xRes = "2560";
         yRes = "1440";
       }
+      {
+        # Server
+        hostname = "void";
+        stateVersion = "26.05";
+        isMultiMonitor = false;
+        xRes = "2560";
+        yRes = "1440";
+      }
     ];
     stable-pkgs = import inputs.nixpkgs-stable {
       inherit system;
