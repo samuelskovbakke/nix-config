@@ -1,0 +1,12 @@
+include "monitors.kdl"
+include "input.kdl"
+include "rules.kdl"
+include "layout.kdl"
+include "startup.kdl"
+// include "binds.kdl"
+include "binds-noctalia.kdl"
+include "env.kdl"
+
+include "noctalia.kdl"
+
+include "swipe-window.kdl"

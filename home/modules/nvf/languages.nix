@@ -2,7 +2,7 @@
   programs.nvf.settings.vim = {
     lsp = {
       enable = true;
-      formatOnSave = false;
+      formatOnSave = true;
       lspkind.enable = true; # Shows that a complete option might be a function or a module...
       lspsaga = {
         enable = true; # Code action, hover doc, signature help, preview definition, ...
@@ -43,7 +43,10 @@
         };
       };
 
-      clang.enable = true;
+      clang = {
+        enable = true;
+        format.enable = true;
+      };
       css.enable = true;
       haskell.enable = true;
       java.enable = true;

@@ -6,22 +6,20 @@
   dotfiles = "${config.home.homeDirectory}/dotfiles";
 
   # Everything inside ~/.config
+  # fastfetch, fish and niri are now managed declaratively -- see
+  # fastfetch.nix, fish.nix and niri/default.nix.
   configsc = [
     # "Kvantum"
     "OpenRGB"
-    "fastfetch"
-    "fish"
-    "ghostty"
     # "gtk-2.0"
     # "gtk-3.0"
     # "gtk-4.0"
     # "hypr"
     # "kitty"
-    "niri"
     "noctalia"
     "qt6ct"
     # "rofi"
-    "swaync"
+    # "swaync"
     # "wallust"
     # "waybar"
     # "wlogout"
@@ -29,6 +27,7 @@
   ];
 
   # Everything at $HOME level
+  # .tmux.conf is now managed declaratively -- see tmux.nix.
   configs = [
     # ".icons"
     # ".my-aliases.zsh"
@@ -36,7 +35,6 @@
     # ".p10k.zsh"
     "Pictures"
     # ".themes"
-    ".tmux.conf"
     # ".zsh_plugins.txt"
     # ".zshrc"
   ];
