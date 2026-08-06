@@ -28,17 +28,27 @@
     hyprcursor.enable = false; # not needed for Niri
   };
 
+  home.packages = with pkgs; [
+    (catppuccin-gtk.override {
+      accents = ["sky"];
+      size = "standard";
+      variant = "mocha";
+    })
+  ];
+
   gtk = {
     enable = true;
 
     theme = {
-      name = "Catppuccin-Mocha-Standard-Sky-Dark";
+      name = "catppuccin-mocha-sky-standard";
       package = pkgs.catppuccin-gtk.override {
         accents = ["sky"];
         size = "standard";
         variant = "mocha";
       };
     };
+
+    colorScheme = "dark";
 
     iconTheme = {
       name = "Flat-Remix-Blue-Dark";
@@ -61,17 +71,16 @@
       gtk-application-prefer-dark-theme = 1;
     };
   };
-
+  /*
+  dconf.settings = {
+    "org/gnome/desktop/interface" = {
+      color-scheme = "prefer-dark";
+    };
+  };
+  */
   qt = {
     enable = true;
     platformTheme.name = "gtk3"; # makes Qt apps pull colors from your GTK theme
-    style.name = "adwaita-dark"; # fallback Qt widget style
-  };
-
-  dconf.settings = {
-    "org/gnome/desktop/interface" = {
-      monospace-font-name = "Hack 10";
-      color-scheme = "prefer-dark";
-    };
+    style.name = "kvantum"; # fallback Qt widget style
   };
 }
