@@ -1,4 +1,5 @@
 {pkgs, ...}: {
+  /*
   systemd.user.services.polkit-kde-agent = {
     Unit = {
       Description = "polkit-kde-authentication-agent-1";
@@ -12,6 +13,30 @@
       RestartSec = 1;
       TimeoutStopSec = 10;
     };
+    Install.WantedBy = ["graphical-session.target"];
+  };
+
+  home.packages = [pkgs.kdePackages.qqc2-breeze-style];
+  */
+
+  home.packages = with pkgs; [
+    polkit_gnome
+  ];
+
+  systemd.user.services.polkit-gnome-agent = {
+    Unit = {
+      Description = "GNOME Polkit Authentication Agent";
+      After = ["graphical-session.target"];
+    };
+
+    Service = {
+      ExecStart = "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1";
+      Environment = [
+        "GTK_THEME=Catppuccin-Mocha-Standard-Sky-Dark"
+      ];
+      Restart = "on-failure";
+    };
+
     Install.WantedBy = ["graphical-session.target"];
   };
 

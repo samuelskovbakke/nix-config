@@ -28,7 +28,6 @@
       zenity
 
       gnome-disk-utility
-      kdePackages.polkit-kde-agent-1
 
       openvpn
     ])

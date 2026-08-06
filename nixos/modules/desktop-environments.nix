@@ -48,9 +48,11 @@ with lib; {
           # xdg-desktop-portal-gnome
         ];
 
-        # Optional but recommended
-        config.common.default = "wlr";
+        config.common.default = ["gtk" "wlr"];
       };
+
+      security.polkit.enable = true;
+
       environment.systemPackages = with pkgs; [
         alacritty
       ];
