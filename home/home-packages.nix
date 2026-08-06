@@ -4,7 +4,6 @@
   stable-pkgs,
   ...
 }: {
-
   imports = [
     inputs.zen-browser.homeModules.beta
     # or inputs.zen-browser.homeModules.twilight
