@@ -3,6 +3,7 @@
   user,
   stable-pkgs,
   homeStateVersion,
+  host,
   ...
 }: {
   imports = [inputs.home-manager.nixosModules.default];
@@ -12,7 +13,7 @@
     useUserPackages = true;
     backupFileExtension = "backup";
     extraSpecialArgs = {
-      inherit inputs stable-pkgs homeStateVersion user;
+      inherit inputs stable-pkgs homeStateVersion user host;
     };
     users.${user} = {
       imports = [
