@@ -11,6 +11,12 @@
 
   environment.systemPackages = [pkgs.rose-pine-cursor];
 
+  # Secret portal backend (see home/modules/session-services.nix for the
+  # user-service side). This auto-unlocks the keyring using your login
+  # password when authenticating through ly.
+  services.gnome.gnome-keyring.enable = true;
+  security.pam.services.ly.enableGnomeKeyring = true;
+
   # If multimonitor we add a pre exec to run fbset with our primary display resolution
   # this is so the main monitor TTY ly isn't cropped
   systemd.services.display-manager = lib.mkIf (host.isMultiMonitor or false) {
