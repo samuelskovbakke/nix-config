@@ -10,13 +10,12 @@
       theme = "noctalia";
       cursor-style = "bar";
 
-      font-family = "FiraCode Nerd Font SemiBold";
+      font-family = "FiraCode Nerd Font Mono";
+      font-style = "Medium";
       font-size = 12;
 
       background-opacity = 0.7;
       background-blur = true;
-
-      font-feature = ["liga"];
     };
 
     # Custom theme, previously at ~/.config/ghostty/themes/noctalia
