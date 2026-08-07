@@ -1,4 +1,4 @@
-{user}: {
+{user, ...}: {
   services = {
     fwupd.enable = true;
 
