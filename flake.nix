@@ -32,10 +32,7 @@
     millennium.url = "github:SteamClientHomebrew/Millennium/next?dir=packages/nix";
   };
 
-  outputs = {
-    nixpkgs,
-    ...
-  } @ inputs: let
+  outputs = {nixpkgs, ...} @ inputs: let
     system = "x86_64-linux";
     user = "samuel";
     hosts = [
