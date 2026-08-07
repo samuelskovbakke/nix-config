@@ -12,8 +12,8 @@
       claude-code
       eza
       fastfetch
-      fetch
       fd
+      fetch
       fzf
       git
       gum
@@ -25,6 +25,7 @@
       unzip
       usbutils
       wget
+      wol
       yazi
       zip
       zoxide
