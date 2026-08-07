@@ -19,7 +19,7 @@
       imports = [
         inputs.nvf.homeManagerModules.default
         inputs.nix-index-database.homeModules.nix-index
-        ../../home/home.nix
+        ../../../home/home.nix
       ];
     };
   };
