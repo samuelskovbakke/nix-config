@@ -57,7 +57,7 @@
       # oh-my-zsh
       # ollama-vulkan # consider switching to ollama-cuda or ollama-vulkan for gpu acceleration
       pay-respects # thefuck alternative
-      playerctl
+      # playerctl
       # quickshell
       ripgrep
       tldr
