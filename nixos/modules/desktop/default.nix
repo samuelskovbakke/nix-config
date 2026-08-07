@@ -2,29 +2,16 @@
   imports = [
     ./audio.nix
     ./bluetooth.nix
-    ./boot.nix
     ./desktop-environments.nix
     ./display-manager.nix
-    ./env.nix
     ./extra-programs.nix
     ./flatpak.nix
     ./fonts.nix
     ./gpu.nix
-    ./home-manager.nix
-    ./kernel.nix
-    ./locale.nix
     ./nautilus.nix
-    ./net.nix
-    ./nh.nix
-    ./nix.nix
     ./openrgb.nix
-    ./security.nix
-    ./services.nix
     ./shells.nix
     ./steam.nix
-    # ./thunar.nix
-    ./timezone.nix
     ./udev.nix
-    ./user.nix
   ];
 }

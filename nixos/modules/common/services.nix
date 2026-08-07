@@ -1,4 +1,4 @@
-{
+{user}: {
   services = {
     fwupd.enable = true;
 
@@ -27,7 +27,7 @@
 
     searx = {
       enable = true;
-      environmentFile = "/home/samuel/.searxng.env";
+      environmentFile = "/home/${user}/.searxng.env";
       settings = {
         general = {
           debug = false;
