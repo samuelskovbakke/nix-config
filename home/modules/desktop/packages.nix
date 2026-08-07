@@ -1,4 +1,3 @@
-# home/modules/desktop/packages.nix
 {
   inputs,
   pkgs,
