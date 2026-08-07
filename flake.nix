@@ -38,6 +38,7 @@
     hosts = [
       {
         hostname = "desktop";
+        class = "desktop";
         stateVersion = "24.11";
         isMultiMonitor = true;
         xRes = "2560";
@@ -45,6 +46,7 @@
       }
       {
         hostname = "laptop";
+        class = "desktop";
         stateVersion = "25.05";
         isMultiMonitor = false;
         xRes = "2560";
@@ -53,6 +55,7 @@
       {
         # Server
         hostname = "void";
+        class = "server";
         stateVersion = "26.05";
         isMultiMonitor = false;
         xRes = "2560";
