@@ -44,7 +44,7 @@
       bc
       brightnessctl
       btop
-      claude-code
+      # claude-code
       eza
       fastfetch
       fetch
@@ -58,7 +58,7 @@
       # ollama-vulkan # consider switching to ollama-cuda or ollama-vulkan for gpu acceleration
       pay-respects # thefuck alternative
       playerctl
-      quickshell
+      # quickshell
       ripgrep
       tldr
       unzip
@@ -84,7 +84,7 @@
 
       # WM stuff
       libnotify
-      rose-pine-hyprcursor
+      # rose-pine-hyprcursor
 
       # Other
       bemoji
