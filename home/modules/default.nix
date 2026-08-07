@@ -10,5 +10,6 @@
     ./niri
     ./nvf
     ./tmux.nix
+    ./yazi.nix
   ];
 }

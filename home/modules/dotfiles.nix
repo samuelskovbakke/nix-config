@@ -6,8 +6,6 @@
   dotfiles = "${config.home.homeDirectory}/dotfiles";
 
   # Everything inside ~/.config
-  # fastfetch, fish and niri are now managed declaratively -- see
-  # fastfetch.nix, fish.nix and niri/default.nix.
   configsc = [
     # "Kvantum"
     "OpenRGB"
@@ -23,7 +21,6 @@
     # "wallust"
     # "waybar"
     # "wlogout"
-    "yazi"
   ];
 
   # Everything at $HOME level
