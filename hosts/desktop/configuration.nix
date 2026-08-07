@@ -6,8 +6,9 @@
   imports = [
     /etc/nixos/hardware-configuration.nix
     ./local-packages.nix
-    ../../nixos/modules
     ./sddm-theme.nix
+    ../../nixos/modules/common
+    ../../nixos/modules/desktop
   ];
 
   environment.systemPackages = [pkgs.home-manager];
@@ -55,8 +56,10 @@
   # gpu.nvidia.enable = true;
   gpu.amd.enable = true;
 
-  desktop.niri.enable = true;
-  desktop.shell = "noctalia";
-  # desktop.hyprland.enable = true;
-  # desktop.kde.enable = true;
+  desktop = {
+    shell = "noctalia";
+    niri.enable = true;
+    # hyprland.enable = true;
+    # kde.enable = true;
+  };
 }
