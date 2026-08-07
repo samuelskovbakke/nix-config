@@ -6,7 +6,7 @@
 }: {
   # services.displayManager.sddm = {
   #   enable = true;
-  #   theme = "${import ./assests/sddm/sddm-tokyonight-theme.nix {inherit pkgs;}}";
+  #   theme = "${import ./assets/sddm/sddm-tokyonight-theme.nix {inherit pkgs;}}";
   # };
 
   environment.systemPackages = [pkgs.rose-pine-cursor];
@@ -24,7 +24,7 @@
       ${pkgs.fbset}/bin/fbset -xres ${host.xRes} -yres ${host.yRes}
     '';
   };
-  environment.etc."ly/blackhole.dur".source = ./assests/ly/blackhole.dur;
+  environment.etc."ly/blackhole.dur".source = ./assets/ly/blackhole.dur;
   services.displayManager.ly = {
     enable = true;
     settings = {
