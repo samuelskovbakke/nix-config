@@ -24,19 +24,4 @@
   };
 
   boot.kernelPackages = pkgs.linuxPackages_latest;
-
-  /*
-  // not needed for a headless server (no x11 or wayland)
-  hardware = {
-    enableRedistributableFirmware = true;
-    cpu.intel.updateMicrocode = true;
-    graphics = {
-      enable = true;
-      extraPackages = with pkgs; [
-        intel-media-driver
-        vpl-gpu-rt
-      ];
-    };
-  };
-  */
 }
