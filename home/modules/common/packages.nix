@@ -9,7 +9,7 @@
       bat
       bc
       btop
-      claude-code
+      # claude-code
       eza
       fastfetch
       fd
