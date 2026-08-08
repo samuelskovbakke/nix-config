@@ -5,5 +5,6 @@
     ./niri
     ./packages.nix
     # ./stylix.nix
+    ./theming.nix
   ];
 }

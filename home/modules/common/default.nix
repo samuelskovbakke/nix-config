@@ -7,7 +7,6 @@
     ./git.nix
     ./nvf
     ./packages.nix
-    ./theming.nix
     ./tmux.nix
     ./yazi.nix
   ];
