@@ -6,7 +6,7 @@
     ./fish.nix
     ./git.nix
     ./nvf
-    ./packages.nix
+    ./packages
     ./tmux.nix
     ./yazi.nix
   ];

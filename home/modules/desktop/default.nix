@@ -3,7 +3,7 @@
     ./auth-agent.nix
     ./ghostty.nix
     ./niri
-    ./packages.nix
+    ./packages
     # ./stylix.nix
     ./theming.nix
   ];
