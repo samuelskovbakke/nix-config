@@ -1,9 +1,9 @@
 {pkgs, ...}: {
   environment.systemPackages = with pkgs; [
+    # Build / packaging utilities
     nix-prefetch-git
-    typst
 
-    # System diagnostic packages
+    # Hardware / system info
     pciutils
     usbutils
     dmidecode
@@ -11,5 +11,12 @@
     lm_sensors
     lshw-gui
     inxi
+    smartmontools
+
+    # Resource / network monitoring
+    iotop
+    bandwhich
+    ethtool
+    nmap
   ];
 }
