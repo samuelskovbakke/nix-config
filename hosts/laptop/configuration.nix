@@ -49,5 +49,6 @@
   desktop = {
     niri.enable = true;
     shell = "noctalia";
+    displayManager.sddm.enable = true;
   };
 }
