@@ -4,10 +4,7 @@
 # assignment (desktop pins apps to specific monitors by output name; laptop
 # has one screen so it doesn't bother) and desktop's extra steam-fullscreen
 # rule, which laptop doesn't have.
-{
-  hostname,
-  ...
-}: let
+{hostname, ...}: let
   appWorkspaceRules =
     {
       desktop = ''
@@ -44,7 +41,7 @@
           match app-id="app.zen_browser.zen"
           // match at-startup=true
           open-on-workspace "browser"
-          open-maximized true
+          // open-maximized true
           opacity 1.0
         }
 
@@ -73,7 +70,7 @@
         }
 
         window-rule {
-          match app-id="steam|lutris|heroic"
+          match app-id="steam|lutris|heroic|amethyst-mod-manager"
           // match at-startup=true
           open-on-workspace "games"
           open-maximized true
@@ -119,7 +116,9 @@
         } */
       '';
     }
-    .${hostname};
+    .${
+      hostname
+    };
 in ''
   // Uncomment this line to ask the clients to omit their client-side decorations if possible.
   // If the client will specifically ask for CSD, the request will be honored.
@@ -210,5 +209,6 @@ in ''
   window-rule {
       match app-id=r#"^steam_app_"#
       open-fullscreen true
+      open-on-workspace "games"
   }
 ''
