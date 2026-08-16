@@ -24,7 +24,7 @@
             owner = "fabioluciano";
             repo = "tmux-tokyo-night";
             rev = "main";
-            hash = "sha256-0Ri5S195hPP8xqOVA1h+txwadnjY9slnwCsXQAzrf4o=";
+            hash = "sha256-o1JzVZHHItBVrmWEg4xtEL5JLF/75BF+pgyd5mXBEpg=";
           };
         };
       }
