@@ -7,10 +7,7 @@
   ...
 }: let
   isLaptop = hostname == "laptop";
-  layout =
-    if isLaptop
-    then "dk,us"
-    else "us,dk";
+  layout = "us,dk";
   touchpadCommentOpen = lib.optionalString (!isLaptop) "/* ";
   touchpadCommentClose = lib.optionalString (!isLaptop) " */";
 in ''
