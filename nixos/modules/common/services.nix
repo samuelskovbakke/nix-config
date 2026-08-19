@@ -2,6 +2,14 @@
   services = {
     fwupd.enable = true;
 
+    # Printer stuff
+    printing.enable = true;
+    services.avahi = {
+      enable = true;
+      nssmdns4 = true;
+      openFirewall = true;
+    };
+
     /*
     qbittorrent = {
       enable = true;
@@ -36,6 +44,7 @@
           bind_address = "127.0.0.1";
           server.port = 8080;
           secret_key = "$SEARX_SECRET_KEY";
+          method = "GET";
         };
       };
     };
