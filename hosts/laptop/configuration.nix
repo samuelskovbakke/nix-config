@@ -9,6 +9,7 @@
     ./sddm-theme.nix
     ../../nixos/modules/common
     ../../nixos/modules/desktop
+    ../../nixos/modules/gaming
   ];
 
   hardware = {
