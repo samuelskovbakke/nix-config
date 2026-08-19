@@ -53,6 +53,14 @@
         yRes = "1440";
       }
       {
+        hostname = "worktop";
+        class = "desktop";
+        stateVersion = "26.05";
+        isMultiMonitor = false;
+        xRes = "1920";
+        yRes = "1080";
+      }
+      {
         # Server
         hostname = "void";
         class = "server";
