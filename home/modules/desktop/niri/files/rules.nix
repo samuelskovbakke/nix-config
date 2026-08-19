@@ -115,6 +115,38 @@
           // opacity 0.95
         } */
       '';
+      worktop = ''
+        workspace "browser"
+        workspace "mail"
+        workspace "terminal"
+
+        window-rule {
+          match title="^$"
+          open-floating true
+        }
+
+        window-rule {
+          match app-id="app.zen_browser.zen"
+          // match at-startup=true
+          open-on-workspace "browser"
+          // opacity 0.8
+        }
+
+        window-rule {
+          match app-id="thunderbird|eu.betterbird.Betterbird"
+          open-on-workspace "mail"
+          open-maximized true
+          // match at-startup=true
+          // opacity 0.95
+        }
+
+        window-rule {
+          match app-id="com.mitchellh.ghostty"
+          // match at-startup=true
+          open-on-workspace "terminal"
+          opacity 0.95
+        }
+      '';
     }
     .${
       hostname
@@ -129,6 +161,7 @@ in ''
 
   ${appWorkspaceRules}
 
+  // makes the inactive windows more transparent
   /* window-rule {
     match is-active=false
     opacity 0.75

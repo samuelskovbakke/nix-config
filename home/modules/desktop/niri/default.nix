@@ -4,9 +4,9 @@
   ...
 }: let
   # host.hostname comes from flake.nix's per-host definitions ("desktop" /
-  # "laptop"), threaded through to home-manager via extraSpecialArgs in
+  # "laptop" / ...), threaded through to home-manager via extraSpecialArgs in
   # nixos/modules/home-manager.nix.
-  hostname = host.hostname or "desktop";
+  hostname = host.hostname or "laptop";
   args = {inherit hostname lib;};
 
   # Truly static, identical on both machines.
@@ -27,8 +27,8 @@
 in {
   assertions = [
     {
-      assertion = builtins.elem hostname ["desktop" "laptop"];
-      message = "niri module: no per-host niri config for host.hostname \"${hostname}\" (expected \"desktop\" or \"laptop\")";
+      assertion = builtins.elem hostname ["desktop" "laptop" "worktop"];
+      message = "niri module: no per-host niri config for host.hostname \"${hostname}\" (expected \"desktop\", \"laptop\" or \"worktop\")";
     }
   ];
 
@@ -39,5 +39,4 @@ in {
       # Only desktop's startup.kdl / binds-noctalia.kdl reference these.
       "niri/scripts".source = ./files/scripts;
     };
-
 }

@@ -37,8 +37,15 @@
         // To run a shell command (with variables, pipes, etc.), use spawn-sh-at-startup:
         // spawn-sh-at-startup "qs -c ~/source/qs/MyAwesomeShell"
       '';
+      worktop = ''
+        spawn-sh-at-startup "app.zen_browser.zen & ghostty"
+        spawn-sh-at-startup "noctalia-shell"
+        spawn-sh-at-startup "flatpak run eu.betterbird.Betterbird"
+      '';
     }
-    .${hostname};
+    .${
+      hostname
+    };
 in ''
   // Add lines like this to spawn processes at startup.
   // Note that running niri as a session supports xdg-desktop-autostart,

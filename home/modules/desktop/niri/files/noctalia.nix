@@ -20,8 +20,18 @@
         tabInactive = "#6b02e9";
         insertHint = "#cba6f780";
       };
+      worktop = {
+        active = "#cba6f7";
+        inactive = "#1e1e2e";
+        urgent = "#f38ba8";
+        shadow = "#11111b70";
+        tabInactive = "#6b02e9";
+        insertHint = "#cba6f780";
+      };
     }
-    .${hostname};
+    .${
+      hostname
+    };
 in ''
   layout {
 

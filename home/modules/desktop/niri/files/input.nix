@@ -6,7 +6,7 @@
   lib,
   ...
 }: let
-  isLaptop = hostname == "laptop";
+  isLaptop = builtins.elem hostname ["laptop" "worktop"];
   layout = "us,dk";
   touchpadCommentOpen = lib.optionalString (!isLaptop) "/* ";
   touchpadCommentClose = lib.optionalString (!isLaptop) " */";
