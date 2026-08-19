@@ -11,7 +11,6 @@
     ./openrgb.nix
     ./packages.nix
     ./shells.nix
-    ./steam.nix
     ./udev.nix
   ];
 }
