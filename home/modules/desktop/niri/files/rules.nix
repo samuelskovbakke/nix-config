@@ -55,7 +55,7 @@
         }
 
         window-rule {
-          match app-id="thunderbird"
+          match app-id="thunderbird|eu.betterbird.Betterbird"
           open-on-workspace "mail"
           open-maximized true
           // match at-startup=true
