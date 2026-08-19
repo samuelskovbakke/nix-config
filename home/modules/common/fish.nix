@@ -6,22 +6,22 @@
     enable = true;
 
     shellAliases = {
-      q = "exit";
       c = "clear";
       cat = "bat";
-      ls = "eza --color=always --git --no-filesize --icons=always --no-time --no-user --no-permissions";
+      cd = "z";
+      ff = "fastfetch";
+      gg = "lazygit";
+      grep = "rg";
       l = "eza --color=always --git --no-filesize --icons=always --no-time --no-user --no-permissions --long";
       la = "eza --long --all --color=always --git --icons=always";
       ll = "eza --long --color=always --git --icons=always";
+      ls = "eza --color=always --git --no-filesize --icons=always --no-time --no-user --no-permissions";
       more = "most";
-      pac = "sudo pacman --noconfirm";
-      yay = "yay --noconfirm";
-      give-me-upgrade = "sudo pacman --noconfirm -Syyuu && yay";
-      grep = "rg";
-      ff = "fastfetch";
-      gg = "lazygit";
       nrs = "nh os switch --impure";
-      cd = "z";
+      pac = "sudo pacman --noconfirm";
+      pacupg = "sudo pacman --noconfirm -Syyuu && yay";
+      q = "exit";
+      yay = "yay --noconfirm";
     };
 
     shellAbbrs = {

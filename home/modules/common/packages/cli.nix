@@ -12,6 +12,7 @@
     jq
     lazygit
     lsof
+    most
     ncdu
     pay-respects
     ripgrep

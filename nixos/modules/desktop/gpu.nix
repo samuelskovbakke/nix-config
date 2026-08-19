@@ -7,6 +7,7 @@
 in {
   options.gpu = {
     nvidia.enable = lib.mkEnableOption "Enable NVIDIA GPU support";
+    nvidia.cuda.enable = lib.mkEnableOption "Enable CUDA support for NVIDIA GPU";
     amd.enable = lib.mkEnableOption "Enable AMD GPU support";
   };
 
@@ -16,6 +17,10 @@ in {
         {
           assertion = !(cfg.nvidia.enable && cfg.amd.enable);
           message = "Only one of gpu.nvidia.enable or gpu.amd.enable may be enabled at a time.";
+        }
+        {
+          assertion = !(cfg.nvidia.cuda.enable && !cfg.nvidia.enable);
+          message = "gpu.nvidia.cuda.enable requires gpu.nvidia.enable to be set.";
         }
       ];
     }
@@ -30,10 +35,9 @@ in {
     # NVIDIA configuration
     (lib.mkIf cfg.nvidia.enable {
       services.xserver.videoDrivers = ["nvidia"];
-      nixpkgs.config.cudaSupport = true;
 
       hardware.nvidia = {
-        # Modesetting is required.
+        # Modesetting is required for wayland.
         modesetting.enable = true;
 
         # Nvidia power management. Experimental, and can cause sleep/suspend to fail.
@@ -63,14 +67,21 @@ in {
       };
     })
 
+    # CUDA support - opt-in, separate from just having an Nvidia GPU
+    (lib.mkIf cfg.nvidia.cuda.enable {
+      nixpkgs.config.cudaSupport = true;
+      nix.settings = {
+        substituters = ["https://cuda-maintainers.cachix.org"];
+        trusted-public-keys = ["cuda-maintainers.cachix.org-1:0dq3bujKpuEPMCX6U4WylrUDZ9JyUG0VpVZa7CNfq5E="];
+      };
+    })
+
     # AMD configuration
     (lib.mkIf cfg.amd.enable {
       services.xserver.videoDrivers = ["amdgpu"];
       hardware.amdgpu.initrd.enable = true; # Starts gpu drivers before anything else to avoid mishaps
 
       services.lact.enable = true; # enables LACT an app for controlling GPUs
-
-      nixpkgs.config.cudaSupport = false;
     })
   ];
 }
