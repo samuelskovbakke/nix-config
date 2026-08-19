@@ -4,7 +4,7 @@
 
     # Printer stuff
     printing.enable = true;
-    services.avahi = {
+    avahi = {
       enable = true;
       nssmdns4 = true;
       openFirewall = true;
