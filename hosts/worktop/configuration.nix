@@ -38,6 +38,7 @@
         EVDEV_ABS_36=::12
     ''; # this might fix the touchpad not identifying presses correctly
 
+    upower.enable = true;
     thermald.enable = true;
     power-profiles-daemon.enable = false; # conflicts with TLP
     tlp = {
