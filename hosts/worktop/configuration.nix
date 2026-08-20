@@ -30,6 +30,14 @@
 
   powerManagement.powertop.enable = true;
   services = {
+    udev.extraHwdb = ''
+      evdev:name:Synaptics TM3471-030:dmi:*svnLENOVO:*pvrThinkPadP14sGen2i*
+        EVDEV_ABS_00=::12
+        EVDEV_ABS_01=::12
+        EVDEV_ABS_35=::12
+        EVDEV_ABS_36=::12
+    ''; # this might fix the touchpad not identifying presses correctly
+
     thermald.enable = true;
     power-profiles-daemon.enable = false; # conflicts with TLP
     tlp = {

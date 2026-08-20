@@ -63,7 +63,7 @@ in ''
       }
 
       trackpoint {
-          off
+          // off
           // natural-scroll
           // accel-speed 0.2
           // accel-profile "flat"
