@@ -105,16 +105,6 @@
 
   boot = {
     kernelPackages = pkgs.linuxPackages_zen;
-    kernelModules = ["thinkpad_acpi"];
-    extraModprobeConfig = ''
-      options thinkpad_acpi fan_control=1
-    '';
-    kernelParams = [
-      "i915.enable_guc=3"
-      "i915.enable_psr=2"
-      "intel_idle.max_cstate=10"
-      "pcie_aspm=force"
-    ];
   };
 
   # Unrelated to the stutter fix; uncomment only when you actually want dGPU offload
