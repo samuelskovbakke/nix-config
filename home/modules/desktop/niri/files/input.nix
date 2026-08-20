@@ -43,8 +43,8 @@ in ''
       ${touchpadCommentOpen}touchpad {
           // off
           tap
-          dwt
-          dwtp
+          // dwt
+          // dwtp
           // drag false
           // drag-lock
           natural-scroll
