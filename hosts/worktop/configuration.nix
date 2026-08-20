@@ -71,13 +71,15 @@
       };
     };
 
+    /*
     libinput.enable = true;
-    libinput.touchpad = {
-      naturalScrolling = false;
-      tapping = true;
-      disableWhileTyping = true;
-      middleEmulation = true; # trackpoint scroll via middle-click drag
-    };
+        libinput.touchpad = {
+          naturalScrolling = false;
+          tapping = true;
+          disableWhileTyping = true;
+          middleEmulation = true; # trackpoint scroll via middle-click drag
+        };
+    */
 
     # Fingerprint reader
     fprintd = {
@@ -114,6 +116,7 @@
     kernelParams = [
       "mem_sleep_default=s2idle"
       "i915.enable_psr=0" # PSR was causing stutter/choppiness on this panel
+      "psmouse.synaptics_intertouch=1"
       # "pcie_aspm.policy=performance"  # uncomment as a second test if PSR fix alone isn't enough
     ];
   };
