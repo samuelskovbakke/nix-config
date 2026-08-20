@@ -43,14 +43,14 @@ in ''
       ${touchpadCommentOpen}touchpad {
           // off
           tap
-          // dwt
-          // dwtp
+          dwt false
+          dwtp false
           // drag false
           // drag-lock
           natural-scroll
           // accel-speed 0.2
-          // accel-profile "flat"
-          // scroll-method "two-finger"
+          accel-profile "flat"
+          scroll-method "two-finger"
           disabled-on-external-mouse
       }${touchpadCommentClose}
 
@@ -63,7 +63,7 @@ in ''
       }
 
       trackpoint {
-          // off
+          off
           // natural-scroll
           // accel-speed 0.2
           // accel-profile "flat"
