@@ -24,24 +24,17 @@
         libvdpau-va-gl
       ];
     };
-
-    # Enables support for the laptops keyboard backlight and power-management
-    tuxedo-rs = {
-      enable = true;
-      tailor-gui.enable = true;
-    };
-
-    tuxedo-drivers.enable = true;
   };
 
   environment.systemPackages = [pkgs.home-manager];
 
+  powerManagement.powertop.enable = true;
   services = {
-    upower.enable = true;
     thermald.enable = true;
     power-profiles-daemon.enable = false; # conflicts with TLP
     tlp = {
       enable = true;
+
       settings = {
         CPU_SCALING_GOVERNOR_ON_AC = "performance";
         CPU_SCALING_GOVERNOR_ON_BAT = "powersave";
@@ -51,23 +44,35 @@
 
         CPU_MIN_PERF_ON_AC = 0;
         CPU_MAX_PERF_ON_AC = 100;
+
         CPU_MIN_PERF_ON_BAT = 0;
-        CPU_MAX_PERF_ON_BAT = 60; # cap turbo on battery
+        CPU_MAX_PERF_ON_BAT = 50;
 
-        # Battery longevity: stop charging at 80% if you're usually plugged in at a desk.
-        # Comment these out if you want full charge for travel days.
-        START_CHARGE_THRESH_BAT0 = 75;
-        STOP_CHARGE_THRESH_BAT0 = 80;
+        CPU_BOOST_ON_AC = 1;
+        CPU_BOOST_ON_BAT = 0;
 
-        # PCIe/USB/WiFi power saving
+        CPU_HWP_DYN_BOOST_ON_AC = 1;
+        CPU_HWP_DYN_BOOST_ON_BAT = 0;
+
         RUNTIME_PM_ON_AC = "on";
         RUNTIME_PM_ON_BAT = "auto";
-        USB_AUTOSUSPEND = 1;
+
+        PCIE_ASPM_ON_AC = "default";
+        PCIE_ASPM_ON_BAT = "powersupersave";
+
         WIFI_PWR_ON_AC = "off";
         WIFI_PWR_ON_BAT = "on";
 
-        # Disable NMI watchdog, small idle-power win
-        NMI_WATCHDOG = 0;
+        SATA_LINKPWR_ON_BAT = "med_power_with_dipm";
+
+        WOL_DISABLE = "Y";
+
+        USB_AUTOSUSPEND = 1;
+        USB_EXCLUDE_AUDIO = 1;
+        USB_EXCLUDE_BTUSB = 0;
+        USB_EXCLUDE_PHONE = 0;
+        USB_EXCLUDE_PRINTER = 1;
+        USB_EXCLUDE_WWAN = 0;
       };
     };
 
@@ -87,10 +92,6 @@
       tod = {
         enable = true;
         driver = pkgs.libfprint-2-tod1-goodix;
-        # If lsusb shows a Goodix "550a" variant instead, swap to:
-        # driver = pkgs.libfprint-2-tod1-goodix-550a;
-        # If it's an Elan sensor (04f3:0c4b) instead of Goodix:
-        # driver = pkgs.libfprint-2-tod1-elan;
       };
     };
   };
@@ -114,16 +115,13 @@
       options thinkpad_acpi fan_control=1
     '';
     kernelParams = [
-      "mem_sleep_default=s2idle"
-      "i915.enable_psr=0" # PSR was causing stutter/choppiness on this panel
-      "psmouse.synaptics_intertouch=1"
-      # "pcie_aspm.policy=performance"  # uncomment as a second test if PSR fix alone isn't enough
+      "i915.enable_guc=3"
+      "i915.enable_psr=2"
+      "intel_idle.max_cstate=10"
+      "pcie_aspm=force"
     ];
   };
 
-  # gpu.amd.enable = true;
-
-  # NVIDIA Quadro offload — confirmed bus IDs via `lspci | grep -E "VGA|3D"`.
   # Unrelated to the stutter fix; uncomment only when you actually want dGPU offload
   # for CUDA/rendering. Intel stays primary display owner either way.
   # gpu.nvidia.enable = true;
@@ -133,6 +131,26 @@
   #   intelBusId = "PCI:0:2:0";
   #   nvidiaBusId = "PCI:1:0:0";
   # };
+
+  hardware.nvidia = {
+    modesetting.enable = true;
+    powerManagement.enable = true;
+    powerManagement.finegrained = true;
+    open = true;
+    nvidiaSettings = true;
+
+    package = config.boot.kernelPackages.nvidiaPackages.stable;
+
+    prime = {
+      offload = {
+        enable = true;
+        enableOffloadCmd = true;
+      };
+
+      intelBusId = "PCI:0:2:0";
+      nvidiaBusId = "PCI:1:0:0";
+    };
+  };
 
   desktop = {
     niri.enable = true;
