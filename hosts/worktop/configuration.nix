@@ -34,7 +34,6 @@
     power-profiles-daemon.enable = false; # conflicts with TLP
     tlp = {
       enable = true;
-
       settings = {
         CPU_SCALING_GOVERNOR_ON_AC = "performance";
         CPU_SCALING_GOVERNOR_ON_BAT = "powersave";
@@ -44,35 +43,23 @@
 
         CPU_MIN_PERF_ON_AC = 0;
         CPU_MAX_PERF_ON_AC = 100;
-
         CPU_MIN_PERF_ON_BAT = 0;
-        CPU_MAX_PERF_ON_BAT = 50;
+        CPU_MAX_PERF_ON_BAT = 60; # cap turbo on battery
 
-        CPU_BOOST_ON_AC = 1;
-        CPU_BOOST_ON_BAT = 0;
+        # Battery longevity: stop charging at 80% if you're usually plugged in at a desk.
+        # Comment these out if you want full charge for travel days.
+        START_CHARGE_THRESH_BAT0 = 75;
+        STOP_CHARGE_THRESH_BAT0 = 80;
 
-        CPU_HWP_DYN_BOOST_ON_AC = 1;
-        CPU_HWP_DYN_BOOST_ON_BAT = 0;
-
+        # PCIe/USB/WiFi power saving
         RUNTIME_PM_ON_AC = "on";
         RUNTIME_PM_ON_BAT = "auto";
-
-        PCIE_ASPM_ON_AC = "default";
-        PCIE_ASPM_ON_BAT = "powersupersave";
-
+        USB_AUTOSUSPEND = 1;
         WIFI_PWR_ON_AC = "off";
         WIFI_PWR_ON_BAT = "on";
 
-        SATA_LINKPWR_ON_BAT = "med_power_with_dipm";
-
-        WOL_DISABLE = "Y";
-
-        USB_AUTOSUSPEND = 1;
-        USB_EXCLUDE_AUDIO = 1;
-        USB_EXCLUDE_BTUSB = 0;
-        USB_EXCLUDE_PHONE = 0;
-        USB_EXCLUDE_PRINTER = 1;
-        USB_EXCLUDE_WWAN = 0;
+        # Disable NMI watchdog, small idle-power win
+        NMI_WATCHDOG = 0;
       };
     };
 
