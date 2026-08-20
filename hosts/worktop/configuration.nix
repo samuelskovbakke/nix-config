@@ -105,18 +105,31 @@
 
   system.stateVersion = host.stateVersion;
 
-  # boot.kernelParams = [ "pcie_port_pm=off" "pcie_aspm.policy=performance" ];
   boot = {
     kernelPackages = pkgs.linuxPackages_zen;
     kernelModules = ["thinkpad_acpi"];
     extraModprobeConfig = ''
       options thinkpad_acpi fan_control=1
     '';
-    kernelParams = ["mem_sleep_default=s2idle"];
+    kernelParams = [
+      "mem_sleep_default=s2idle"
+      "i915.enable_psr=0" # PSR was causing stutter/choppiness on this panel
+      # "pcie_aspm.policy=performance"  # uncomment as a second test if PSR fix alone isn't enough
+    ];
   };
 
-  # gpu.nvidia.enable = true;
   # gpu.amd.enable = true;
+
+  # NVIDIA Quadro offload — confirmed bus IDs via `lspci | grep -E "VGA|3D"`.
+  # Unrelated to the stutter fix; uncomment only when you actually want dGPU offload
+  # for CUDA/rendering. Intel stays primary display owner either way.
+  # gpu.nvidia.enable = true;
+  # hardware.nvidia.prime = {
+  #   offload.enable = true;
+  #   offload.enableOffloadCmd = true;
+  #   intelBusId = "PCI:0:2:0";
+  #   nvidiaBusId = "PCI:1:0:0";
+  # };
 
   desktop = {
     niri.enable = true;
