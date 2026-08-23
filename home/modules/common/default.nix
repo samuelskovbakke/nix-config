@@ -4,6 +4,7 @@
     ./dotfiles.nix
     ./fastfetch.nix
     ./fish.nix
+    ./fzf.nix
     ./git.nix
     ./nvf
     ./packages
