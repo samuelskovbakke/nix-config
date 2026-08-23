@@ -9,24 +9,27 @@
     prefix = "C-a";
 
     plugins = with pkgs.tmuxPlugins; [
-      vim-tmux-navigator
       {
         plugin = resurrect;
         extraConfig = "set -g @resurrect-capture-pane-contents 'on'";
       }
       continuum # auto-saves sessions every 15 minutes
       {
-        # fabioluciano/tmux-tokyo-night, not packaged in nixpkgs.
         plugin = pkgs.tmuxPlugins.mkTmuxPlugin {
-          pluginName = "tmux-tokyo-night";
+          pluginName = "tmux-powerkit";
           version = "unstable";
+          rtpFilePath = "tmux-powerkit.tmux";
           src = pkgs.fetchFromGitHub {
             owner = "fabioluciano";
-            repo = "tmux-tokyo-night";
-            rev = "main";
+            repo = "tmux-powerkit";
+            rev = "v7.1.0";
             hash = "sha256-3YbEkLpwGyCWPC9pJDVr7S6tWluzXKtQhZIgfS9VWvI=";
           };
         };
+        extraConfig = ''
+          set -g @powerkit_theme "tokyo-night"
+          set -g @powerkit_theme_variant "night"
+        '';
       }
     ];
 
@@ -43,7 +46,7 @@
       bind - split-window -v
 
       unbind r
-      bind r source-file ~/.tmux.conf
+      bind r source-file ~/.config/tmux/tmux.conf
 
       bind j resize-pane -D 5
       bind k resize-pane -U 5
@@ -57,7 +60,15 @@
 
       unbind -T copy-mode-vi MouseDragEnd1Pane
 
-      set-environment -g PATH "/usr/local/bin:/bin:/usr/bin"
+      bind-key -n C-h if -F "#{@pane-is-vim}" "send-keys C-h" "select-pane -L"
+      bind-key -n C-j if -F "#{@pane-is-vim}" "send-keys C-j" "select-pane -D"
+      bind-key -n C-k if -F "#{@pane-is-vim}" "send-keys C-k" "select-pane -U"
+      bind-key -n C-l if -F "#{@pane-is-vim}" "send-keys C-l" "select-pane -R"
+
+      bind-key -n C-Up    if -F "#{@pane-is-vim}" "send-keys C-Up"    "resize-pane -U 3"
+      bind-key -n C-Down  if -F "#{@pane-is-vim}" "send-keys C-Down"  "resize-pane -D 3"
+      bind-key -n C-Left  if -F "#{@pane-is-vim}" "send-keys C-Left"  "resize-pane -L 3"
+      bind-key -n C-Right if -F "#{@pane-is-vim}" "send-keys C-Right" "resize-pane -R 3"
     '';
   };
 }
