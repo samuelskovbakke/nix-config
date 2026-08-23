@@ -8,6 +8,7 @@
     ./git.nix
     ./nvf
     ./packages
+    ./sesh.nix
     ./tmux.nix
     ./yazi.nix
   ];
