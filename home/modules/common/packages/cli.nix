@@ -6,7 +6,6 @@
     eza
     fd
     fetch # actively contributing; will replace fastfetch once mature
-    fzf
     git
     gum
     jq
