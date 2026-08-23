@@ -2,6 +2,8 @@
   programs.nvf.settings.vim.utility = {
     motion.flash-nvim.enable = true;
 
+    smart-splits.enable = true; # tmux (+ other multiplexer) navigation
+
     snacks-nvim = {
       enable = true;
       setupOpts = {

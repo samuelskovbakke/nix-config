@@ -61,14 +61,6 @@
 
     {
       mode = ["n"];
-      key = "<C-h>";
-      action = "<C-w>h";
-      desc = "Go to Left Window";
-      noremap = false;
-    }
-
-    {
-      mode = ["n"];
       key = "<C-d>";
       action = "<C-d>zz";
       desc = "Go page down and center";
@@ -80,6 +72,14 @@
       key = "<C-u>";
       action = "<C-u>zz";
       desc = "Go page up and center";
+      noremap = false;
+    }
+    /*
+    {
+      mode = ["n"];
+      key = "<C-h>";
+      action = "<C-w>h";
+      desc = "Go to Left Window";
       noremap = false;
     }
 
@@ -106,7 +106,36 @@
       desc = "Go to Right Window";
       noremap = false;
     }
-
+    */
+    {
+      mode = ["n"];
+      key = "<C-h>";
+      action = "function() require('smart-splits').move_cursor_left() end";
+      desc = "Go to Left Window";
+      lua = true;
+    }
+    {
+      mode = ["n"];
+      key = "<C-j>";
+      action = "function() require('smart-splits').move_cursor_down() end";
+      desc = "Go to Lower Window";
+      lua = true;
+    }
+    {
+      mode = ["n"];
+      key = "<C-k>";
+      action = "function() require('smart-splits').move_cursor_up() end";
+      desc = "Go to Upper Window";
+      lua = true;
+    }
+    {
+      mode = ["n"];
+      key = "<C-l>";
+      action = "function() require('smart-splits').move_cursor_right() end";
+      desc = "Go to Right Window";
+      lua = true;
+    }
+    /*
     {
       mode = ["n"];
       key = "<C-Up>";
@@ -133,6 +162,35 @@
       key = "<C-Right>";
       action = "<cmd>vertical resize +2<cr>";
       desc = "Increase Window Width";
+    }
+    */
+    {
+      mode = ["n"];
+      key = "<C-Up>";
+      action = "function() require('smart-splits').resize_up() end";
+      desc = "Resize Split Up";
+      lua = true;
+    }
+    {
+      mode = ["n"];
+      key = "<C-Down>";
+      action = "function() require('smart-splits').resize_down() end";
+      desc = "Resize Split Down";
+      lua = true;
+    }
+    {
+      mode = ["n"];
+      key = "<C-Left>";
+      action = "function() require('smart-splits').resize_left() end";
+      desc = "Resize Split Left";
+      lua = true;
+    }
+    {
+      mode = ["n"];
+      key = "<C-Right>";
+      action = "function() require('smart-splits').resize_right() end";
+      desc = "Resize Split Right";
+      lua = true;
     }
 
     {
