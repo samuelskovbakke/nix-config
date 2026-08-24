@@ -29,6 +29,8 @@
       };
     };
 
+    stylix.url = "github:danth/stylix";
+
     millennium.url = "github:SteamClientHomebrew/Millennium/next?dir=packages/nix";
   };
 

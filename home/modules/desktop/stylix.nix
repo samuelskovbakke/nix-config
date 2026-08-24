@@ -1,75 +1,71 @@
-{
-  pkgs,
-  inputs,
-  ...
-}: {
-  imports = [inputs.stylix.homeManagerModules.stylix];
-
-  home.packages = with pkgs; [
-    dejavu_fonts
-    fira-code
-    hack-font
-    noto-fonts
-    noto-fonts-lgc-plus
-    noto-fonts-emoji
-    font-awesome
-    wqy_zenhei
-    (nerdfonts.override {fonts = ["FiraCode" "NerdFontsSymbolsOnly"];})
-  ];
-
+{pkgs, ...}: {
   stylix = {
     enable = true;
-    polarity = "dark";
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-macchiato.yaml";
 
-    targets = {
-      neovim.enable = false;
-      waybar.enable = false;
-      wofi.enable = false;
-      hyprland.enable = false;
-      hyprlock.enable = false;
+    # base16Scheme = "${pkgs.base16-schemes}/share/themes/tokyo-night-dark.yaml";
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
+
+    # Catppuccin Mocha ships with mauve as its accent by default;
+    # override the accent-carrying slots to Sky (#89dceb) instead.
+    override = {
+      base0D = "89dceb"; # blue slot -> sky (primary accent: window borders, links, etc.)
+      base0E = "89dceb"; # mauve slot -> sky (secondary accent: keywords, etc.)
+    };
+
+    polarity = "dark";
+
+    fonts = {
+      monospace = {
+        package = pkgs.nerd-fonts.fira-code;
+        name = "FiraCode Nerd Font Mono";
+      };
+      sansSerif = {
+        package = pkgs.dejavu_fonts;
+        name = "DejaVu Sans";
+      };
+      serif = {
+        package = pkgs.dejavu_fonts;
+        name = "DejaVu Serif";
+      };
+      sizes = {
+        applications = 12;
+        terminal = 13;
+        desktop = 10;
+        popups = 10;
+      };
+    };
+
+    icons = {
+      enable = true;
+      package = pkgs.flat-remix-icon-theme;
+      dark = "Flat-Remix-Blue-Dark";
+      light = "Flat-Remix-Blue-Light";
     };
 
     cursor = {
-      name = "catppuccin-macchiato-dark-cursors";
-      size = 24;
-      package = pkgs.catppuccin-cursors.macchiatoDark;
+      package = pkgs.rose-pine-cursor;
+      name = "BreezeX-RosePine-Linux";
+      size = 32;
     };
 
-    fonts = {
-      emoji = {
-        name = "Noto Color Emoji";
-        package = pkgs.noto-fonts-color-emoji;
-      };
-      monospace = {
-        name = "Fira Code";
-        package = pkgs.fira-code;
-      };
-      sansSerif = {
-        name = "Noto Sans";
-        package = pkgs.noto-fonts;
-      };
-      serif = {
-        name = "Noto Serif";
-        package = pkgs.noto-fonts;
+    # Targets
+    targets = {
+      # Terminal
+      ghostty.enable = true;
+      fish.enable = false;
+      tmux.enable = true;
+      yazi.enable = true;
+      btop.enable = true;
+
+      # GTK/Qt app theming (file pickers, GIMP-style apps, etc.)
+      gtk.enable = true;
+      qt = {
+        enable = true;
+        platform = "qtct"; # or "gtk3", compare after rebuild
       };
 
-      sizes = {
-        terminal = 13;
-        applications = 11;
-      };
-    };
-
-    iconTheme = {
-      enable = true;
-      package = pkgs.papirus-icon-theme;
-      dark = "Papirus-Dark";
-      light = "Papirus-Light";
-    };
-
-    image = pkgs.fetchurl {
-      url = "https://codeberg.org/lunik1/nixos-logo-gruvbox-wallpaper/raw/branch/master/png/gruvbox-dark-rainbow.png";
-      sha256 = "036gqhbf6s5ddgvfbgn6iqbzgizssyf7820m5815b2gd748jw8zc";
+      # Browser
+      zen-browser.enable = true;
     };
   };
 }

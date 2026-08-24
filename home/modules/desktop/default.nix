@@ -4,7 +4,7 @@
     ./ghostty.nix
     ./niri
     ./packages
-    # ./stylix.nix
-    ./theming.nix
+    ./stylix.nix
+    # ./theming.nix
   ];
 }
