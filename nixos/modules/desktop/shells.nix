@@ -13,6 +13,7 @@
         programs.waybar.enable = true;
         environment.systemPackages = with pkgs; [
           hypridle
+          hyprlock
           networkmanagerapplet
           nwg-displays
           nwg-look
@@ -43,7 +44,7 @@
 in {
   options.desktop.shell = lib.mkOption {
     type = lib.types.enum (builtins.attrNames shells);
-    default = "waybar";
+    default = "noctalia-shell";
   };
 
   config = lib.mkMerge (

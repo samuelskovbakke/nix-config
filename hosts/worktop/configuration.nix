@@ -97,7 +97,6 @@
     login.fprintAuth = true;
     ly.fprintAuth = true;
     sudo.fprintAuth = true;
-    hyprlock.fprintAuth = true;
   };
 
   networking.hostName = host.hostname;
