@@ -16,13 +16,13 @@
         tabstop = 2;
         shiftwidth = 2;
       };
-
+      /*
       theme = {
         enable = true;
         name = "catppuccin";
         style = "macchiato";
       };
-
+      */
       diagnostics.nvim-lint.enable = true;
       comments.comment-nvim.enable = true;
 
