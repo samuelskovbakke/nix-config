@@ -38,7 +38,7 @@
         }
 
         window-rule {
-          match app-id="app.zen_browser.zen"
+          match app-id="zen-beta"
           // match at-startup=true
           open-on-workspace "browser"
           // open-maximized true
@@ -88,7 +88,7 @@
         }
 
         window-rule {
-          match app-id="app.zen_browser.zen"
+          match app-id="zen-beta"
           // match at-startup=true
           open-on-workspace "browser"
           // opacity 0.8
@@ -126,7 +126,7 @@
         }
 
         window-rule {
-          match app-id="app.zen_browser.zen"
+          match app-id="zen-beta"
           // match at-startup=true
           open-on-workspace "browser"
           // opacity 0.8
