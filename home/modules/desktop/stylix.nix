@@ -50,10 +50,17 @@
 
     # Targets
     targets = {
+      # Shell
+      noctalia-shell.enable = true;
+      noctalia.enable = true;
+
       # Terminal
+      bat.enable = true;
       btop.enable = true;
-      fish.enable = false;
+      fish.enable = true;
+      fzf.enable = true;
       ghostty.enable = true;
+      lazygit.enable = true;
       nvf.enable = true;
       tmux.enable = true;
       yazi.enable = true;
@@ -70,6 +77,9 @@
         enable = true;
         profileNames = ["default"];
       };
+
+      # Apps
+      vesktop.enable = true;
     };
   };
 }
