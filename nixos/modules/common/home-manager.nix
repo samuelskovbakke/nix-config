@@ -12,6 +12,7 @@
     useGlobalPkgs = true;
     useUserPackages = true;
     backupFileExtension = "backup";
+    sharedModules = [inputs.stylix.homeModules.stylix];
     extraSpecialArgs = {
       inherit inputs stable-pkgs homeStateVersion user host;
     };

@@ -29,12 +29,19 @@
       };
     };
 
-    stylix.url = "github:danth/stylix";
+    stylix = {
+      url = "github:nix-community/stylix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     millennium.url = "github:SteamClientHomebrew/Millennium/next?dir=packages/nix";
   };
 
-  outputs = {nixpkgs, ...} @ inputs: let
+  outputs = {
+    nixpkgs,
+    stylix,
+    ...
+  } @ inputs: let
     system = "x86_64-linux";
     user = "samuel";
     hosts = [
@@ -87,6 +94,7 @@
         modules = [
           {nixpkgs.overlays = [inputs.millennium.overlays.default];}
           ./hosts/${host.hostname}/configuration.nix
+          stylix.nixosModules.stylix
         ];
       };
   in {

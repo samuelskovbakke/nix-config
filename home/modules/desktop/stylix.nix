@@ -28,7 +28,7 @@
         name = "DejaVu Serif";
       };
       sizes = {
-        applications = 12;
+        applications = 10;
         terminal = 13;
         desktop = 10;
         popups = 10;
@@ -51,11 +51,12 @@
     # Targets
     targets = {
       # Terminal
-      ghostty.enable = true;
+      btop.enable = true;
       fish.enable = false;
+      ghostty.enable = true;
+      nvf.enable = true;
       tmux.enable = true;
       yazi.enable = true;
-      btop.enable = true;
 
       # GTK/Qt app theming (file pickers, GIMP-style apps, etc.)
       gtk.enable = true;
@@ -65,7 +66,10 @@
       };
 
       # Browser
-      zen-browser.enable = true;
+      zen-browser = {
+        enable = true;
+        profileNames = ["default"];
+      };
     };
   };
 }
