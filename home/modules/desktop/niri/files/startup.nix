@@ -30,7 +30,7 @@
         // spawn-sh-at-startup "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP & systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
         // spawn-sh-at-startup "swaync & ~/.config/hypr/UserScripts/WallpaperSelect.sh"
         // spawn-sh-at-startup "hypridle"
-        spawn-sh-at-startup "app.zen_browser.zen & vesktop & ghostty"
+        spawn-sh-at-startup "zen-beta & vesktop & ghostty"
         spawn-sh-at-startup "noctalia-shell"
         spawn-sh-at-startup "ckb-next -b"
 
@@ -38,9 +38,9 @@
         // spawn-sh-at-startup "qs -c ~/source/qs/MyAwesomeShell"
       '';
       worktop = ''
-        spawn-sh-at-startup "app.zen_browser.zen & ghostty"
+        spawn-sh-at-startup "zen-beta & ghostty"
         spawn-sh-at-startup "noctalia-shell"
-        spawn-sh-at-startup "flatpak run eu.betterbird.Betterbird"
+        spawn-sh-at-startup "thunderbird"
       '';
     }
     .${

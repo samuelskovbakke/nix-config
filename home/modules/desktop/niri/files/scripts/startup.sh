@@ -78,7 +78,7 @@ vesktop >>$LOGFILE 2>&1 &
 # thunderbird >>$LOGFILE 2>&1 &
 
 log "Launching Flatpak applications"
-flatpak run app.zen_browser.zen >>$LOGFILE 2>&1 &
-flatpak run eu.betterbird.Betterbird >>$LOGFILE 2>&1 &
+zen-beta >>$LOGFILE 2>&1 &
+thunderbird >>$LOGFILE 2>&1 &
 
 log "Startup complete ($(date +%H:%M:%S))"
