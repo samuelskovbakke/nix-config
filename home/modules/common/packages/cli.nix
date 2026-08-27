@@ -1,8 +1,6 @@
 {pkgs, ...}: {
   home.packages = with pkgs; [
-    bat
     bc
-    btop
     eza
     fd
     fetch # actively contributing; will replace fastfetch once mature
@@ -20,8 +18,9 @@
     unzip
     wget
     wol
-    yazi
     zip
     zoxide
   ];
+  programs.btop.enable = true;
+  programs.bat.enable = true;
 }
