@@ -4,7 +4,7 @@
 
     defaultApplications = {
       # Mail
-      "x-scheme-handler/mailto" = ["eu.betterbird.Betterbird.desktop" "thunderbird.desktop"];
+      "x-scheme-handler/mailto" = ["thunderbird.desktop"];
 
       # Images
       "image/png" = ["org.gnome.Loupe.desktop"];
