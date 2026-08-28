@@ -17,6 +17,12 @@
         hover = null;
         openDiagnosticFloat = null;
       };
+      servers.nixd.settings.nixd = {
+        options = {
+          nixos.expr = ''(builtins.getFlake "/home/samuel/nix-config").nixosConfigurations.desktop.options'';
+          home-manager.expr = ''(builtins.getFlake "/home/samuel/nix-config").nixosConfigurations.desktop.options.home-manager.users.type.getSubOptions []'';
+        };
+      };
     };
 
     languages = {

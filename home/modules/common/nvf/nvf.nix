@@ -1,4 +1,4 @@
-{
+{lib, ...}: {
   programs.nvf = {
     enable = true;
 
@@ -45,7 +45,18 @@
       };
 
       autopairs.nvim-autopairs.enable = true;
-      autocomplete.nvim-cmp.enable = true;
+      autocomplete.nvim-cmp = {
+        enable = true;
+        setupOpts.sources = lib.mkForce [
+          {name = "nvim_lsp";}
+          {name = "treesitter";}
+          {name = "buffer";}
+          {
+            name = "path";
+            option.get_cwd = lib.generators.mkLuaInline "function() return vim.fn.expand('%:p:h') end";
+          }
+        ];
+      };
       telescope.enable = true;
       visuals.nvim-web-devicons.enable = true;
 
