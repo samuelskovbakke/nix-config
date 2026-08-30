@@ -1,9 +1,13 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  stable-pkgs,
+  ...
+}: {
   home.packages = with pkgs; [
     anki-bin
     (discord.override {withVencord = true;})
     ffmpegthumbnailer
-    font-manager
+    stable-pkgs.font-manager
     ghostty
     localsend
     loupe
