@@ -15,7 +15,7 @@
     # "hypr"
     # "kitty"
     "noctalia"
-    "qt6ct"
+    # "qt6ct"
     # "rofi"
     # "swaync"
     # "wallust"
