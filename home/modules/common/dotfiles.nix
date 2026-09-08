@@ -8,7 +8,7 @@
   # Everything inside ~/.config
   configsc = [
     # "Kvantum"
-    "OpenRGB"
+    # "OpenRGB"
     # "gtk-2.0"
     # "gtk-3.0"
     # "gtk-4.0"
