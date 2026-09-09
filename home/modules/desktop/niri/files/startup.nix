@@ -30,16 +30,16 @@
         // spawn-sh-at-startup "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP & systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
         // spawn-sh-at-startup "swaync & ~/.config/hypr/UserScripts/WallpaperSelect.sh"
         // spawn-sh-at-startup "hypridle"
+        spawn-sh-at-startup "noctalia"
         spawn-sh-at-startup "zen-beta & vesktop & ghostty"
-        spawn-sh-at-startup "noctalia-shell"
         spawn-sh-at-startup "ckb-next -b"
 
         // To run a shell command (with variables, pipes, etc.), use spawn-sh-at-startup:
         // spawn-sh-at-startup "qs -c ~/source/qs/MyAwesomeShell"
       '';
       worktop = ''
+        spawn-sh-at-startup "noctalia"
         spawn-sh-at-startup "zen-beta & ghostty"
-        spawn-sh-at-startup "noctalia-shell"
         spawn-sh-at-startup "thunderbird"
       '';
     }

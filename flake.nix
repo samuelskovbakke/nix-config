@@ -35,6 +35,11 @@
     };
 
     millennium.url = "github:SteamClientHomebrew/Millennium/next?dir=packages/nix";
+
+    noctalia = {
+      url = "github:noctalia-dev/noctalia";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {

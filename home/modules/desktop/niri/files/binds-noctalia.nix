@@ -53,21 +53,21 @@ in ''
       // Suggested binds for running programs: terminal, app launcher, screen locker.
       Mod+Return hotkey-overlay-title="Open a Terminal: ghostty" { spawn "ghostty"; }
       Mod+B hotkey-overlay-title="Open the the default browser" { spawn-sh "xdg-open 'https://'"; }
-      Mod+Space hotkey-overlay-title="Run an Application" { spawn-sh "noctalia-shell ipc call launcher toggle"; }
-      Ctrl+Alt+L hotkey-overlay-title="Lock the Screen" { spawn-sh "noctalia-shell ipc call lockScreen lock"; }
+      Mod+Space hotkey-overlay-title="Run an Application" { spawn-sh "noctalia msg panel-toggle launcher"; }
+      Ctrl+Alt+L hotkey-overlay-title="Lock the Screen" { spawn-sh "noctalia msg session lock"; }
       Mod+E hotkey-overlay-title="Open File Browser" { spawn-sh "nautilus"; }
       Mod+Shift+E hotkey-overlay-title="Open Terminal File Browser" { spawn-sh "ghostty -e yazi"; }
-      Mod+Comma { spawn-sh "noctalia-shell ipc call settings toggle"; }
+      Mod+Comma { spawn-sh "noctalia msg settings-toggle"; }
 
-      Ctrl+Alt+P hotkey-overlay-title="Power menu" { spawn-sh "noctalia-shell ipc call sessionMenu toggle"; }
+      Ctrl+Alt+P hotkey-overlay-title="Power menu" { spawn-sh "noctalia msg panel-toggle session"; }
 
       // Mod+W hotkey-overlay-title="Switch Wallpaper" { spawn-sh "~/.config/hypr/UserScripts/WallpaperSelect.sh"; }
-      Mod+W hotkey-overlay-title="Switch Wallpaper" { spawn-sh "noctalia-shell ipc call wallpaper toggle"; }
+      Mod+W hotkey-overlay-title="Switch Wallpaper" { spawn-sh "noctalia msg panel-toggle wallpaper"; }
       Mod+Shift+W hotkey-overlay-title="Add WebApp" { spawn-sh "~/.config/niri/scripts/webapp-install.sh"; }
       Mod+Ctrl+W hotkey-overlay-title="Remove WebApp" { spawn-sh "~/.config/niri/scripts/webapp-remove.sh"; }
-      Mod+Alt+C hotkey-overlay-title="Open Calculator" { spawn-sh "noctalia-shell ipc call calculator toggle"; }
+      Mod+Alt+C hotkey-overlay-title="Open Calculator" { spawn-sh "noctalia msg panel-toggle samuelskovbakke/calculator-plus:calculator"; }
 
-      Mod+Ctrl+Alt+B hotkey-overlay-title="Toggle Bar" { spawn-sh "noctalia-shell ipc call bar toggle"; }
+      Mod+Ctrl+Alt+B hotkey-overlay-title="Toggle Bar" { spawn-sh "noctalia msg bar-toggle"; }
 
       // Mod+S hotkey-overlay-title="Search in Browser" { spawn-sh "~/.config/hypr/scripts/RofiSearch.sh"; }
 
@@ -79,16 +79,16 @@ in ''
       // Example volume keys mappings for PipeWire & WirePlumber.
       // The allow-when-locked=true property makes them work even when the session is locked.
       // Using spawn-sh allows to pass multiple arguments together with the command.
-      XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "noctalia-shell ipc call volume increase"; }
-      XF86AudioLowerVolume allow-when-locked=true { spawn-sh "noctalia-shell ipc call volume decrease"; }
-      XF86AudioMute        allow-when-locked=true { spawn-sh "noctalia-shell ipc call volume muteOutput"; }
+      XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "noctalia msg volume-up"; }
+      XF86AudioLowerVolume allow-when-locked=true { spawn-sh "noctalia msg volume-down"; }
+      XF86AudioMute        allow-when-locked=true { spawn-sh "noctalia msg volume-mute"; }
       XF86AudioMicMute     allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"; }
 
       // Example brightness key mappings for brightnessctl.
       // You can use regular spawn with multiple arguments too (to avoid going through "sh"),
       // but you need to manually put each argument in separate "" quotes.
-      XF86MonBrightnessUp allow-when-locked=true { spawn-sh "noctalia-shell ipc call brightness increase"; }
-      XF86MonBrightnessDown allow-when-locked=true { spawn-sh "noctalia-shell ipc call brightness decrease"; }
+      XF86MonBrightnessUp allow-when-locked=true { spawn-sh "noctalia msg brightness-up"; }
+      XF86MonBrightnessDown allow-when-locked=true { spawn-sh "noctalia msg brightness-down"; }
 
   ${kbdBacklightBinds}
 
@@ -297,8 +297,8 @@ in ''
       // since it will switch twice upon pressing the hotkey (once by xkb, once by niri).
   ${kbdLayoutSwitchBind}
 
-      Print { screenshot; }
-      Mod+Shift+S { screenshot; }
+      Print { spawn-sh "noctalia msg screenshot-fullscreen"; }
+      Mod+Shift+S { spawn-sh "noctalia msg screenshot-region"; }
       // Ctrl+Print { screenshot-screen; }
       // Alt+Print { screenshot-window; }
 

@@ -56,7 +56,7 @@ log "Core session ready"
 log "Launching UI components"
 # waybar >>$LOGFILE 2>&1 &
 # swaync >>$LOGFILE 2>&1 &
-noctalia-shell >>$LOGFILE 2>&1 &
+noctalia >>$LOGFILE 2>&1 &
 # systemctl --user start plasma-polkit-agent.service
 
 log "Launching background services"
