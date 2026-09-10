@@ -65,7 +65,7 @@ in ''
       Mod+W hotkey-overlay-title="Switch Wallpaper" { spawn-sh "noctalia msg panel-toggle wallpaper"; }
       Mod+Shift+W hotkey-overlay-title="Add WebApp" { spawn-sh "~/.config/niri/scripts/webapp-install.sh"; }
       Mod+Ctrl+W hotkey-overlay-title="Remove WebApp" { spawn-sh "~/.config/niri/scripts/webapp-remove.sh"; }
-      Mod+Alt+C hotkey-overlay-title="Open Calculator" { spawn-sh "noctalia msg panel-toggle samuelskovbakke/calculator-plus:calculator"; }
+      Mod+Alt+C hotkey-overlay-title="Open Calculator" { spawn-sh "noctalia msg panel-toggle samuelskovbakke/calculator-plus:panel"; }
 
       Mod+Ctrl+Alt+B hotkey-overlay-title="Toggle Bar" { spawn-sh "noctalia msg bar-toggle"; }
 
