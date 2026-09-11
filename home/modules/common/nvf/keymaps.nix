@@ -314,7 +314,6 @@
       action = ''
         function()
           vim.cmd("noh")
-          -- LazyVim.cmp.actions.snippet_stop() TODO: replace this with something else
           return "<esc>"
         end
       '';
