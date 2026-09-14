@@ -21,7 +21,7 @@
     "input.kdl" = import ./files/input.nix args;
     "rules.kdl" = import ./files/rules.nix args;
     "startup.kdl" = import ./files/startup.nix args;
-    "binds.kdl" = import ./files/binds-noctalia.nix args;
+    "binds.kdl" = import ./files/binds.nix args;
   };
 in {
   assertions = [
@@ -35,7 +35,7 @@ in {
     lib.foldl' (acc: name: acc // {"niri/${name}".source = ./files/${name};}) {} staticFiles
     // lib.mapAttrs' (name: text: lib.nameValuePair "niri/${name}" {inherit text;}) generatedFiles
     // lib.optionalAttrs (hostname == "desktop") {
-      # Only desktop's startup.kdl / binds-noctalia.kdl reference these.
+      # Only desktop's startup.kdl / binds.kdl reference these.
       "niri/scripts".source = ./files/scripts;
     };
 }
