@@ -60,6 +60,7 @@
   desktop = {
     shell = "noctalia";
     niri.enable = true;
+    displayManager.noctalia-greeter.enable = true;
     # hyprland.enable = true;
     # kde.enable = true;
   };
