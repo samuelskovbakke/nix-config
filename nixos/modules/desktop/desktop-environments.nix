@@ -52,6 +52,7 @@ with lib; {
       };
 
       security.polkit.enable = true;
+      security.polkit.enablePkexecWrapper = true;
 
       environment.systemPackages = with pkgs; [
         alacritty
