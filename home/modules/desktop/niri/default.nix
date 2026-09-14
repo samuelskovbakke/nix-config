@@ -19,10 +19,9 @@
   generatedFiles = {
     "monitors.kdl" = import ./files/monitors.nix args;
     "input.kdl" = import ./files/input.nix args;
-    "noctalia.kdl" = import ./files/noctalia.nix args;
     "rules.kdl" = import ./files/rules.nix args;
     "startup.kdl" = import ./files/startup.nix args;
-    "binds-noctalia.kdl" = import ./files/binds-noctalia.nix args;
+    "binds.kdl" = import ./files/binds-noctalia.nix args;
   };
 in {
   assertions = [
