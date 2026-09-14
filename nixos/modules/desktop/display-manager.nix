@@ -21,6 +21,10 @@ in {
         description = "Which SDDM theme to use.";
       };
     };
+    noctalia-greeter.enable = lib.mkOption {
+      type = lib.types.bool;
+      description = "Noctalia greeter (greetd)";
+    };
   };
 
   config = lib.mkMerge [
@@ -32,14 +36,6 @@ in {
       # password when authenticating through ly.
       services.gnome.gnome-keyring.enable = true;
       security.pam.services.ly.enableGnomeKeyring = true;
-
-      # If multimonitor we add a pre exec to run fbset with our primary display resolution
-      # this is so the main monitor TTY ly isn't cropped
-      systemd.services.display-manager = lib.mkIf (host.isMultiMonitor or false) {
-        preStart = ''
-          ${pkgs.fbset}/bin/fbset -xres ${host.xRes} -yres ${host.yRes}
-        '';
-      };
     }
 
     # sddm being enabled always wins: forces ly off
@@ -71,6 +67,13 @@ in {
           vi_mode = true;
         };
       };
+      # If multimonitor we add a pre exec to run fbset with our primary display resolution
+      # this is so the main monitor TTY ly isn't cropped
+      systemd.services.display-manager = lib.mkIf (host.isMultiMonitor or false) {
+        preStart = ''
+          ${pkgs.fbset}/bin/fbset -xres ${host.xRes} -yres ${host.yRes}
+        '';
+      };
     })
 
     (lib.mkIf cfg.sddm.enable {
@@ -101,6 +104,22 @@ in {
           theme = "${import ./assets/sddm/sddm-tokyonight-theme.nix {inherit pkgs;}}";
         })
       ];
+    })
+
+    (lib.mkIf cfg.noctalia-greeter.enable {
+      services.accounts-daemon.enable = true;
+      services.displayManager.noctalia-greeter = {
+        enable = true;
+        settings = {
+          cursor.size = 28;
+          keyboard.layout = "dk";
+          appearance.hide_logo = true;
+        };
+        cursorTheme = {
+          package = pkgs.rose-pine-cursor;
+          name = "BreezeX-RosePine-Linux";
+        };
+      };
     })
   ];
 }
