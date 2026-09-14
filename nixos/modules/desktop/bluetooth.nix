@@ -8,5 +8,5 @@
     enableRedistributableFirmware = true;
     enableAllFirmware = true; # optional, I think
   };
-  services.blueman.enable = true;
+  # services.blueman.enable = true;
 }
