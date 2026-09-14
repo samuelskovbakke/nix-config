@@ -46,13 +46,12 @@
     cursor = {
       package = pkgs.rose-pine-cursor;
       name = "BreezeX-RosePine-Linux";
-      size = 32;
+      size = 28;
     };
 
     # Targets
     targets = {
       # Shell
-      noctalia-shell.enable = true;
       noctalia.enable = true;
 
       # Terminal
