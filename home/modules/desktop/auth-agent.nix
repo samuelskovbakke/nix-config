@@ -1,5 +1,6 @@
 {pkgs, ...}: {
-  home.packages = with pkgs; [
+  /*
+     home.packages = with pkgs; [
     polkit_gnome
   ];
 
@@ -28,4 +29,5 @@
     enable = true;
     components = ["pkcs11" "secrets" "ssh"];
   };
+  */
 }
