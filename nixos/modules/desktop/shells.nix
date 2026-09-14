@@ -29,13 +29,9 @@
     };
 
     noctalia = {
-      env = "noctalia-shell";
+      env = "noctalia";
       config = {
-        nix.settings = {
-          extra-substituters = ["https://noctalia.cachix.org"];
-          extra-trusted-public-keys = ["noctalia.cachix.org-1:pCOR47nnMEo5thcxNDtzWpOxNFQsBRglJzxWPp3dkU4="];
-        };
-        environment.systemPackages = [inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default];
+        environment.systemPackages = with pkgs; [noctalia];
       };
     };
 
@@ -49,7 +45,7 @@
 in {
   options.desktop.shell = lib.mkOption {
     type = lib.types.enum (builtins.attrNames shells);
-    default = "noctalia-shell";
+    default = "noctalia";
   };
 
   config = lib.mkMerge (
