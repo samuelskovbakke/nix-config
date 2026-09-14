@@ -58,8 +58,8 @@
         class = "desktop";
         stateVersion = "25.05";
         isMultiMonitor = false;
-        xRes = "2560";
-        yRes = "1440";
+        xRes = "1920";
+        yRes = "1080";
       }
       {
         hostname = "worktop";
