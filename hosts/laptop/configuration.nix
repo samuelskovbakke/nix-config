@@ -31,8 +31,10 @@
     ckb-next.enable = true;
   };
 
-  environment.systemPackages = [pkgs.home-manager];
   services.upower.enable = true;
+  services.power-profiles-daemon.enable = true;
+
+  environment.systemPackages = [pkgs.home-manager];
 
   networking.hostName = host.hostname;
 
@@ -50,6 +52,6 @@
   desktop = {
     niri.enable = true;
     shell = "noctalia";
-    displayManager.sddm.enable = true;
+    displayManager.noctalia-greeter.enable = true;
   };
 }
