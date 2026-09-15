@@ -1,4 +1,4 @@
-{...}: {
+{
   programs.nvf.settings.vim.statusline.lualine = {
     enable = true;
     setupOpts.sections.lualine_c = [

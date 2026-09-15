@@ -1,9 +1,11 @@
 {
   hardware = {
-    bluetooth.enable = true;
-    bluetooth.powerOnBoot = true;
-    bluetooth.settings.General = {
-      Experimental = true;
+    bluetooth = {
+      enable = true;
+      powerOnBoot = true;
+      settings.General = {
+        Experimental = true;
+      };
     };
     enableRedistributableFirmware = true;
     enableAllFirmware = true; # optional, I think

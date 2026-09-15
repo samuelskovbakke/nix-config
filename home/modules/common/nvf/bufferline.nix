@@ -1,4 +1,4 @@
-{...}: {
+{
   programs.nvf.settings.vim.tabline.nvimBufferline = {
     enable = true;
     setupOpts = {

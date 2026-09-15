@@ -1,4 +1,4 @@
-{...}: {
+{
   services.adguardhome = {
     enable = true;
     openFirewall = true; # opens 53 (DNS) and 3000 (initial setup UI)
