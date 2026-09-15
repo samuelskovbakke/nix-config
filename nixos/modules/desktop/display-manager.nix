@@ -110,11 +110,19 @@ in {
       services.accounts-daemon.enable = true;
       services.displayManager.noctalia-greeter = {
         enable = true;
-        settings = {
-          cursor.size = 28;
-          keyboard.layout = "dk";
-          appearance.hide_logo = true;
-        };
+        settings =
+          {
+            cursor.size = 28;
+            keyboard.layout = "dk";
+            appearance.hide_logo = true;
+          }
+          // lib.optionalAttrs (host.hostname == "desktop") {
+            output = {
+              name = "DP-1";
+              width = 2560;
+              height = 1440;
+            };
+          };
         cursorTheme = {
           package = pkgs.rose-pine-cursor;
           name = "BreezeX-RosePine-Linux";
