@@ -4,6 +4,8 @@
     # bemoji
     brightnessctl
     libnotify
+    ddcutil
+
     # playerctl
     quickshell
     uwsm
