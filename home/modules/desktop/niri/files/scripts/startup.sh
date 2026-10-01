@@ -70,7 +70,6 @@ sleep 2
 
 # === LAUNCH NATIVE APPS FIRST ===
 log "Launching native applications"
-# openrgb --startminimized -p samuel.orp >>$LOGFILE 2>&1 &
 ghostty >>$LOGFILE 2>&1 &
 steam >>$LOGFILE 2>&1 &
 vesktop >>$LOGFILE 2>&1 &
@@ -80,5 +79,8 @@ vesktop >>$LOGFILE 2>&1 &
 log "Launching Flatpak applications"
 zen-beta >>$LOGFILE 2>&1 &
 thunderbird >>$LOGFILE 2>&1 &
+
+sleep 3
+openrgb --startminimized >>$LOGFILE 2>&1 &
 
 log "Startup complete ($(date +%H:%M:%S))"
