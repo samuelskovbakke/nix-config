@@ -25,7 +25,7 @@
 
   hardware = {
     steam-hardware.enable = true;
-    xone.enable = true;
-    xpadneo.enable = true;
+    # xone.enable = true;
+    # xpadneo.enable = true;
   };
 }
