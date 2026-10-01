@@ -1,6 +1,7 @@
 {
   pkgs,
   host,
+  config,
   ...
 }: {
   imports = [
@@ -30,6 +31,25 @@
       "amdgpu.gpu_recovery=1" # Enables GPU reset/recovery when the GPU hangs
       "amdgpu.lockup_timeout=10000" # Sets the timeout in milliseconds before the driver considers the GPU "locked up" and triggers recovery
     ];
+
+    extraModprobeConfig = ''
+      options cfg80211 ieee80211_regdom=DK
+    '';
+
+    # TODO: the kernel patches may make the system less secure but is used for SteamVR CAP_SYS_NICE
+    # This patch requires rebuilding the kernel and it is sloooooooow
+    /*
+       kernelPatches = [
+      {
+        name = "amdgpu-ignore-ctx-privileges";
+        patch = pkgs.fetchpatch {
+          name = "cap_sys_nice_begone.patch";
+          url = "https://github.com/Frogging-Family/community-patches/raw/master/linux61-tkg/cap_sys_nice_begone.mypatch";
+          hash = "sha256-Y3a0+x2xvHsfLax/uwycdJf3xLxvVfkfDVqjkxNaYEo=";
+        };
+      }
+    ];
+    */
 
     # Plymouth adds a custom splash animaiton instead of the wall of text sequence
     plymouth = {

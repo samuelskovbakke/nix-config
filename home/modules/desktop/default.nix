@@ -2,8 +2,9 @@
   imports = [
     ./ghostty.nix
     ./mime.nix
-    ./stylix.nix
     ./niri
     ./packages
+    ./steamvr.nix
+    ./stylix.nix
   ];
 }

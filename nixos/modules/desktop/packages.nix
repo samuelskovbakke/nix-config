@@ -18,5 +18,8 @@
     bandwhich
     ethtool
     nmap
+
+    # IDK SteamVR
+    iw
   ];
 }
