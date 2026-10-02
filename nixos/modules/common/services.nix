@@ -43,7 +43,6 @@
         server = {
           bind_address = "127.0.0.1";
           server.port = 8080;
-          secret_key = "$SEARX_SECRET_KEY";
           method = "GET";
         };
       };
