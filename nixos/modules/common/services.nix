@@ -40,6 +40,9 @@
         general = {
           debug = false;
         };
+        search = {
+          default_lang = "da";
+        };
         server = {
           bind_address = "127.0.0.1";
           server.port = 8080;
