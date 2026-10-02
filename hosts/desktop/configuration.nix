@@ -6,6 +6,7 @@
 }: {
   imports = [
     /etc/nixos/hardware-configuration.nix
+    ./extra-mnts.nix
     ./local-packages.nix
     ./sddm-theme.nix
     ../../nixos/modules/common
