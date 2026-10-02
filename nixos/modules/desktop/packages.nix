@@ -3,6 +3,9 @@
     # Build / packaging utilities
     nix-prefetch-git
 
+    # Key generation
+    openssl
+
     # Hardware / system info
     pciutils
     usbutils
