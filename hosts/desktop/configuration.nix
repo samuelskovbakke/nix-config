@@ -73,6 +73,7 @@
     # kernelPackages = pkgs.linuxPackages_latest;
   };
 
+  services.upower.enable = true;
   hardware.i2c.enable = true;
 
   # gpu.nvidia.enable = true;
