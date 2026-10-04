@@ -41,7 +41,7 @@
         search.default_lang = "da";
         server = {
           bind_address = "127.0.0.1";
-          port = 8080;
+          port = 8888;
           method = "GET";
           secret_key = "@SEARX_SECRET_KEY@";
         };
