@@ -82,5 +82,6 @@ thunderbird >>$LOGFILE 2>&1 &
 
 sleep 3
 openrgb --startminimized >>$LOGFILE 2>&1 &
+solaar -w=hide >>$LOGFILE 2>&1 &
 
 log "Startup complete ($(date +%H:%M:%S))"

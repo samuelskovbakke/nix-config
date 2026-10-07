@@ -13,6 +13,7 @@
     loupe
     mission-center
     pavucontrol
+    solaar
     thunderbird
     ungoogled-chromium
     vesktop
