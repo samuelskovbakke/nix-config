@@ -24,6 +24,9 @@
       init.defaultBranch = "main";
 
       # credential.helper = "store";
+
+      pull.rebase = true;
+      rebase.autoStash = true;
     };
   };
 }
