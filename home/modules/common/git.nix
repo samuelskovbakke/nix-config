@@ -3,7 +3,10 @@
 
   programs.ssh = {
     enable = true;
-    matchBlocks."*".addKeysToAgent = "yes";
+    enableDefaultConfig = false;
+    settings."*" = {
+      AddKeysToAgent = "yes";
+    };
   };
 
   programs.git = {
