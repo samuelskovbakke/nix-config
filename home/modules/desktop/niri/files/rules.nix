@@ -41,7 +41,7 @@
           match app-id="zen-beta"
           // match at-startup=true
           open-on-workspace "browser"
-          // open-maximized true
+          open-maximized true
           opacity 1.0
         }
 
