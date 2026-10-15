@@ -42,6 +42,7 @@
           // match at-startup=true
           open-on-workspace "browser"
           open-maximized true
+          default-column-width { proportion 1.0; }
           opacity 1.0
         }
 
@@ -221,6 +222,7 @@ in ''
       match app-id=r#"^(file-roller|org\.gnome\.FileRoller)$"#
       match app-id=r#"^(nm-applet|nm-connection-editor|.blueman-manager-wrapped)$"#
       match app-id=r#"^(xdg-desktop-portal-gtk)$"#
+      match app-id=r#"^(vrmonitor)$"#
       open-floating true
   }
 
