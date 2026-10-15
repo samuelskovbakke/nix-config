@@ -7,19 +7,20 @@
     openssl
 
     # Hardware / system info
-    pciutils
-    usbutils
     dmidecode
-    vulkan-tools
+    inxi
     lm_sensors
     lshw-gui
-    inxi
+    pciutils
+    sbctl
     smartmontools
+    usbutils
+    vulkan-tools
 
     # Resource / network monitoring
-    iotop
     bandwhich
     ethtool
+    iotop
     nmap
 
     # IDK SteamVR
