@@ -25,12 +25,13 @@
     consoleLogLevel = 3;
     initrd.verbose = false;
     kernelParams = [
-      "quiet"
-      "splash" # "splash" is needed for plymouth to display the splash animation
-      "rd.udev.log_level=3"
-      "rd.systemd.show_status=auto"
+      # "quiet"
+      # "splash" # "splash" is needed for plymouth to display the splash animation
+      # "rd.udev.log_level=3"
+      # "rd.systemd.show_status=auto"
       "amdgpu.gpu_recovery=1" # Enables GPU reset/recovery when the GPU hangs
       "amdgpu.lockup_timeout=10000" # Sets the timeout in milliseconds before the driver considers the GPU "locked up" and triggers recovery
+      "amdgpu.vm_update_mode=3" # Should help with FH6 stuttering issue
     ];
 
     extraModprobeConfig = ''
@@ -67,7 +68,7 @@
     # Hide the OS choice for bootloaders.
     # It's still possible to open the bootloader list by pressing any key
     # It will just not appear on screen unless a key is pressed
-    loader.timeout = 0;
+    loader.timeout = null;
 
     kernelPackages = pkgs.linuxPackages_zen;
     # kernelPackages = pkgs.linuxPackages_latest;
