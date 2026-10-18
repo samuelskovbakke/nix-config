@@ -1,4 +1,9 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  lib,
+  host,
+  ...
+}: {
   environment.systemPackages = [pkgs.sbctl];
 
   boot.loader.efi.canTouchEfiVariables = true;
@@ -22,7 +27,7 @@
   boot.loader.limine = {
     enable = true;
     # secureBoot.enable = true;
-    extraEntries = ''
+    extraEntries = lib.mkIf (host.hostname == "desktop") ''
       /CachyOS (VR)
           protocol: linux
           module_path: boot():/8404cfeac82545898f8baf3a2a5483e6/linux-cachyos/initramfs#3f44e1634bde81b27a44cd017e39a2c5ebac7ddc1c51202a0d71ea28966cd34ca05fd7ecf1ab4097d58894f98ea0b2a0328a019ffac7499254247ae8f594de4c
