@@ -7,7 +7,6 @@
     git
     gum
     jq
-    lazygit
     lsof
     most
     ncdu
@@ -21,9 +20,17 @@
     zip
     zoxide
   ];
-  programs.btop = {
-    enable = true;
-    settings = {vim_keys = true;};
+  programs = {
+    btop = {
+      enable = true;
+      settings = {vim_keys = true;};
+    };
+
+    bat.enable = true;
+
+    lazygit = {
+      enable = true;
+      settings.git.overrideGpg = true;
+    };
   };
-  programs.bat.enable = true;
 }
