@@ -99,6 +99,8 @@
       set -g fish_key_bindings fish_vi_key_bindings
 
       pay-respects fish | source
+
+      ssh-add -l >/dev/null 2>&1; or ssh-add ~/.ssh/id_ed25519
     '';
 
     plugins = [
