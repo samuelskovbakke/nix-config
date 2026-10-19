@@ -61,29 +61,6 @@ with lib; {
 
     # Niri config
     (mkIf config.desktop.niri.enable {
-      # TODO: Remove below overlay if https://github.com/niri-wm/niri/issues/254 ever gets resolved.
-      nixpkgs.overlays = [
-        (final: prev: {
-          niri =
-            (final.symlinkJoin {
-              name = "niri-${prev.niri.version}-quiet-session";
-              paths = [prev.niri];
-              nativeBuildInputs = [prev.makeWrapper];
-              postBuild = ''
-                rm $out/bin/niri-session
-                cat > $out/bin/niri-session <<EOF
-                #!/usr/bin/env bash
-                exec ${prev.niri}/bin/niri-session "\$@" \
-                  2> >(grep -Fv 'Calling import-environment without a list of variable names is deprecated.' >&2)
-                EOF
-                chmod +x $out/bin/niri-session
-              '';
-            }).overrideAttrs (_: {
-              passthru = prev.niri.passthru or {};
-            });
-        })
-      ];
-
       programs.niri.enable = true;
       environment.systemPackages = with pkgs; [xwayland-satellite];
     })
