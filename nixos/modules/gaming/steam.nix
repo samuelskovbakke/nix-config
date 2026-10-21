@@ -6,6 +6,9 @@
       extraArgs = "-cef-disable-gpu-compositing";
     };
     */
+    package = pkgs.steam.override {
+      extraArgs = "-cef-disable-gpu-compositing";
+    };
 
     extest.enable = true; # Fixes steam controller mouse input
     remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
