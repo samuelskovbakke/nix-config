@@ -23,7 +23,6 @@
   boot = {
     # Enable "Silent boot"
     consoleLogLevel = 3;
-    initrd.verbose = false;
     kernelParams = [
       # "quiet"
       # "splash" # "splash" is needed for plymouth to display the splash animation
