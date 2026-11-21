@@ -13,11 +13,19 @@
       settings = {
         add_newline = true;
 
-        format = "$hostname$directory$git_branch$git_status$nix_shell$fill$cmd_duration$time$line_break$character";
+        format = "$hostname\${custom.ssh_ip}$directory$git_branch$git_status$nix_shell$fill $cmd_duration$time$line_break$character";
 
         fill = {
           symbol = "·";
           style = "bright-black";
+        };
+
+        directory = {
+          truncate_to_repo = true; # anchor on the repo root
+          truncation_length = 8;
+          fish_style_pwd_dir_length = 1; # abbreviate directories instead of cutting them
+          repo_root_style = "bold purple"; # highlight the anchor, like Tide/p10k
+          style = "cyan";
         };
 
         cmd_duration = {
@@ -33,17 +41,24 @@
           style = "bright-black";
         };
 
+        custom.ssh_ip = {
+          command = "echo $SSH_CONNECTION | cut -d' ' -f3";
+          when = ''test -n "$SSH_CONNECTION"''; # only inside an SSH session
+          format = "[$output]($style) ";
+          style = "bold yellow";
+        };
+
         # Only shown inside an SSH session, so you can tell you're not on your desktop
         hostname = {
           ssh_only = true;
-          ssh_symbol = "🌐 ";
-          format = "[$ssh_symbol$hostname]($style) ";
+          ssh_symbol = "🌐";
+          format = "[$ssh_symbol$hostname]($style)";
           style = "bold yellow";
         };
 
         nix_shell = {
-          symbol = "❄️ ";
-          format = "[$symbol nix-shell $state]($style) ";
+          symbol = "❄ ";
+          format = "[$symbol nix-shell $state]($style)";
           impure_msg = "";
           pure_msg = "(pure)";
           style = "bold blue";
