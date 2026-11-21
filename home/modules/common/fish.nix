@@ -13,7 +13,7 @@
       settings = {
         add_newline = true;
 
-        format = "$hostname\${custom.ssh_ip}$directory$git_branch$git_status$nix_shell$fill $cmd_duration$time$line_break$character";
+        format = "$hostname\${custom.ssh_ip}\${custom.path_root}\${custom.path_rest} $git_branch$git_status$nix_shell$fill $cmd_duration$time$line_break$character";
 
         fill = {
           symbol = "·";
@@ -28,6 +28,58 @@
           style = "cyan";
         };
 
+        custom = {
+          # Repo root only: ~/nix-config (hidden outside git repos)
+          path_root = {
+            command = "${pkgs.writeShellScript "path-root" ''
+              root=$(${pkgs.git}/bin/git rev-parse --show-toplevel 2>/dev/null) || exit 0
+              case "$root" in
+                "$HOME"*) printf '~%s' "''${root#"$HOME"}" ;;
+                *)        printf '%s' "$root" ;;
+              esac
+            ''}";
+            when = "${pkgs.git}/bin/git rev-parse --is-inside-work-tree";
+            format = "[$output]($style)";
+            style = "bold purple";
+          };
+
+          # Everything below the root (or the whole path outside a repo), abbreviated
+          path_rest = {
+            command = "${pkgs.writeShellScript "path-rest" ''
+              root=$(${pkgs.git}/bin/git rev-parse --show-toplevel 2>/dev/null)
+              if [ -n "$root" ]; then
+                rel=''${PWD#"$root"}
+              else
+                case "$PWD" in
+                  "$HOME"*) rel="~''${PWD#"$HOME"}" ;;
+                  *)        rel="$PWD" ;;
+                esac
+              fi
+              printf '%s' "$rel" | ${pkgs.gawk}/bin/awk -F/ -v keep=3 -v len=1 '{
+                for (i = 1; i <= NF; i++) {
+                  if (i > 1) printf "/"
+                  if (i > 1 && i <= NF - keep) {
+                    n = (substr($i, 1, 1) == ".") ? len + 1 : len
+                    printf "%s", substr($i, 1, n)
+                  } else {
+                    printf "%s", $i
+                  }
+                }
+              }'
+            ''}";
+            when = true;
+            format = "[$output]($style)";
+            style = "cyan";
+          };
+
+          ssh_ip = {
+            command = "echo $SSH_CONNECTION | cut -d' ' -f3";
+            when = ''test -n "$SSH_CONNECTION"''; # only inside an SSH session
+            format = "[$output]($style) ";
+            style = "bold yellow";
+          };
+        };
+
         cmd_duration = {
           min_time = 3000; # only show for commands taking 3s+
           format = "[$duration]($style) ";
@@ -39,13 +91,6 @@
           format = "[$time]($style)";
           time_format = "%H:%M:%S";
           style = "bright-black";
-        };
-
-        custom.ssh_ip = {
-          command = "echo $SSH_CONNECTION | cut -d' ' -f3";
-          when = ''test -n "$SSH_CONNECTION"''; # only inside an SSH session
-          format = "[$output]($style) ";
-          style = "bold yellow";
         };
 
         # Only shown inside an SSH session, so you can tell you're not on your desktop
