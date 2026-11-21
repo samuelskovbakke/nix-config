@@ -2,7 +2,7 @@
   imports = [
     ./direnv.nix
     ./dotfiles.nix
-    ./fastfetch.nix
+    ./fastfetch
     ./fish.nix
     ./fzf.nix
     ./git.nix

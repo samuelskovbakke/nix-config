@@ -6,7 +6,7 @@
     fastfetch # fallback until `fetch` has feature parity
   ];
   xdg.configFile = {
-    "fastfetch/config.jsonc".source = ./fastfetch/config.jsonc;
-    "fastfetch/nixos-logo.png".source = ./fastfetch/nixos-logo.png;
+    "fastfetch/config.jsonc".source = ./config.jsonc;
+    "fastfetch/nixos-logo.png".source = ./nixos-logo.png;
   };
 }
