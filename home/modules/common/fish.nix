@@ -13,7 +13,7 @@
       settings = {
         add_newline = true;
 
-        format = "$hostname\${custom.ssh_ip}\${custom.path_root}\${custom.path_rest} $git_branch$git_status$nix_shell$fill $cmd_duration$time$line_break$character";
+        format = "$username$hostname\${custom.ssh_ip}\${custom.path_root}\${custom.path_rest} $git_branch$git_status$jobs$nix_shell$fill $status$cmd_duration$time$line_break$character";
 
         fill = {
           symbol = "·";
@@ -91,6 +91,25 @@
           format = "[$time]($style)";
           time_format = "%H:%M:%S";
           style = "bright-black";
+        };
+
+        status = {
+          disabled = false;
+          format = "[$symbol$status]($style) ";
+          symbol = "✘";
+          style = "bold red";
+        };
+
+        jobs = {
+          symbol = "✦";
+          format = "[$symbol$number]($style) ";
+          style = "bold blue";
+        };
+
+        username = {
+          show_always = false;
+          format = "[$user]($style) ";
+          style_root = "bold red";
         };
 
         # Only shown inside an SSH session, so you can tell you're not on your desktop
@@ -180,38 +199,6 @@
       };
 
       shellInit = ''
-        # Theming
-        set -g fish_color_autosuggestion 707A8C
-        set -g fish_color_cancel --reverse
-        set -g fish_color_command 5CCFE6
-        set -g fish_color_comment 5C6773
-        set -g fish_color_cwd 73D0FF
-        set -g fish_color_cwd_root red
-        set -g fish_color_end F29E74
-        set -g fish_color_error FF3333
-        set -g fish_color_escape 95E6CB
-        set -g fish_color_history_current --bold
-        set -g fish_color_host --reset
-        set -g fish_color_host_remote yellow
-        set -g fish_color_normal CBCCC6
-        set -g fish_color_operator FFCC66
-        set -g fish_color_param CBCCC6
-        set -g fish_color_quote BAE67E
-        set -g fish_color_redirection D4BFFF
-        set -g fish_color_search_match --bold --background=FFCC66
-        set -g fish_color_selection --bold --background=FFCC66
-        set -g fish_color_status red
-        set -g fish_color_user brgreen
-        set -g fish_color_valid_path --underline=single
-        set -g fish_pager_color_completion --reset
-        set -g fish_pager_color_description B3A06D
-        set -g fish_pager_color_prefix --bold --underline=single
-        set -g fish_pager_color_progress brwhite --bold --background=cyan
-        set -g fish_pager_color_selected_background --background=FFCC66
-        set -g fish_pager_color_selected_completion
-        set -g fish_pager_color_selected_description
-        set -g fish_pager_color_selected_prefix
-
         # `..`, `...`, `....`, ... up to 10 dots: cd up N-1 directories.
         # Generated dynamically since the function names aren't known ahead of time.
         for n in (seq 2 10)
@@ -243,13 +230,6 @@
       '';
 
       plugins = [
-        # Prompt
-        /*
-        {
-          name = "tide";
-          src = pkgs.fishPlugins.tide.src;
-        }
-        */
         # fzf keybindings (jethrokuan/fzf, not PatrickF1/fzf.fish)
         {
           name = "fzf";
