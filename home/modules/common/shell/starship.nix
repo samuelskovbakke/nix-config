@@ -6,19 +6,11 @@
     settings = {
       add_newline = true;
 
-      format = "$username$hostname\${custom.ssh_ip}\${custom.path_root}\${custom.path_rest} $git_branch$git_status$jobs$nix_shell$fill $status$cmd_duration$time$line_break$character";
+      format = "\${custom.is_ssh}$username$hostname\${custom.ssh_ip}\${custom.path_root}\${custom.path_rest} $git_branch$git_status$jobs$nix_shell$fill $status$cmd_duration$time$line_break$character";
 
       fill = {
         symbol = "·";
         style = "bright-black";
-      };
-
-      directory = {
-        truncate_to_repo = true; # anchor on the repo root
-        truncation_length = 8;
-        fish_style_pwd_dir_length = 1; # abbreviate directories instead of cutting them
-        repo_root_style = "bold purple"; # highlight the anchor, like Tide/p10k
-        style = "cyan";
       };
 
       custom = {
@@ -33,7 +25,7 @@
           ''}";
           when = "${pkgs.git}/bin/git rev-parse --is-inside-work-tree";
           format = "[$output]($style)";
-          style = "bold purple";
+          style = "bold cyan";
         };
 
         # Everything below the root (or the whole path outside a repo), abbreviated
@@ -68,8 +60,14 @@
         ssh_ip = {
           command = "echo $SSH_CONNECTION | cut -d' ' -f3";
           when = ''test -n "$SSH_CONNECTION"''; # only inside an SSH session
-          format = "[$output]($style) ";
-          style = "bold yellow";
+          format = " [$output]($style) ";
+          style = "bold green";
+        };
+
+        is_ssh = {
+          format = "[󰒋]($style) ";
+          style = "bold blue";
+          when = ''test -n "$SSH_CONNECTION"''; # only inside an SSH session
         };
       };
 
@@ -101,16 +99,17 @@
 
       username = {
         show_always = false;
-        format = "[$user]($style) ";
+        format = "[$user]($style)[@](bold green)";
         style_root = "bold red";
+        style_user = "bold cyan";
       };
 
       # Only shown inside an SSH session, so you can tell you're not on your desktop
       hostname = {
         ssh_only = true;
-        ssh_symbol = "🌐";
-        format = "[$ssh_symbol$hostname]($style)";
-        style = "bold yellow";
+        # ssh_symbol = "󰒋";
+        format = "[$hostname]($style)";
+        style = "bold cyan";
       };
 
       nix_shell = {
