@@ -3,12 +3,12 @@
     ./direnv.nix
     ./dotfiles.nix
     ./fastfetch
-    ./fish.nix
     ./fzf.nix
     ./git.nix
     ./nvf
     ./packages
     ./sesh.nix
+    ./shell
     ./tmux.nix
     ./yazi.nix
   ];
