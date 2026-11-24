@@ -33,6 +33,7 @@
       enable = true;
     };
 
+    /*
     searx = {
       enable = true;
       environmentFile = "/home/${user}/.searxng.env";
@@ -47,5 +48,6 @@
         };
       };
     };
+    */
   };
 }
