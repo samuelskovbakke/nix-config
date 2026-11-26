@@ -55,7 +55,7 @@ in ''
       Mod+B hotkey-overlay-title="Open the the default browser" { spawn-sh "xdg-open 'https://'"; }
       Mod+Space hotkey-overlay-title="Run an Application" { spawn-sh "noctalia msg panel-toggle launcher"; }
       Ctrl+Alt+L hotkey-overlay-title="Lock the Screen" { spawn-sh "noctalia msg session lock"; }
-      Mod+E hotkey-overlay-title="Open File Browser" { spawn-sh "nautilus"; }
+      Mod+E hotkey-overlay-title="Open File Browser" { spawn-sh "luciole"; }
       Mod+Shift+E hotkey-overlay-title="Open Terminal File Browser" { spawn-sh "ghostty -e yazi"; }
       Mod+Comma { spawn-sh "noctalia msg settings-toggle"; }
 
