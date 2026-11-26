@@ -76,6 +76,31 @@
         pay-respects fish | source
 
         ssh-add -l >/dev/null 2>&1; or ssh-add ~/.ssh/id_ed25519
+
+        # updates prompt with fetched git status if available on cd
+        function __git_bg_fetch --on-event fish_prompt
+          command git rev-parse --is-inside-work-tree >/dev/null 2>&1; or return
+          command git remote | string length -q; or return
+
+          # throttle: skip if fetched within the last 60s
+          set -l stamp (command git rev-parse --git-dir)/FETCH_HEAD
+          if test -f $stamp
+            test (math (date +%s) - (path mtime $stamp)) -lt 60; and return
+          end
+
+          # fetch in the background, never prompt for credentials
+          begin
+            set -lx GIT_TERMINAL_PROMPT 0
+            set -lx GIT_SSH_COMMAND "ssh -o BatchMode=yes -o ConnectTimeout=5"
+            command git fetch --quiet >/dev/null 2>&1 &
+          end
+
+          set -l pid (jobs --last --pid)
+          function __git_bg_fetch_done --on-process-exit $pid
+            commandline -f repaint
+            functions -e __git_bg_fetch_done
+          end
+        end
       '';
 
       plugins = [
