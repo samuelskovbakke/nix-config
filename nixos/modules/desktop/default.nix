@@ -7,7 +7,7 @@
     ./flatpak.nix
     ./fonts.nix
     ./gpu.nix
-    ./nautilus.nix
+    # ./nautilus.nix
     ./openrgb.nix
     ./packages.nix
     ./shells.nix

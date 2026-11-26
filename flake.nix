@@ -35,6 +35,11 @@
     };
 
     millennium.url = "github:SteamClientHomebrew/Millennium/next?dir=packages/nix";
+
+    luciole = {
+      url = "github:noctalia-dev/luciole/cachix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {

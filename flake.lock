@@ -176,6 +176,27 @@
         "type": "github"
       }
     },
+    "luciole": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1795730673,
+        "narHash": "sha256-rHkhUxbHG/xwp+A5hZzmF1qEbh6zLTVo2Gy3eJHnhVw=",
+        "owner": "noctalia-dev",
+        "repo": "luciole",
+        "rev": "bdcadccb9cd4943932306d0bd63ee3ea4f3a982b",
+        "type": "github"
+      },
+      "original": {
+        "owner": "noctalia-dev",
+        "ref": "cachix",
+        "repo": "luciole",
+        "type": "github"
+      }
+    },
     "millennium": {
       "inputs": {
         "millennium-src": "millennium-src",
@@ -362,6 +383,7 @@
     "root": {
       "inputs": {
         "home-manager": "home-manager",
+        "luciole": "luciole",
         "millennium": "millennium",
         "nix-index-database": "nix-index-database",
         "nixpkgs": "nixpkgs_2",

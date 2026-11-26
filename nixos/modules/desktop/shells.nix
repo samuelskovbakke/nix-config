@@ -2,6 +2,7 @@
   lib,
   config,
   pkgs,
+  inputs,
   ...
 }: let
   cfg = config.desktop.shell;
@@ -31,6 +32,13 @@
       env = "noctalia";
       config = {
         environment.systemPackages = with pkgs; [noctalia];
+
+        nix.settings = {
+          extra-substituters = ["https://noctalia.cachix.org"];
+          extra-trusted-public-keys = ["noctalia.cachix.org-1:pCOR47nnMEo5thcxNDtzWpOxNFQsBRglJzxWPp3dkU4="];
+        };
+        programs.luciole.enable = true;
+        services.gvfs.enable = true; # Mount, trash, and other functionalities
       };
     };
 
@@ -42,6 +50,7 @@
     };
   };
 in {
+  imports = [inputs.luciole.nixosModules.default];
   options.desktop.shell = lib.mkOption {
     type = lib.types.enum (builtins.attrNames shells);
     default = "noctalia";
