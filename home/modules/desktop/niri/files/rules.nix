@@ -223,8 +223,14 @@ in ''
       match app-id=r#"^(nm-applet|nm-connection-editor|.blueman-manager-wrapped)$"#
       match app-id=r#"^(xdg-desktop-portal-gtk)$"#
       match app-id=r#"^(vrmonitor)$"#
+      open-floating true
+  }
+
+  window-rule {
       match app-id=r#"^(dev.noctalia.luciole)$"#
       open-floating true
+      default-window-height { proportion 0.7; }
+      default-column-width { proportion 0.7; }
   }
 
   window-rule {
